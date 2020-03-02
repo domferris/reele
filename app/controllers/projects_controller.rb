@@ -1,10 +1,13 @@
 class ProjectsController < ApplicationController
+  before_action :find_project, only: :show
+
   def index
 
   end
 
   def show
-
+    @comment = Comment.new
+    @comments = @project.comments
   end
 
   def new
