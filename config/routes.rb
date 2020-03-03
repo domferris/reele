@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  get '/profile', to: 'users#show'
+  resources :users, only: :show
 
   resources :projects, only: [:index, :show, :destroy] do
     resources :comments, only: [:index, :new, :create]
