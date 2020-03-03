@@ -1,6 +1,6 @@
 <h1><%= @user.email %></h1>
 <%= link_to "edit", edit_user_registration_path(current_user) %>
 
-<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill if @user.photo.attached? %>
 <%= @user.first_name %>
 <%= @user.last_name %>
