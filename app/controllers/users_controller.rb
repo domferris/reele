@@ -8,7 +8,4 @@ class UsersController < ApplicationController
  def find_user
    @user = User.find(params[:id])
  end
-
-  def user_params
-  end
 end
