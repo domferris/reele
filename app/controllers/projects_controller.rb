@@ -12,7 +12,6 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @user = User.find(current_user.id)
     @project = Project.new
   end
 
@@ -20,7 +19,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      redirect_to project_path(@project)
+      redirect_to profile_path
     else
       render :new
     end

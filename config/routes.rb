@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  resources :users, only: :show
 
-  resources :projects, only: [:index, :show, :destroy] do
+  resources :projects do
     resources :comments, only: [:index, :new, :create]
   end
 
-  resources :users, only: [] do
-    resources :projects, only: [:new, :create, :edit, :update]
-  end
-
   resources :comments, only: [:destroy]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  get '/profile', to: "pages#profile"
+
+  root to: 'pages#home'
 end
