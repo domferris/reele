@@ -1,17 +1,18 @@
 class ProjectsController < ApplicationController
   before_action :find_project, only: [ :show, :edit, :update, :destroy ]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @projects = Project.all
   end
 
   def show
-    @comment = Comment.new
-    @comments = @project.comments
+    # @comment = Comment.new
+    # @project.comments = @comments
   end
 
   def new
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @project = Project.new
   end
 
@@ -45,6 +46,6 @@ class ProjectsController < ApplicationController
   end
 
   def find_project
-    @project = Project.new(params[:id])
+    @project = Project.find(params[:id])
   end
 end
