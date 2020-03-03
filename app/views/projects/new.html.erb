@@ -1,2 +1,24 @@
-<h1>Create a new project</h1>
+
+
+<div class="container">
+  <h1>Create a new project</h1>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <%= simple_form_for [@user, @project ] do |f| %>
+        <%= f.error_notification %>
+
+          <%= f.input :title,
+                      placeholder: 'Project name...',
+                      autofocus: true %>
+          <%= f.input :description, as: :text,
+                      placeholder: 'Tell us about your project...'  %>
+          <%= f.input :media_type %>
+
+          <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 
