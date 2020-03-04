@@ -1,14 +1,26 @@
 .dash-controls {
-  border: 1px solid blue;
+  // border: 1px solid blue;
   height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: grey;
+
+  .dash-controls-section {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      margin: 8px 10px;
+    }
+  }
 }
 
 .dash-projects {
-  border: 1px solid green;
+  // border: 1px solid green;
   margin: 0;
+  padding: 48px;
 
   ul {
     list-style: none;
