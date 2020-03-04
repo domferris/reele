@@ -7,8 +7,9 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    # @comment = Comment.new
-    # @project.comments = @comments
+    @comment = Comment.new
+    @comments = Comment.all
+    # @project.comments = @comments.where(@comment.project_id == params[:id])
   end
 
   def new

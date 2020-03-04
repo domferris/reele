@@ -36,11 +36,11 @@
     </div>
   </div>
 
-  <div class="project-comments">
+<!--   <div class="project-comments">
 
 
-  <%= link_to "Add a comment", new_project_comment_path(@project) %>
-  </div>
+  <%#= link_to "Add a comment", new_project_comment_path(@project) %>
+  </div> -->
 
     <div class="feed justify-content-between">
       <div>
@@ -51,12 +51,17 @@
         </div>
 
 
-        <form class="p-2 bg-lightgrey" action="">
+        <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
+          <%= f.input :content, as: :string, placeholder: "Type your message..." %>
+        <% end %>
+
+  <!--       <form class="p-2 bg-lightgrey" action="">
           <div class="form-group">
             <input class="form-control form-control-lg" type="text" placeholder="Type your message...">
           </div>
-        </form>
-
+        </form> -->
+        <%#= f.input :content, as: :string, input_html: { class: 'cencne'}, wrapper_html: { class: 'cencne'} %>
+        <%#= simple_form_for @comment, html: { class: 'dieie' } %>
         <div class="feed-scroll">
           <% @project.comments.each do |comment| %>
             <div class="card-feed d-flex mb-2">
