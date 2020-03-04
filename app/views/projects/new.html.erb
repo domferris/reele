@@ -14,7 +14,13 @@
                       as: :text,
                       placeholder: 'Tell us about your project...'  %>
           <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE, label: false, prompt: 'Select media type' %>
+
+          <!-- NEEDS TO BE CLEANED UP WITH JAVASCRIP -->
+
+          <%= f.label 'upload an audio file' %>
           <%= f.input :audio_file, as: :file, label: false  %>
+          <%= f.label 'or add a video' %>
+          <%= f.input :video_url, label: false, placeholder: 'embed link'  %>
           <%= f.button :submit, value: 'add project', class: 'btn-dash' %>
       <% end %>
     </div>
