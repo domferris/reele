@@ -43,43 +43,68 @@
   }
 }
 
-.card-trip {
-  overdflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
 
-.card-trip > img {
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
-}
+//  Project card styles
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
+.project-card {
+  // border: 1px solid black;
+  // background: lightgrey;
+  border: 1px solid black;
 
-.card-trip p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
+  .project-card-main {
+    height: 90%;
+    background: white;
+    // border: 1px solid yellow;
+    margin: 20px 20px 0px 20px;
+    padding-top: 2px;
+    border-radius: 5px;
+    box-shadow: 2px 0px 6px lightgrey;
 
-.card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
+    .project-card-image {
+      background-image: url('https://previews.123rf.com/images/tatianazaets/tatianazaets1903/tatianazaets190300029/124295659-sound-wave-vector-background-audio-music-soundwave-voice-frequency-form-illustration-vibration-beats.jpg');
+      background-size: cover;
+      height: 180px;
+      margin: 20px 10px 10px 10px;
+      padding-top: 20px;
+      // border: 1px solid green;
 
-.card-trip-infos .card-trip-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+    }
+
+    .project-card-info {
+      // border: 1px solid blue;
+      font-size: 12px;
+      padding: 0px;
+      width: 95%;
+      padding: 6px;
+      margin: auto;
+      display: flex;
+      justify-content: flex-end;
+
+      > i {
+        padding: 0 5px;
+      }
+
+    }
+}
+  .project-card-user {
+    padding: 0px;
+    // background: lightgrey;
+    // border: 1px solid violet;
+    margin: 0px 27px;
+    display: flex;
+    align-items: center;
+
+    .project-avatar {
+      border-radius: 50%;
+      border: 1px solid black;
+      height: 20px;
+      width: 20px;
+    }
+
+    > h6 {
+      margin: 6px;
+    }
+  }
 }
 
 ////////////////////////////////////////////
