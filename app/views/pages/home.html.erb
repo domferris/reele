@@ -10,65 +10,23 @@
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
   <!-- These links should be logic links that repopulate the index -->
-  <li style="list-style: none;"><a href="">Category</a></li>
-  <li style="list-style: none;"><a href="">Category</a></li>
-  <li style="list-style: none;"><a href="">Category</a></li>
-  <li style="list-style: none;"><a href="">Category</a></li>
-  <li style="list-style: none;"><a href="">Category</a></li>
+  <ul>
+    <li style="list-style: none;"><a href="">Category</a></li>
+    <li style="list-style: none;"><a href="">Category</a></li>
+    <li style="list-style: none;"><a href="">Category</a></li>
+    <li style="list-style: none;"><a href="">Category</a></li>
+    <li style="list-style: none;"><a href="">Category</a></li>
+  </ul>
 
   <a href="" class="btn btn-success">Click me</a>
 </div>
 <div class="container mt-4 mb-4">
   <div class="cards">
-    <div class="project-card">
-      <div class="project-card-main">
-        <div class="project-card-image">
-          <img src="" alt="">
-        </div>
-        <div class="project-card-info">
-          <i class="fas fa-heart">23</i>
-          <i class="fas fa-eye">50</i>
-          <i class="fas fa-comment">15</i>
-        </div>
-      </div>
-      <div class="project-card-user">
-        <img src="" alt="" class="project-avatar">
-        <h6>Username</h6>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-card-main">
-        <div class="project-card-image">
-          <img src="" alt="">
-        </div>
-        <div class="project-card-info">
-          <i class="fas fa-heart">23</i>
-          <i class="fas fa-eye">50</i>
-          <i class="fas fa-comment">15</i>
-        </div>
-      </div>
-      <div class="project-card-user">
-        <img src="" alt="" class="project-avatar">
-        <h6>Username</h6>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-card-main">
-        <div class="project-card-image">
-          <img src="" alt="">
-        </div>
-        <div class="project-card-info">
-          <i class="fas fa-heart">23</i>
-          <i class="fas fa-eye">50</i>
-          <i class="fas fa-comment">15</i>
-        </div>
-      </div>
-      <div class="project-card-user">
-        <img src="" alt="" class="project-avatar">
-        <h6>Username</h6>
-      </div>
-    </div>
-
+      <%= render 'components/card' %>
+    <!-- WE WILL NEED THIS TO ITERATE OVER PROJECTS -->
+    <%# @projects.each do |project| %>
+      <%#= render 'components/card', project: project %>
+    <%# end %>
   </div>
 </div>
 
