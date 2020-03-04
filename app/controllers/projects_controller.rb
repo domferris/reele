@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
-      redirect_to profile_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    # redirect_to dashboard_path
+    redirect_to dashboard_path
   end
 
   private

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:destroy]
 
-  get '/profile', to: "pages#profile"
+  get '/dashboard', to: "pages#dashboard"
 
   root to: 'pages#home'
 end
