@@ -1,3 +1,22 @@
+// .profile-bookings {
+//   width: 70%
+// }
+
+.dash-rent, .dash-host {
+  margin: 10px 0 20px 0;
+  max-height: 340px;
+  overflow: scroll;
+
+  h5 {
+    margin: 0 0 16px 6px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
 .dash-controls {
   border: 1px solid blue;
   height: 250px;

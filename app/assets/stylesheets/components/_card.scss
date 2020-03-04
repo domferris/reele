@@ -121,3 +121,82 @@
   top: -20px;
   width: 40px;
 }
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////
+///////////////// DASHBOARD ////////////////
+////////////////////////////////////////////
+
+.dash-card-headers {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 6px 0 6px;
+  margin: 6px 0 12px 0;
+
+  .dash-card-section {
+    width: 25%;
+    text-align: left;
+    margin: 4px 4px 0 4px;
+    border-bottom: 0.75px solid rgba(0, 0, 0, 0.1);
+
+    p {
+      margin: 0;
+      font-size: 0.8em;
+    }
+  }
+}
+
+.dash-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 4px;
+  padding: 6px;
+  margin: 6px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .dash-card-section {
+    width: 25%;
+    text-align: left;
+    margin: 4px;
+
+    p {
+      margin: 0;
+      font-size: 0.9em;
+    }
+  }
+
+  .dash-card-host-controls {
+    display: flex;
+    position: absolute;
+    top: 37;
+    right: 0;
+
+    i {
+      margin-right: 8px;
+    }
+
+    .edit:hover {
+      color: rgb(23, 233, 25);
+    }
+
+    .delete:hover {
+      color: red;
+    }
+  }
+}
