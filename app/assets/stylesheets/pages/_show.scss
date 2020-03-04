@@ -13,17 +13,45 @@
 .relative-banner{
   position: absolute;
   bottom: -50px;
-  width: 90%;
+  width: 80%;
   margin: auto;
   height: 100px;
   background: lightgrey;
 }
 
+.content-container{
+  display: flex;
+  margin-top: 80px;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .project-description{
-margin-top: 50px;
-border: 2px solid green;
+  width: 59%;
 }
 
 .project-description-and-tags{
-border: 2px solid blue;
+  left:0;
+  width: 30%;
+
+    ul{
+      padding: 0px;
+      list-style: none;
+
+      li{
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+.project-comments{
+  text-align: center;
+  margin: 80px 0px;
 }
+
+.user-contact{
+  display: flex;
+  padding: 9px;
+  align-items: center;
+}
+

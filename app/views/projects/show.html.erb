@@ -2,32 +2,49 @@
   <div class="relative-banner">
   </div>
 </div>
+<div class="container">
+  <div class="content-container">
+    <div class="project-description">
+      <h1><%= @project.title %></h1>
+      <h3>SUBHEAD</h3>
+      <div class="">
+        <%= @project.description %>
+        <%= link_to "Edit project", edit_project_path(@project) %>
+      </div>
+      <div class="user-contact">
+        <i class="fas fa-user-circle" style="font-size: 30px; padding-right: 10px"></i>
+        <h6><%= @project.user.username  %></h6>
 
-<div class="project-description">
-  <h1>Show one project</h1>
-  <h2><%= @project.title %></h2>
-   <%= @project.description %>
-   <%= link_to "Edit project", edit_project_path(@project) %>
-</div>
+        <%#=cl_image_tag @project.user.photo.key, class='avatar' %>
 
-<div class="project-description-and-tags">
-        <ul>
-          <li><i class="fas fa-heart"></i></li>
-          <li><i class="fas fa-eye"></i></li>
-          <li><i class="fas fa-comment"></i></li>
-        </ul>
-        </div>
+      </div>
+        <button type="button" class="btn btn-success">Message me</button>
+    </div>
 
+    <div class="project-description-and-tags">
+      <h5> Category</h5>
+      <h6> #wow #misic #amazing #mixedmisic</h6>
+      <h5>Tags</h5>
+      <h6> #wow #misic #amazing #mixedmisic</h6>
+      <h5>Share</h5>
+      <ul>
+        <li><i class="fas fa-heart"> 100</i></li>
+        <li><i class="fas fa-eye"> 689</i></li>
+        <li><i class="fas fa-comment"> 496</i></li>
+      </ul>
+    </div>
+  </div>
 
-<div class="project-comments">
-<h3>Comments:</h3>
-<% @project.comments.each do |comment| %>
-  <p><%= comment.content %></p>
-  <% if comment.user_id == current_user.id %>
-   <span><%= link_to "Delete", comment_path(comment), method: :delete %></span>
+  <div class="project-comments">
+  <h3>Comments:</h3>
+  <% @project.comments.each do |comment| %>
+    <p><%= comment.content %></p>
+    <% if comment.user_id == current_user.id %>
+     <span><%= link_to "Delete", comment_path(comment), method: :delete %></span>
+    <% end %>
   <% end %>
-<% end %>
 
 
-<%= link_to "Add a comment", new_project_comment_path(@project) %>
+  <%= link_to "Add a comment", new_project_comment_path(@project) %>
+  </div>
 </div>
