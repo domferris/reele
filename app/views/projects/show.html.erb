@@ -50,7 +50,7 @@
         <% end %>
 
         <div class="feed-scroll">
-          <% @project.comments.each do |comment| %>
+          <% @project.comments.reverse_each do |comment| %>
             <div class="card-feed d-flex mb-2">
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
 
@@ -111,3 +111,13 @@
 
   </div>
 </div>
+<script>
+  document.addEventListener('turbolinks:load', () => {
+    if (localStorage['scroll']) {
+      window.scroll({ top: localStorage['scroll'] })
+    }
+    window.addEventListener('scroll', () => {
+      localStorage['scroll'] = window.scrollY;
+    });
+  });
+</script>
