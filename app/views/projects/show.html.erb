@@ -36,11 +36,6 @@
     </div>
   </div>
 
-  <div class="project-comments">
-
-
-  <%= link_to "Add a comment", new_project_comment_path(@project) %>
-  </div>
 
     <div class="feed justify-content-between">
       <div>
@@ -50,17 +45,14 @@
           </nav>
         </div>
 
-
-        <form class="p-2 bg-lightgrey" action="">
-          <div class="form-group">
-            <input class="form-control form-control-lg" type="text" placeholder="Type your message...">
-          </div>
-        </form>
+        <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
+          <%= f.input :content, as: :string, autofocus: true, label: false, placeholder: "Type your message..." %>
+        <% end %>
 
         <div class="feed-scroll">
           <% @project.comments.each do |comment| %>
             <div class="card-feed d-flex mb-2">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
 
               <div class="">
                 <p class="username font-weight-bold pt-2">SteveWozniak</p>
