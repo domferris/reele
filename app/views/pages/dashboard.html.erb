@@ -1,7 +1,19 @@
 <div class="dash-controls">
-  <%= link_to "Edit account", edit_user_registration_path(current_user) %>
-  <%= link_to "+ New Project", new_project_path %>
-  <%= link_to "Messages", "#" %>
+  <div class="dash-controls">
+    <%= link_to "+ New Project", new_project_path, class: 'btn-dash-lg' %>
+  </div>
+  <div class="dash-controls">
+    <%= link_to "Following", "#", class: 'btn-dash' %>
+    <%= link_to "Followers", "#", class: 'btn-dash' %>
+  </div>
+  <div class="dash-controls">
+    <%= link_to "Liked", "#", class: 'btn-dash' %>
+    <%= link_to "Saved", "#", class: 'btn-dash' %>
+  </div>
+  <div class="dash-controls">
+    <%= link_to "Messages", "#", class: 'btn-dash' %>
+    <%= link_to "Account", edit_user_registration_path(current_user), class: 'btn-dash' %>
+  </div>
 </div>
 
 <div class="dash-projects">

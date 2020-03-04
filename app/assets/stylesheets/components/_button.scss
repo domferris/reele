@@ -1,6 +1,6 @@
-.btn-dash {
-
-}
+////////////////////////////////////////////
+/////////////// LE WAGON KIT ///////////////
+////////////////////////////////////////////
 
 .btn-ghost {
   color: #4A4A4A;
@@ -42,4 +42,50 @@
 .btn-gradient:hover {
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
+}
+
+////////////////////////////////////////////
+///////////////// DASHBOARD ////////////////
+////////////////////////////////////////////
+
+.btn-dash {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: lightgrey;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: grey;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-dash-lg {
+  color: white;
+  padding: 36px;
+  border-radius: 4px;
+  background: lightgrey;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: grey;
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.btn-dash-sm {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: lightgrey;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: grey;
+    color: white;
+    text-decoration: none;
+  }
 }
