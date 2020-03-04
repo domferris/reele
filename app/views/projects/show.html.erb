@@ -2,6 +2,7 @@
   <div class="relative-banner">
   </div>
 </div>
+
 <div class="container">
   <div class="content-container">
     <div class="project-description">
@@ -36,15 +37,85 @@
   </div>
 
   <div class="project-comments">
-  <h3>Comments:</h3>
-  <% @project.comments.each do |comment| %>
-    <p><%= comment.content %></p>
-    <% if comment.user_id == current_user.id %>
-     <span><%= link_to "Delete", comment_path(comment), method: :delete %></span>
-    <% end %>
-  <% end %>
 
 
   <%= link_to "Add a comment", new_project_comment_path(@project) %>
+  </div>
+
+    <div class="feed justify-content-between">
+      <div>
+        <div class="container p-3">
+          <nav class="d-flex border-bottom">
+            <h2>comments</h2>
+          </nav>
+        </div>
+
+
+        <form class="p-2 bg-lightgrey" action="">
+          <div class="form-group">
+            <input class="form-control form-control-lg" type="text" placeholder="Type your message...">
+          </div>
+        </form>
+
+        <div class="feed-scroll">
+          <% @project.comments.each do |comment| %>
+            <div class="card-feed d-flex mb-2">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+
+              <div class="">
+                <p class="username font-weight-bold pt-2">SteveWozniak</p>
+                <p class="user-text"><%= comment.content %></p>
+              </div>
+              <% if comment.user_id == current_user.id %>
+               <span><%= link_to "Delete", comment_path(comment), method: :delete %></span>
+              <% end %>
+            </div>
+          <% end %>
+
+          <div class="card-feed d-flex mb-2">
+            <img class= "img-fluid" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="">
+
+            <div class="">
+              <p class="username font-weight-bold pt-2">SteveWozniak</p>
+              <p class="user-text">Some text here maaaan lorem Lorem ipsum dolor </p>
+            </div>
+          </div>
+
+          <div class="card-feed d-flex mb-2">
+            <img class= "img-fluid" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="">
+
+            <div class="d-flex flex-wrap">
+              <p class="username font-weight-bold pt-2">SteveWozniak</p>
+              <p class="user-text">Some text here maaaan lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae repellat odit pariatur, aliquid fugit, dolorem numquam recusandae voluptates reprehenderit unde sit magni eum necessitatibus corrupti assumenda dolor facilis harum ullam.</p>
+            </div>
+          </div>
+
+          <div class="card-feed d-flex mb-2">
+            <img class= "img-fluid" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="">
+
+            <div class="d-flex flex-wrap">
+              <p class="username font-weight-bold pt-2">SteveWozniak</p>
+              <p class="user-text">Some text here maaaan lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae repellat odit pariatur, aliquid fugit, dolorem numquam recusandae voluptates reprehenderit unde sit magni eum necessitatibus corrupti assumenda dolor facilis harum ullam.</p>
+            </div>
+          </div>
+
+
+          <div class="card-feed d-flex mb-2">
+            <img class= "img-fluid" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="">
+
+            <div class="d-flex flex-wrap">
+              <p class="username font-weight-bold pt-2">SteveWozniak</p>
+              <p class="user-text">Some text here maaaan lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae repellat odit pariatur, aliquid fugit, dolorem numquam recusandae voluptates reprehenderit unde sit magni eum necessitatibus corrupti assumenda dolor facilis harum ullam.</p>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
