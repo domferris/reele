@@ -1,1 +1,8 @@
-// Specific CSS for your home-page
+.filter-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  background: lightgrey;
+  width: 100%;
+}
