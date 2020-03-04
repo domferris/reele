@@ -1,14 +1,26 @@
 .dash-controls {
-  border: 1px solid blue;
+  // border: 1px solid blue;
   height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: grey;
+
+  .dash-controls-section {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      margin: 8px 10px;
+    }
+  }
 }
 
 .dash-projects {
-  border: 1px solid green;
+  // border: 1px solid green;
   margin: 0;
+  padding: 48px;
 
   ul {
     list-style: none;
@@ -22,5 +34,20 @@
     &:hover {
      text-decoration: none;
     }
+  }
+}
+
+.dash-rent, .dash-host {
+  margin: 10px 0 20px 0;
+  max-height: 340px;
+  overflow: scroll;
+
+  h5 {
+    margin: 0 0 16px 6px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
   }
 }
