@@ -1,18 +1,21 @@
 <div class="container">
-  <h1>Create a new project</h1>
+  <h1>Add a new project</h1>
   <div class="row justify-content-center">
     <div class="col-lg-6">
       <%= simple_form_for @project do |f| %>
         <%= f.error_notification %>
 
           <%= f.input :title,
-                      placeholder: 'Project name...',
+                      label: false,
+                      placeholder: 'Project name',
                       autofocus: true %>
-          <%= f.input :description, as: :text,
+          <%= f.input :description,
+                      label: false,
+                      as: :text,
                       placeholder: 'Tell us about your project...'  %>
-          <%= f.input :media_type %>
-
-          <%= f.button :submit %>
+          <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE, label: false, prompt: 'Select media type' %>
+          <%= f.input :audio_file, as: :file, label: false  %>
+          <%= f.button :submit, value: 'add project', class: 'btn-dash' %>
       <% end %>
     </div>
   </div>
