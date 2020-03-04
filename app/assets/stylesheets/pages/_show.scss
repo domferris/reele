@@ -1,0 +1,29 @@
+.show-banner {
+  height: 30vh;
+  background: linear-gradient(-225deg, rgba(30,30,30,0.6) 30%, rgba(46,46,46,0.5) 80%);
+  background-size: cover;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.relative-banner{
+  position: absolute;
+  bottom: -50px;
+  width: 90%;
+  margin: auto;
+  height: 100px;
+  background: lightgrey;
+}
+
+.project-description{
+margin-top: 50px;
+border: 2px solid green;
+}
+
+.project-description-and-tags{
+border: 2px solid blue;
+}
