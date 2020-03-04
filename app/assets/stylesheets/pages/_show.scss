@@ -1,0 +1,57 @@
+.show-banner {
+  height: 30vh;
+  background: linear-gradient(-225deg, rgba(30,30,30,0.6) 30%, rgba(46,46,46,0.5) 80%);
+  background-size: cover;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.relative-banner{
+  position: absolute;
+  bottom: -50px;
+  width: 80%;
+  margin: auto;
+  height: 100px;
+  background: lightgrey;
+}
+
+.content-container{
+  display: flex;
+  margin-top: 80px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.project-description{
+  width: 59%;
+}
+
+.project-description-and-tags{
+  left:0;
+  width: 30%;
+
+    ul{
+      padding: 0px;
+      list-style: none;
+
+      li{
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+.project-comments{
+  text-align: center;
+  margin: 80px 0px;
+}
+
+.user-contact{
+  display: flex;
+  padding: 9px;
+  align-items: center;
+}
+
