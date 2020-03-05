@@ -1,27 +1,43 @@
 <div class="container">
   <h1>Add a new project</h1>
   <div class="row justify-content-center">
-    <div class="col-lg-6">
+    <div class="col-lg-10">
       <%= simple_form_for @project do |f| %>
         <%= f.error_notification %>
 
-          <%= f.input :title,
-                      label: false,
-                      placeholder: 'Project name',
-                      autofocus: true %>
-          <%= f.input :description,
-                      label: false,
-                      as: :text,
-                      placeholder: 'Tell us about your project...'  %>
-          <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE, label: false, prompt: 'Select media type' %>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE, label: false, prompt: 'Select media type' %>
 
-          <!-- NEEDS TO BE CLEANED UP WITH JAVASCRIP -->
-
-          <%= f.label 'upload an audio file' %>
-          <%= f.input :audio_file, as: :file, label: false  %>
-          <%= f.label 'or add a video' %>
-          <%= f.input :video_url, label: false, placeholder: 'embed link'  %>
-          <%= f.button :submit, value: 'add project', class: 'btn-dash' %>
+              <%= f.label 'upload an audio file' %>
+              <%= f.input :audio_file, as: :file, label: false  %>
+              <%= f.label 'or add a video' %>
+              <%= f.input :video_url, label: false, placeholder: 'embed link'  %>
+              <%= f.button :submit, value: 'add project', class: 'btn-dash' %>
+            </div>
+            <div class="carousel-item">
+              <%= f.input :title,
+                  label: false,
+                  placeholder: 'Project name',
+                  autofocus: true %>
+              <%= f.input :description,
+                  label: false,
+                  as: :text,
+                  placeholder: 'Tell us about your project...'  %>
+            </div>
+          </div>
+          <div class="carousel-controllers">
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

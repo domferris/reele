@@ -1,0 +1,39 @@
+:root {
+  --carousel-height: 420px;
+  --controllers-height: 60px;
+}
+
+.carousel {
+  flex-direction: column;
+  height: var(--carousel-height) !important;
+
+  .carousel-inner {
+    height: calc(var(--carousel-height) - var(--controllers-height));
+  }
+}
+.carousel-controllers {
+  position: relative;
+  margin-top: 60px;
+  width: 100%;
+  height: var(--controllers-height);
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    background-color: black;
+  }
+}
+
+.carousel {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  justify-content: center;
+
+}
+
+h1 {
+  text-align: center;
+}
