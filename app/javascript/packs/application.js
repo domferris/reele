@@ -22,6 +22,22 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+import WaveSurfer from "wavesurfer.js"
+
+const audioDiv = document.querySelector('#waveform')
+
+if (audioDiv) {
+  const waveform = WaveSurfer.create({
+    container: audioDiv,
+    mediaControls: true
+  })
+
+  waveform.load(audioDiv.dataset.audio);
+
+  document.querySelector('#waveform-btn').addEventListener('click', () => {
+    waveform.play()
+  })
+}
 
 $('.carousel').carousel({
   interval: false
