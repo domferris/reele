@@ -1,7 +1,19 @@
-.waveform-play {
-
-}
-
 .wave-controls {
+  font-size: 40px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 
+  &:hover {
+
+  }
+
+  #waveform-play {
+
+  }
+
+  #waveform-pause {
+
+  }
 }

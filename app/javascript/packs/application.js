@@ -29,13 +29,14 @@ if (audioDiv) {
   const waveform = WaveSurfer.create({
     container: audioDiv,
     mediaControls: true,
+    wavecolor: "#140F2D",
 
   })
   waveform.load(audioDiv.dataset.audio);
   document.querySelector('#waveform-play').addEventListener('click', () => {
-    waveform.play()
+    waveform.play();
   });
-  document.querySelector('#waveform-stop').addEventListener('click', () => {
+  document.querySelector('#waveform-pause').addEventListener('click', () => {
     waveform.pause()
   })
 }
