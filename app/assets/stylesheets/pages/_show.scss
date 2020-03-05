@@ -1,57 +1,148 @@
-.show-banner {
-  height: 30vh;
-  background: linear-gradient(-225deg, rgba(30,30,30,0.6) 30%, rgba(46,46,46,0.5) 80%);
-  background-size: cover;
-  color: white;
+.project-media {
+  border: 1px solid red;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  iframe {
+    margin-top: 50px;
+  }
 }
 
-.relative-banner{
-  position: absolute;
-  bottom: -50px;
-  width: 80%;
-  margin: auto;
-  height: 100px;
-  background: lightgrey;
+
+.project-container-left {
+  width: 60%;
+}
+
+.project-container-right {
+  width: 60%;
 }
 
 .content-container{
+  border: 1px solid blue;
   display: flex;
-  margin-top: 80px;
+  margin-top: 40px;
   width: 100%;
   justify-content: space-between;
 }
 
 .project-description{
-  width: 59%;
+  border: 1px solid green;
+  width: 60%;
+  position: relative;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 1.4em;
+    margin-bottom: 16px;
+  }
+
+  .description {
+    margin-bottom: 80px;
+  }
+
+  .share {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }
 
-.project-description-and-tags{
+.project-info {
+  border: 1px solid yellow;
   left:0;
-  width: 30%;
+  width: 33%;
+}
 
-    ul{
-      padding: 0px;
-      list-style: none;
+.user-contact {
+  border: 1px solid orange;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
 
-      li{
-        margin-bottom: 10px;
-      }
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
     }
   }
 
-.project-comments{
-  text-align: center;
-  margin: 80px 0px;
+  .username-container {
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    i {
+      font-size: 40px;
+      padding-right: 10px
+    }
+
+    h6 {
+      font-size: 1.4em;
+      margin: 0;
+    }
+  }
+
+  button {
+    width: 100%;
+  }
 }
 
-.user-contact{
-  display: flex;
-  padding: 9px;
-  align-items: center;
+.project-data {
+  border: 1px solid green;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  // border-bottom: 1px solid lightgrey;
+
+  .project-data-section {
+    display: flex;
+    align-items: center;
+    color: darkgrey;
+    padding-bottom: 10px;
+
+    i {
+      font-size: 1.2em;
+      margin-right: 8px;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 0;
+    }
+  }
+}
+
+.project-comments{
+  border: 1px solid purple;
+  text-align: center;
+  margin: 80px 0px;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
