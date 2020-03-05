@@ -1,5 +1,4 @@
 .project-media {
-  border: 1px solid red;
   text-align: center;
   position: relative;
 
@@ -24,11 +23,10 @@
 }
 
 .project-container-right {
-  width: 60%;
+  width: 33%;
 }
 
 .content-container{
-  border: 1px solid blue;
   display: flex;
   margin-top: 40px;
   width: 100%;
@@ -36,9 +34,8 @@
 }
 
 .project-description{
-  border: 1px solid green;
-  width: 60%;
   position: relative;
+  padding-bottom: 60px;
 
   h1 {
     font-size: 3em;
@@ -51,7 +48,7 @@
   }
 
   .description {
-    margin-bottom: 80px;
+
   }
 
   .share {
@@ -68,13 +65,10 @@
 }
 
 .project-info {
-  border: 1px solid yellow;
   left:0;
-  width: 33%;
 }
 
 .user-contact {
-  border: 1px solid orange;
   padding-bottom: 20px;
   border-bottom: 1px solid lightgrey;
 
@@ -87,7 +81,6 @@
   }
 
   .username-container {
-    border: 1px solid blue;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -109,10 +102,9 @@
 }
 
 .project-data {
-  border: 1px solid green;
   margin-top: 20px;
   padding-bottom: 20px;
-  // border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
 
   .project-data-section {
     display: flex;
@@ -132,8 +124,15 @@
   }
 }
 
+.more-by-user {
+  padding-top: 20px;
+
+  .more-user-projects {
+    border: 1px solid green;
+  }
+}
+
 .project-comments{
-  border: 1px solid purple;
   text-align: center;
   margin: 80px 0px;
 
