@@ -2,14 +2,14 @@
   <% if @project.media_type == 'video' %>
     <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
     <iframe src="https://player.vimeo.com/video/170793958?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE ^ -->
+<!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE 👆 -->
   <% else %>
     <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
+    <!-- AUDIO PLAYER TO GO HERE 👇 -->
     <iframe src="https://player.vimeo.com/video/170793958?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="200" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <!-- AUDIO PLAYER TO GO HERE 👆 -->
   <% end %>
 </div>
-
-
 
 <div class="container">
   <div class="content-container">
@@ -39,7 +39,7 @@
               <div class="card-feed d-flex mb-2">
                 <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
 
-                <div class="">
+                <div>
                   <%= link_to user_path(comment.user.username) do %>
                     <p class="username font-weight-bold pt-2"><%= comment.user.username %></p>
                   <% end %>
@@ -89,9 +89,18 @@
         <h4>More by <%= @project.user.username %></h4>
         <div class="more-user-projects">
           <% @project.user.projects.each do |project| %>
-          <p><%= project.title %></p>
+            <%= link_to project_path(project) do %>
+              <div class="show-more-card", style="background-image: url('https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg');">
+                  <p class="title"><%= project.title %></p>
+                  <p>Composition</p>
+              </div>
+            <% end %>
           <% end %>
         </div>
+      </div>
+      <div class="browse-more">
+        <h5>Browse more projects in</h5>
+        <h4><%= link_to "Composition", "#" %></h4>
       </div>
     </div>
   </div>

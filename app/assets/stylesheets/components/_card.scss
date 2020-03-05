@@ -174,3 +174,31 @@
     }
   }
 }
+
+
+
+////////////////////////////////////////////
+///////////////// PROJ SHOW ////////////////
+////////////////////////////////////////////
+
+.show-more-card {
+  border-radius: 4px;
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  background-fit: cover;
+  background-position: bottom;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 6px 0;
+
+  .title {
+    font-size: 1.2em;
+  }
+
+  p {
+    margin: 0;
+    color: white;
+  }
+}

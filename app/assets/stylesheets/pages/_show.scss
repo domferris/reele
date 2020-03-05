@@ -47,10 +47,6 @@
     margin-bottom: 16px;
   }
 
-  .description {
-
-  }
-
   .share {
     position: absolute;
     bottom: 0;
@@ -103,7 +99,7 @@
 
 .project-data {
   margin-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   border-bottom: 1px solid lightgrey;
 
   .project-data-section {
@@ -125,10 +121,34 @@
 }
 
 .more-by-user {
-  padding-top: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid lightgrey;
+
+  h4 {
+    margin-bottom: 16px;
+  }
 
   .more-user-projects {
-    border: 1px solid green;
+    max-height: 700px;
+    overflow: scroll;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.browse-more {
+  margin-top: 20px;
+  color: darkgrey;
+
+  a {
+    color: grey;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: black;
   }
 }
 
