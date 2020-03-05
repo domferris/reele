@@ -1,0 +1,64 @@
+    <div class="feed justify-content-between chatroom-messages">
+      <div>
+        <div class="container p-3">
+          <nav class="d-flex border-bottom">
+            <h2>messages</h2>
+          </nav>
+        </div>
+
+        <%= simple_form_for [@chatroom, @message], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
+          <%= f.input :content, as: :string, autofocus: true, label: false, placeholder: "Type your message..." %>
+        <% end %>
+
+        <div class="feed-scroll">
+          <% @chatroom.messages.reverse_each do |message| %>
+            <div class="message-feed d-flex mb-2">
+              <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
+
+              <div class="">
+                <%= link_to user_path(message.user.username) do %>
+                  <p class="username font-weight-bold pt-2"><%= message.user.username %></p>
+                <% end %>
+                <p class="user-text"><%= message.content %></p>
+              </div>
+              <% if message.user_id == current_user.id %>
+               <span><%= link_to "Delete", message_path(message), method: :delete %></span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h1>#<%= @chatroom.name %></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <%= simple_form_for [ @chatroom, @message ] do |f| %>
+            <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+            <% @chatroom.messages.each do |message| %>
+              <div class="message-container">
+                <i class="author">
+                  <span><%= message.user.username %></span>
+                  <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+                </i>
+                <p><%= message.content %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
