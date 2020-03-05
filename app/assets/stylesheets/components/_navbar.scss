@@ -1,6 +1,31 @@
 .navbar-lewagon {
+  position: relative;
+  z-index: 10;
   justify-content: space-between;
-  background: white;
+  background: transparent;
+  margin-bottom: -80px;
+
+  .nav-link {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: black;
+    margin-right: 21px;
+  }
+
+  .btn-flat {
+    background: white;
+    color: black;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+
+    &:hover {
+      color: white;
+      background: black;
+    }
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
