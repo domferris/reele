@@ -1,6 +1,14 @@
 puts "Destroying all users and projects"
 User.destroy_all
 
+puts "Generating categories..."
+
+  cats = ["audio", "mastering", "mixing", "mad skills", "potato"]
+  cats.each do |category|
+    Category.create!(
+      name: category
+      )
+  end
 
 puts "Creating Tyler Kitty "
 
