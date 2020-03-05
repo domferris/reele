@@ -1,0 +1,54 @@
+.main-container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.threads {
+  padding: 20px;
+  flex-basis: 14%;
+  height: 100%;
+}
+
+.channels {
+  overflow: scroll;
+  padding: 16px;
+  flex-basis: 260px;
+  flex-shrink: 0;
+}
+
+.feed {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+}
+
+.message-feed {
+  padding: 10px 20px;
+  background-color: white;
+}
+
+.feed-scroll {
+  max-height: 80vh;
+  overflow: scroll;
+}
+
+img {
+  vertical-align: middle;
+}
+.message-feed img {
+  height: 60px;
+  border-radius: 4px;
+  margin-right: 16px;
+}
+
+.message-feed p.user-text  {
+  padding: 0;
+  margin: 0;
+}
+
+.message-feed p.username  {
+  padding-bottom: 5px;
+  margin: 0;
+
+}
