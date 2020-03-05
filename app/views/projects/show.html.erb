@@ -1,41 +1,42 @@
-<!-- <div class="show-banner">
-  <div class="relative-banner">
-
-  </div>
-</div> -->
-
 <div class="project-media">
-  <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="">
-  <iframe src="https://player.vimeo.com/video/170793958?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <% if @project.media_type == 'video' %>
+    <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
+    <iframe src="https://player.vimeo.com/video/170793958?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE ^ -->
+  <% else %>
+    <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
+    <iframe src="https://player.vimeo.com/video/170793958?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="200" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <% end %>
 </div>
 
-<!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE ^ -->
 
 
 <div class="container">
   <div class="content-container">
     <div class="project-description">
       <h1><%= @project.title %></h1>
-      <h3>SUBHEAD</h3>
-      <div class="">
+      <h4>Category: Composition</h4>
+      <div>
         <%= @project.description %>
-        <%= link_to "Edit project", edit_project_path(@project) %>
+        <%= link_to "Edit project", edit_project_path(@project) if @project.user == current_user %>
       </div>
-      <div class="user-contact">
-        <i class="fas fa-user-circle" style="font-size: 30px; padding-right: 10px"></i>
-        <h6><%= @project.user.username  %></h6>
-
-        <%#=cl_image_tag @project.user.photo.key, class='avatar' %>
-
-      </div>
-        <button type="button" class="btn btn-success">Message me</button>
     </div>
 
-    <div class="project-description-and-tags">
-      <h5> Category</h5>
-      <h6> #wow #misic #amazing #mixedmisic</h6>
+    <div class="project-info">
+      <div class="user-contact">
+        <div class="username-container">
+          <%= link_to user_path(@project.user.username) do %>
+            <i class="fas fa-user-circle"></i>
+          <% end %>
+          <%= link_to user_path(@project.user.username) do %>
+            <h6><%= @project.user.username  %></h6>
+          <% end %>
+        </div>
+        <%#=cl_image_tag @project.user.photo.key, class='avatar' %>
+        <button type="button" class="btn btn-dash">Message me</button>
+      </div>
       <h5>Tags</h5>
-      <h6> #wow #misic #amazing #mixedmisic</h6>
+      <h6> #ambient #music #inspirational #melodic #instrumental</h6>
       <h5>Share</h5>
       <ul>
         <li><i class="fas fa-heart"> 100</i></li>
@@ -46,41 +47,40 @@
   </div>
 
 
-    <div class="feed justify-content-between">
-      <div>
-        <div class="container p-3">
-          <nav class="d-flex border-bottom">
-            <h2>comments</h2>
-          </nav>
-        </div>
+  <div class="feed justify-content-between project-comments">
+    <div>
+      <div class="container p-3">
+        <nav class="d-flex border-bottom">
+          <h2>comments</h2>
+        </nav>
+      </div>
 
-        <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
-          <%= f.input :content, as: :string, autofocus: true, label: false, placeholder: "Type your message..." %>
-        <% end %>
+      <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
+        <%= f.input :content, as: :string, autofocus: true, label: false, placeholder: "Type your message..." %>
+      <% end %>
 
-        <div class="feed-scroll">
-          <% @project.comments.reverse_each do |comment| %>
-            <div class="card-feed d-flex mb-2">
-              <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
+      <div class="feed-scroll">
+        <% @project.comments.reverse_each do |comment| %>
+          <div class="card-feed d-flex mb-2">
+            <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
 
-              <div class="">
-                <p class="username font-weight-bold pt-2"><%= current_user.username %></p>
-                <p class="user-text"><%= comment.content %></p>
-              </div>
-              <% if comment.user_id == current_user.id %>
-               <span><%= link_to "Delete", comment_path(comment), method: :delete %></span>
+            <div class="">
+              <%= link_to user_path(comment.user.username) do %>
+                <p class="username font-weight-bold pt-2"><%= comment.user.username %></p>
               <% end %>
+              <p class="user-text"><%= comment.content %></p>
             </div>
-          <% end %>
-        </div>
+            <% if comment.user_id == current_user.id %>
+             <span><%= link_to "Delete", comment_path(comment), method: :delete %></span>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
-
-
   </div>
 </div>
 
-<!-- <script>
+<script>
   document.addEventListener('turbolinks:load', () => {
     if (localStorage['scroll']) {
       window.scroll({ top: localStorage['scroll'] })
@@ -89,4 +89,4 @@
       localStorage['scroll'] = window.scrollY;
     });
   });
-</script> -->
+</script>
