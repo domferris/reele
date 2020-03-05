@@ -56,7 +56,7 @@
           </p>
         </div>
         <div class="dash-card-section">
-          <p><%= project.created_at %></p>
+          <p><%= project.created_at.strftime("%d/%m/%Y at %I:%M %p") %></p>
         </div>
 
         <div class="dash-card-host-controls">
