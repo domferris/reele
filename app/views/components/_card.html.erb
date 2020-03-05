@@ -1,6 +1,6 @@
 <div class="project-card">
   <!-- NEED TO CHANGE PATH OF THIS LINK TO PROJECT SHOW -->
-  <%= @project_list do |project| %>
+  <%= @project_list.each do |project| %>
     <%= link_to project_path(project) do %>
     <div class="project-card-content">
       <%= image_tag "project-default.jpg", class: "project-image" %>
@@ -11,13 +11,12 @@
       </div>
     </div>
     <% end %>
-  <% end %>
-
-  <!-- NEED TO CHANGE PATH OF THIS LINK TO USER SHOW -->
-  <%= link_to projects_path do %>
-  <div class="project-card-user">
-    <img src="" alt="" class="project-avatar">
-    <span>username</span>
-  </div>
+    <!-- NEED TO CHANGE PATH OF THIS LINK TO USER SHOW -->
+    <%= link_to project_path(project) do %>
+    <div class="project-card-user">
+      <img src="" alt="" class="project-avatar">
+      <span>username</span>
+    </div>
+    <% end %>
   <% end %>
 </div>
