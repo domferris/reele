@@ -1,7 +1,16 @@
-<div class="show-banner">
+<!-- <div class="show-banner">
   <div class="relative-banner">
+
   </div>
+</div> -->
+
+<div class="project-media">
+  <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="">
+  <iframe src="https://player.vimeo.com/video/170793958?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 </div>
+
+<!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE ^ -->
+
 
 <div class="container">
   <div class="content-container">
@@ -52,10 +61,10 @@
         <div class="feed-scroll">
           <% @project.comments.reverse_each do |comment| %>
             <div class="card-feed d-flex mb-2">
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier" %>
+              <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
 
               <div class="">
-                <p class="username font-weight-bold pt-2">SteveWozniak</p>
+                <p class="username font-weight-bold pt-2"><%= current_user.username %></p>
                 <p class="user-text"><%= comment.content %></p>
               </div>
               <% if comment.user_id == current_user.id %>
@@ -63,47 +72,6 @@
               <% end %>
             </div>
           <% end %>
-
-          <div class="card-feed d-flex mb-2">
-            <img class= "img-fluid" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="">
-
-            <div class="">
-              <p class="username font-weight-bold pt-2">SteveWozniak</p>
-              <p class="user-text">Some text here maaaan lorem Lorem ipsum dolor </p>
-            </div>
-          </div>
-
-          <div class="card-feed d-flex mb-2">
-            <img class= "img-fluid" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="">
-
-            <div class="d-flex flex-wrap">
-              <p class="username font-weight-bold pt-2">SteveWozniak</p>
-              <p class="user-text">Some text here maaaan lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae repellat odit pariatur, aliquid fugit, dolorem numquam recusandae voluptates reprehenderit unde sit magni eum necessitatibus corrupti assumenda dolor facilis harum ullam.</p>
-            </div>
-          </div>
-
-          <div class="card-feed d-flex mb-2">
-            <img class= "img-fluid" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="">
-
-            <div class="d-flex flex-wrap">
-              <p class="username font-weight-bold pt-2">SteveWozniak</p>
-              <p class="user-text">Some text here maaaan lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae repellat odit pariatur, aliquid fugit, dolorem numquam recusandae voluptates reprehenderit unde sit magni eum necessitatibus corrupti assumenda dolor facilis harum ullam.</p>
-            </div>
-          </div>
-
-
-          <div class="card-feed d-flex mb-2">
-            <img class= "img-fluid" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="">
-
-            <div class="d-flex flex-wrap">
-              <p class="username font-weight-bold pt-2">SteveWozniak</p>
-              <p class="user-text">Some text here maaaan lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae repellat odit pariatur, aliquid fugit, dolorem numquam recusandae voluptates reprehenderit unde sit magni eum necessitatibus corrupti assumenda dolor facilis harum ullam.</p>
-            </div>
-          </div>
-
-
-
-
         </div>
       </div>
     </div>
@@ -111,7 +79,8 @@
 
   </div>
 </div>
-<script>
+
+<!-- <script>
   document.addEventListener('turbolinks:load', () => {
     if (localStorage['scroll']) {
       window.scroll({ top: localStorage['scroll'] })
@@ -120,4 +89,4 @@
       localStorage['scroll'] = window.scrollY;
     });
   });
-</script>
+</script> -->
