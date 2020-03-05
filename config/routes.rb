@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/users/:username', to: "users#show", as: :user
   # resources :users, only: [:show]
 
+  resources :chatrooms, only: :show
+
   resources :projects do
     resources :comments, only: [:index, :new, :create]
   end
