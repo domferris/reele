@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Edit a new project</h1>
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <%= simple_form_for @project do |f| %>
+        <%= f.error_notification %>
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+               <%= f.input :title,
+                  label: false,
+                  placeholder: 'Project name',
+                  autofocus: true %>
+              <%= f.input :description,
+                  label: false,
+                  as: :text,
+                  placeholder: 'Tell us about your project...'  %>
+              <%= f.button :submit, value: 'edit', class: 'btn-dash' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
