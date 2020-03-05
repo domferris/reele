@@ -18,7 +18,7 @@
       </p>
       <p class="user-details">
         <span class="user-specialty"><%= @user.specialty %></span> |
-        <span class="user-projects-count">20 projects</span> |
+        <span class="user-projects-count"><%= @user.projects.count %> projects</span> |
         <span class="user-location">los angeles</span>
       </p>
 
@@ -32,7 +32,7 @@
     <div class="col-lg-8">
       <div class="project-card">
         <div class="project-card-content">
-          <%= image_tag "project-default.jpg", class: "project-image" %>
+          <%= image_tag "project-default.jpg", class: "project-image project-featured-image" %>
           <div class="project-card-info">
             <i class="fas fa-heart">23</i>
             <i class="fas fa-eye">50</i>
