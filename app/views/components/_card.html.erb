@@ -12,10 +12,12 @@
   <% end %>
 
   <!-- NEED TO CHANGE PATH OF THIS LINK TO USER SHOW -->
+  <% if controller_name == "pages" && action_name == "home" %>
   <%= link_to projects_path do %>
   <div class="project-card-user">
     <img src="" alt="" class="project-avatar">
     <span>username</span>
   </div>
+  <% end %>
   <% end %>
 </div>
