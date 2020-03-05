@@ -22,3 +22,7 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
+
+$('.carousel').carousel({
+  interval: false
+})
