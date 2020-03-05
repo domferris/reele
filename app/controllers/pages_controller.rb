@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     # binding.pry
     if params[:query].present?
+      # redirect_to :home if Category.find_by(name: params[:query]).projects.nil?
       @project_list = Category.find_by(name: params[:query]).projects
     else
       @project_list = Project.all
