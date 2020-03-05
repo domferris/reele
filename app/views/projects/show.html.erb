@@ -16,10 +16,9 @@
     <div class="project-description">
       <h1><%= @project.title %></h1>
       <h4>Category: Composition</h4>
-      <div>
-        <%= @project.description %>
-        <%= link_to "Edit project", edit_project_path(@project) if @project.user == current_user %>
-      </div>
+      <p class='description'><%= @project.description %></p>
+      <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-dash share' %></p>
+      <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-dash edit' if @project.user == current_user %></p>
     </div>
 
     <div class="project-info">
@@ -35,46 +34,53 @@
         <%#=cl_image_tag @project.user.photo.key, class='avatar' %>
         <button type="button" class="btn btn-dash">Message me</button>
       </div>
-      <h5>Tags</h5>
-      <h6> #ambient #music #inspirational #melodic #instrumental</h6>
-      <h5>Share</h5>
-      <ul>
-        <li><i class="fas fa-heart"> 100</i></li>
-        <li><i class="fas fa-eye"> 689</i></li>
-        <li><i class="fas fa-comment"> 496</i></li>
-      </ul>
+      <div class="project-data">
+        <div class="project-data-section">
+          <i class="fas fa-tag"></i><p>#ambient #music #inspirational #melodic #instrumental</p>
+        </div>
+        <div class="project-data-section">
+          <i class="fas fa-heart"></i><p>100</p>
+        </div>
+        <div class="project-data-section">
+          <i class="fas fa-eye"></i><p>689</p>
+        </div>
+        <div class="project-data-section">
+          <i class="fas fa-comment"></i><p><%= @project.comments.count %></p>
+        </div>
+      </div>
     </div>
   </div>
 
+  <div class="project-container-left">
+    <div class="feed justify-content-between project-comments">
+      <div>
+        <div class="container p-3">
+          <nav class="d-flex border-bottom">
+            <h2>comments</h2>
+          </nav>
+        </div>
 
-  <div class="feed justify-content-between project-comments">
-    <div>
-      <div class="container p-3">
-        <nav class="d-flex border-bottom">
-          <h2>comments</h2>
-        </nav>
-      </div>
-
-      <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
-        <%= f.input :content, as: :string, autofocus: true, label: false, placeholder: "Type your message..." %>
-      <% end %>
-
-      <div class="feed-scroll">
-        <% @project.comments.reverse_each do |comment| %>
-          <div class="card-feed d-flex mb-2">
-            <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
-
-            <div class="">
-              <%= link_to user_path(comment.user.username) do %>
-                <p class="username font-weight-bold pt-2"><%= comment.user.username %></p>
-              <% end %>
-              <p class="user-text"><%= comment.content %></p>
-            </div>
-            <% if comment.user_id == current_user.id %>
-             <span><%= link_to "Delete", comment_path(comment), method: :delete %></span>
-            <% end %>
-          </div>
+        <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
+          <%= f.input :content, as: :string, autofocus: true, label: false, placeholder: "Type your message..." %>
         <% end %>
+
+        <div class="feed-scroll">
+          <% @project.comments.reverse_each do |comment| %>
+            <div class="card-feed d-flex mb-2">
+              <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
+
+              <div class="">
+                <%= link_to user_path(comment.user.username) do %>
+                  <p class="username font-weight-bold pt-2"><%= comment.user.username %></p>
+                <% end %>
+                <p class="user-text"><%= comment.content %></p>
+              </div>
+              <% if comment.user_id == current_user.id %>
+               <span><%= link_to "Delete", comment_path(comment), method: :delete %></span>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

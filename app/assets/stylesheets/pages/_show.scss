@@ -19,6 +19,14 @@
 }
 
 
+.project-container-left {
+  width: 60%;
+}
+
+.project-container-right {
+  width: 60%;
+}
+
 .content-container{
   border: 1px solid blue;
   display: flex;
@@ -29,27 +37,45 @@
 
 .project-description{
   border: 1px solid green;
-  width: 59%;
+  width: 60%;
+  position: relative;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 1.4em;
+    margin-bottom: 16px;
+  }
+
+  .description {
+    margin-bottom: 80px;
+  }
+
+  .share {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 .project-info {
   border: 1px solid yellow;
   left:0;
-  width: 30%;
-
-    ul{
-      padding: 0px;
-      list-style: none;
-
-      li{
-        margin-bottom: 10px;
-      }
-    }
-  }
+  width: 33%;
+}
 
 .user-contact {
   border: 1px solid orange;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   border-bottom: 1px solid lightgrey;
 
   a {
@@ -79,6 +105,30 @@
 
   button {
     width: 100%;
+  }
+}
+
+.project-data {
+  border: 1px solid green;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  // border-bottom: 1px solid lightgrey;
+
+  .project-data-section {
+    display: flex;
+    align-items: center;
+    color: darkgrey;
+    padding-bottom: 10px;
+
+    i {
+      font-size: 1.2em;
+      margin-right: 8px;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 0;
+    }
   }
 }
 
