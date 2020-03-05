@@ -3,8 +3,8 @@
   <div class="row mt-4 justify-content-end align-items-center">
     <div class="col-2 d-flex text-center p-2">
       <div class="user-buttons-container d-flex">
-        <a href="" class="btn btn-success">Follow</a>
-        <a href="" class="btn btn-danger ml-2">Message</a>
+        <a href="" class="btn btn-outline-primary">Follow</a>
+        <a href="" class="btn btn-primary ml-2">Message</a>
       </div>
     </div>
   </div>
@@ -12,72 +12,107 @@
   <div class="row justify-content-center pb-4">
 
     <div class="col-6 text-center">
-      <h1><%= @user.first_name %></h1>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
       <p class="user-bio">
         <%= @user.bio %>
       </p>
       <p class="user-details">
-        <span class="user-specialty">sound engineer</span> |
-        <span class="user-projects-count">20 projects</span> |
+        <span class="user-specialty"><%= @user.specialty %></span> |
+        <span class="user-projects-count"><%= @user.projects.count %> projects</span> |
         <span class="user-location">los angeles</span>
       </p>
 
       <%= link_to "edit", edit_user_registration_path(current_user) %>
       <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill if @user.photo.attached? %>
-
-      <div class="card-trip mt-4">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-trip-infos">
-          <div>
-            <h2>Title here</h2>
-            <p>Short description here!</p>
+      </div>
+      <!-- END of column -->
+  </div>
+  <!-- END of row -->
+  <div class="row justify-content-center pb-3 mb-3">
+    <div class="col-lg-8">
+      <div class="project-card">
+        <div class="project-card-content">
+          <%= image_tag "project-default.jpg", class: "project-image project-featured-image" %>
+          <div class="project-card-info">
+            <i class="fas fa-heart">23</i>
+            <i class="fas fa-eye">50</i>
+            <i class="fas fa-comment">15</i>
           </div>
-          <h2 class="card-trip-pricing">£99.99</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
       </div>
     </div>
-
   </div>
-
-  <div class="cards mt-4">
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-    <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-  </div>
-
 </div>
+<!-- END of container -->
+
+
+  <div class="container">
+    <div class="cards">
+      <div class="project-card">
+        <div class="project-card-content">
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+          <div class="project-card-info">
+            <i class="fas fa-heart">23</i>
+            <i class="fas fa-eye">50</i>
+            <i class="fas fa-comment">15</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-content">
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+          <div class="project-card-info">
+            <i class="fas fa-heart">23</i>
+            <i class="fas fa-eye">50</i>
+            <i class="fas fa-comment">15</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-content">
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+          <div class="project-card-info">
+            <i class="fas fa-heart">23</i>
+            <i class="fas fa-eye">50</i>
+            <i class="fas fa-comment">15</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-content">
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+          <div class="project-card-info">
+            <i class="fas fa-heart">23</i>
+            <i class="fas fa-eye">50</i>
+            <i class="fas fa-comment">15</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-content">
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+          <div class="project-card-info">
+            <i class="fas fa-heart">23</i>
+            <i class="fas fa-eye">50</i>
+            <i class="fas fa-comment">15</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-content">
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+          <div class="project-card-info">
+            <i class="fas fa-heart">23</i>
+            <i class="fas fa-eye">50</i>
+            <i class="fas fa-comment">15</i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
