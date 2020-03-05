@@ -1,19 +1,31 @@
 <div class="container">
   <div class="row justify-content-center">
-    <h1>#<%= @chatroom.name %></h1>
-    <%= simple_form_for [ @chatroom, @message ] do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
-    <% end %>
-    <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-      <% @chatroom.messages.each do |message| %>
-        <div class="message-container">
-          <i class="author">
-            <span><%= message.user.nickname %></span>
-            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-          </i>
-          <p><%= message.content %></p>
-        </div>
+    <div class="col-lg-6">
+      <h1>#<%= @chatroom.name %></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <%= simple_form_for [ @chatroom, @message ] do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
       <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% @chatroom.messages.each do |message| %>
+          <div class="message-container">
+            <i class="author">
+              <span><%= message.user.username %></span>
+              <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </i>
+            <p><%= message.content %></p>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
