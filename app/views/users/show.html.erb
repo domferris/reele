@@ -12,12 +12,12 @@
   <div class="row justify-content-center pb-4">
 
     <div class="col-6 text-center">
-      <h1><%= @user.first_name %></h1>
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
       <p class="user-bio">
         <%= @user.bio %>
       </p>
       <p class="user-details">
-        <span class="user-specialty">sound engineer</span> |
+        <span class="user-specialty"><%= @user.specialty %></span> |
         <span class="user-projects-count">20 projects</span> |
         <span class="user-location">los angeles</span>
       </p>
