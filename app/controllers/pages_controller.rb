@@ -8,7 +8,6 @@ class PagesController < ApplicationController
       @project_list = Category.find_by(name: params[:query]).projects
     else
       @project_list = Project.all
-
     end
   end
 
