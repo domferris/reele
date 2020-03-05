@@ -25,17 +25,18 @@ import "bootstrap";
 import WaveSurfer from "wavesurfer.js"
 
 const audioDiv = document.querySelector('#waveform')
-
 if (audioDiv) {
   const waveform = WaveSurfer.create({
     container: audioDiv,
-    mediaControls: true
+    mediaControls: true,
+
   })
-
   waveform.load(audioDiv.dataset.audio);
-
-  document.querySelector('#waveform-btn').addEventListener('click', () => {
+  document.querySelector('#waveform-play').addEventListener('click', () => {
     waveform.play()
+  });
+  document.querySelector('#waveform-stop').addEventListener('click', () => {
+    waveform.pause()
   })
 }
 
