@@ -19,7 +19,11 @@
 
   .carousel-control-prev,
   .carousel-control-next {
-    background-color: black;
+    background-color: darkgrey;
+
+    &:hover {
+      background-color: black;
+    }
   }
 }
 
