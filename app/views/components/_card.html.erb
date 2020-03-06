@@ -1,5 +1,5 @@
   <!-- NEED TO CHANGE PATH OF THIS LINK TO PROJECT SHOW -->
-<% @project_list.each do |project| %>
+<% @project_list.reverse.each do |project| %>
   <div class="project-card">
     <%= link_to project_path(project) do %>
     <div class="project-card-content">
@@ -9,7 +9,7 @@
         <%= image_tag "project-default.jpg", class: "project-image" %>
       <% end %>
       <div class="project-card-info">
-        <p><%= project.title %></p>
+        <p class="proj-title"><%= project.title %></p>
         <div>
           <i class="fas fa-heart">23</i>
           <i class="fas fa-eye">50</i>
@@ -19,9 +19,13 @@
     </div>
     <% end %>
     <!-- NEED TO CHANGE PATH OF THIS LINK TO USER SHOW -->
-    <%= link_to project_path(project) do %>
+    <%= link_to user_path(project.user.username) do %>
     <div class="project-card-user">
-      <img src="" alt="" class="project-avatar">
+      <% if project.user.photo.attached? %>
+          <%= cl_image_tag project.user.photo.key, class: 'project-avatar' %>
+        <% else %>
+          <img src="" alt="" class="project-avatar">
+      <% end %>
       <span><%= project.user.username %></span>
     </div>
     <% end %>
