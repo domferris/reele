@@ -3,7 +3,10 @@ class Project < ApplicationRecord
   has_many :project_categories
   has_one :category, through: :project_categories
   has_many :comments, dependent: :destroy
-  has_one_attached :photo
+
+  # CLOUDINARY RELATION -- REMOVED UNTIL STABLE
+  # has_one_attached :photo
+
   has_one_attached :audio_file
 
   MEDIA_TYPE = ['audio', 'video']
