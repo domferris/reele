@@ -35,7 +35,7 @@
         <p><strong>uploaded on</strong></p>
       </div>
     </div>
-    <% @user.projects.each do |project| %>
+    <% @user.projects.reverse.each do |project| %>
       <div class="dash-card">
         <div class="dash-card-section">
           <strong><p><%= project.title %></p></strong>
