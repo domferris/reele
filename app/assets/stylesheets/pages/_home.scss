@@ -2,7 +2,19 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 50px;
-  background: lightgrey;
+  height: 60px;
+  background: black;
   width: 100%;
+
+  h5 {
+    color: lightgrey;
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
