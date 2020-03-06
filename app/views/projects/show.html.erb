@@ -70,7 +70,7 @@
                   <% end %>
                   <p class="user-text"><%= comment.content %></p>
                 </div>
-                <% if comment.user_id == current_user.id %>
+                <% if comment.user_id == current_user&.id %>
                  <span class="delete">
                   <%= link_to comment_path(comment), method: :delete do %>
                     <i class="fas fa-trash"></i>
