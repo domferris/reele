@@ -1,5 +1,6 @@
 .banner {
   background-size: cover;
+  background-color: black;
   background-position: center;
   padding: 150px 0;
 
@@ -17,4 +18,18 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner .btn-flat {
+  color: black;
+  padding: 12px 36px;
+  border-radius: 4px;
+  background: white;
+  transition: background 0.3s ease;
+  text-transform: uppercase;
+
+  &:hover {
+    color: white;
+    background: black;
+  }
 }
