@@ -1,0 +1,19 @@
+  <!-- NEED TO CHANGE PATH OF THIS LINK TO PROJECT SHOW -->
+
+  <div class="user-featured-project-card">
+    <%= link_to project_path(@user.projects.last) do %>
+      <div class="user-featured-project-card-content">
+        <% if @user.projects.last.photo != nil %>
+          <%= image_tag @user.projects.last.photo, class: "project-image" %>
+        <% else %>
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+        <% end %>
+        <div class="user-featured-project-card-info">
+          <i class="fas fa-heart">23</i>
+          <i class="fas fa-eye">50</i>
+          <i class="fas fa-comment">15</i>
+        </div>
+      </div>
+    <% end %>
+  </div>
+

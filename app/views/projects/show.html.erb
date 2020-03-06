@@ -70,7 +70,7 @@
                   <% end %>
                   <p class="user-text"><%= comment.content %></p>
                 </div>
-                <% if comment.user_id == current_user.id %>
+                <% if comment.user_id == current_user&.id %>
                  <span class="delete">
                   <%= link_to comment_path(comment), method: :delete do %>
                     <i class="fas fa-trash"></i>
@@ -133,7 +133,14 @@
         <div class="more-user-projects">
           <% @project.user.projects.each do |project| %>
             <%= link_to project_path(project) do %>
-              <div class="show-more-card", style="background-image: url('https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg');">
+              <div class="show-more-card">
+                  <div>
+                    <% if project.photo != nil %>
+                      <%= image_tag project.photo, class: "show-more-photo" %>
+                    <% else %>
+                      <%= image_tag "project-default.jpg", class: "show-more-photo" %>
+                    <% end %>
+                  </div>
                   <p class="title"><%= project.title %></p>
                   <p>Composition</p>
               </div>

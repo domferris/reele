@@ -3,7 +3,11 @@
   <div class="project-card">
     <%= link_to project_path(project) do %>
     <div class="project-card-content">
-      <%= image_tag "project-default.jpg", class: "project-image" %>
+      <% if project.photo != nil %>
+        <%= image_tag project.photo, class: "project-image" %>
+      <% else %>
+        <%= image_tag "project-default.jpg", class: "project-image" %>
+      <% end %>
       <div class="project-card-info">
         <p><%= project.title %></p>
         <div>
