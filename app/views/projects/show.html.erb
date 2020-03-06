@@ -131,7 +131,7 @@
       <div class="more-by-user">
         <h4>More by <%= @project.user.username %></h4>
         <div class="more-user-projects">
-          <% @project.user.projects.each do |project| %>
+          <% @published_projects.each do |project| %>
             <%= link_to project_path(project) do %>
               <div class="show-more-card">
                   <div>

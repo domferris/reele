@@ -7,6 +7,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @user = @project.user
+    @published_projects = @user.projects.select { |p| p.published == true }
     @comment = Comment.new
   end
 
@@ -40,7 +42,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :media_type, :published)
+    params.require(:project).permit(:title, :description, :media_type, :published, :audio_file)
   end
 
   def find_project
