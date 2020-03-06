@@ -3,8 +3,8 @@
   <div class="row mt-4 justify-content-end align-items-center">
     <div class="col-2 d-flex text-center p-2">
       <div class="user-buttons-container d-flex">
-        <a href="" class="btn btn-outline-primary">Follow</a>
-        <a href="" class="btn btn-primary ml-2">Message</a>
+        <a href="" class="btn btn-outline-secondary">Follow</a>
+        <a href="" class="btn btn-dark ml-2">Message</a>
       </div>
     </div>
   </div>
@@ -13,7 +13,7 @@
 
     <div class="col-6 text-center">
       <%= cl_image_tag @user.photo.key, height: 180, width: 180, gravity: :faces, crop: :fill, class: "avatar-user-show" if @user.photo.attached? %>
-      <h1 class="mt-2"><%= @user.first_name %> <%= @user.last_name %></h1>
+      <h1 class="mt-3 mb-4">@<%= @user.username %></h1>
       <p class="user-bio">
         <%= @user.bio %>
       </p>
@@ -23,7 +23,7 @@
         <span class="user-location">los angeles</span>
       </p>
 
-      <%= link_to "edit", edit_user_registration_path(current_user) %>
+      <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash' %>
       </div>
       <!-- END of column -->
   </div>
