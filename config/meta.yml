@@ -1,0 +1,5 @@
+meta_product_name: "Reele"
+meta_title: "Reele - Discover the best talent in audio"
+meta_description: "Reele helps sound designers showcase their skills, find collaboration opportunities, and thrive in the industry."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
