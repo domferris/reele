@@ -1,5 +1,5 @@
   <!-- NEED TO CHANGE PATH OF THIS LINK TO PROJECT SHOW -->
-<% @user.projects[0..-2].each do |project| %>
+<% @published_projects[0..-2].each do |project| %>
   <% if project.published %>
     <div class="project-card">
       <%= link_to project_path(project) do %>

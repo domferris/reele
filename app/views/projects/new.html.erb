@@ -10,7 +10,7 @@
               <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE, label: false, prompt: 'Select media type' %>
 
               <%= f.label 'upload an audio file' %>
-              <%= f.input :audio_file, as: :file, label: false  %>
+              <%= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
               <%= f.label 'or add a video' %>
               <%= f.input :video_url, label: false, placeholder: 'Project URL' %>
             </div>
@@ -23,6 +23,7 @@
                   label: false,
                   as: :text,
                   placeholder: 'Tell us about your project...'  %>
+              <%= f.input :published, as: :radio_buttons %>
               <%= f.button :submit, value: 'add project', class: 'btn-dash-lg' %>
             </div>
           </div>
