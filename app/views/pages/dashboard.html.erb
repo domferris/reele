@@ -41,7 +41,13 @@
           <strong><p><%= project.title %></p></strong>
         </div>
         <div class="dash-card-section">
-          <p><%= project.description %></p>
+          <p>
+            <% if project.description.length > 18 %>
+              <%= project.description[0..17] + "..." %>
+            <% else %>
+              <%= project.description %>
+            <% end %>
+          </p>
         </div>
         <div class="dash-card-section">
           <p><%= project.media_type %></p>
