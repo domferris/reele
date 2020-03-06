@@ -38,7 +38,15 @@
     <% @user.projects.reverse.each do |project| %>
       <div class="dash-card">
         <div class="dash-card-section">
-          <strong><p><%= project.title %></p></strong>
+          <strong>
+            <p>
+              <% if project.title.length > 18 %>
+                <%= project.title[0..17] + "..." %>
+              <% else %>
+                <%= project.title %>
+              <% end %>
+            </p>
+          </strong>
         </div>
         <div class="dash-card-section">
           <p>
