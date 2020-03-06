@@ -12,7 +12,8 @@
   <div class="row justify-content-center pb-4">
 
     <div class="col-6 text-center">
-      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <%= cl_image_tag @user.photo.key, height: 180, width: 180, gravity: :faces, crop: :fill, class: "avatar-user-show" if @user.photo.attached? %>
+      <h1 class="mt-2"><%= @user.first_name %> <%= @user.last_name %></h1>
       <p class="user-bio">
         <%= @user.bio %>
       </p>
@@ -23,7 +24,6 @@
       </p>
 
       <%= link_to "edit", edit_user_registration_path(current_user) %>
-      <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill if @user.photo.attached? %>
       </div>
       <!-- END of column -->
   </div>
