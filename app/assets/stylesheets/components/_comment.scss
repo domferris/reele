@@ -26,6 +26,19 @@
 .card-feed {
   padding: 10px 20px;
   background-color: white;
+  position: relative;
+
+  .delete {
+    position: absolute;
+    font-size: 0.8em;
+    right: 20px;
+    top: 20px;
+    color: darkgrey;
+
+    &:hover {
+      color: red;
+    }
+  }
 }
 
 .feed-scroll {
