@@ -1,127 +1,200 @@
 require 'faker'
+require 'open-uri'
 
-puts "Destroying all users and projects"
+puts "Destroying all users and projects..."
+
 User.destroy_all
-Category.destroy_all
+# Category.destroy_all
 
+puts "All users and projects destroyed."
 
-######### Category creation ###########
-puts "Generating categories..."
+###############################################################################
+################################# CONSTANTS ###################################
+###############################################################################
 
-  cats = ["Mixing","Mastering","Audio Engineer", "Producer", "Sound Design", "Composition"]
-  cats.each do |category|
-    Category.create!(
-      name: category
-      )
-  end
+rand_category = ["Music",
+                "Songwriting",
+                "Session Musician",
+                "Mixing",
+                "Mastering",
+                "Audio Engineer",
+                "Producer",
+                "Sound Design",
+                "Composition",
+                "Voice-Over",
+                "ADR Recording",
+                "Music Editor",
+                "Foley Walker",
+                "Podcast",
+                "Music Supervision"]
+rand_project_photo = ["https://f4.bcbits.com/img/0018872164_0",
+                      "https://f4.bcbits.com/img/a0232075976_16.jpg",
+                      "https://f4.bcbits.com/img/0018864042_0",
+                      "https://f4.bcbits.com/img/a1791626482_16.jpg",
+                      "https://f4.bcbits.com/img/a0092738776_2.jpg",
+                      "https://f4.bcbits.com/img/a3636119674_2.jpg",
+                      "https://f4.bcbits.com/img/a0460013667_2.jpg",
+                      "https://f4.bcbits.com/img/a0517030166_9.jpg",
+                      "https://f4.bcbits.com/img/a2872292439_9.jpg",
+                      "https://f4.bcbits.com/img/a1058259200_2.jpg",
+                      "https://f4.bcbits.com/img/a1566687136_2.jpg",
+                      "https://f4.bcbits.com/img/a0706753327_2.jpg",
+                      "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/99bd31fd-b68e-4fa6-b351-62173827ac21/67.jpg",
+                      "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/aecf4604-1d3b-417f-97c6-d5be80f51eb9/3.jpg",
+                      "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68c5957a-9e3f-458d-ac48-4fa40c2b7394/27.jpg",
+                      "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/6b9372ef-267d-49e4-a04c-e4264d8f337a/15.jpg"]
+rand_media_type = ["audio", "video"]
+dummy_avatar = ['112155602-98394085-28e5-49d3-9dbf-5f3309eafd6c.jpg',
+                '200011.jpg',
+                '255ab4200a3f46b5f7427070073825f8.jpg',
+                '47c59518a653055eb8fffb72def387d4.jpg',
+                '7837ab3a78aa548623b030e180f613bb2420ad7fr1-720-712v2_uhq.jpg',
+                '7tg8hq.snsg8c.im.lg.jpg',
+                '8801200_orig.jpg',
+                'aNWjR7MB_400x400.jpg',
+                'cfa1f991b1407f9e310dd7798693abb8.jpg',
+                'D7XC43HXoAAGfA1.jpg',
+                'f284f8a54a18b10502e35510925746e0.jpg',
+                'f355f9b727091ba07fa434d775a5d34c.jpg',
+                'image-asset.jpeg',
+                'marielu-a4ebf30c9cd9360c44fc78e3f721109627dbd925.jpg',
+                'pexels-photo-1681010.jpeg',
+                'pexels-photo-774909.jpeg',
+                'photo-1506794778202-cad84cf45f1d.jpeg',
+                'portrait-photography-use-a-prop-1.jpg',
+                'recent-portraits-random-people-in-random-places_10.jpg',
+                'USZWGM4N_400x400.jpg']
 
-######### Tyler creation ###########
+###############################################################################
+############################### TYLER CREATION ################################
+###############################################################################
 
-puts "Creating Tyler Kitty "
+puts "Creating Tyler Dobson..."
 
-  User.create!(
-    first_name: "Tyler",
-    last_name: "Kitty",
-    username: "tylerkitty",
-    bio: "Sound engineer from LA. Love audio and video, and music of all genres.",
-    specialty: "sound engineer",
-    email: "tyler@kitty.com",
-    password: '******'
-    )
+User.create!(
+  first_name: "Tyler",
+  last_name: "Dobson",
+  username: "tylerkitty",
+  bio: "Musician from Los Angeles. New album in the works! I've been working in the industry for the last 4 years as a freelance session musician and sound engineer. If you like what you see, reach out!",
+  specialty: "Music, Sound Engineering",
+  email: "tyler@kitty.com",
+  password: '123456'
+  )
 
+puts "Tyler Dobson AKA tylerkitty created."
 
-tyler_project_mixtape = Project.create!(
-    title: "Mixtape",
-    description: "A great mixtape where I play with some base tracks and some groovy melodies",
-    media_type: "video",
+###############################################################################
+###################### TYLER'S EXISTING RANDOM PROJECTS #######################
+###############################################################################
+
+puts "Creating Tyler's random exising projects..."
+
+6.times do
+  Project.create!(
+    title: Faker::Music.album,
+    description: Faker::Movies::PrincessBride.quote,
+    media_type: rand_media_type.sample,
+    category: rand_category.sample,
+    published: true,
+    user_id: User.first.id,
+    photo: rand_project_photo.sample
+  )
+end
+
+2.times do
+  Project.create!(
+    title: Faker::Music.album + "_v" + rand(3..8).to_s,
+    description: Faker::Movies::PrincessBride.quote,
+    media_type: "audio",
+    category: "Music",
     published: false,
     user_id: User.first.id,
-    category: "Mixing",
-    video_url: "https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0",
-    # file = URI.open(Rails.root.join('app','assets','images','iu-3.jpeg')),
-    # project.photo.attach(io: file, filename: "#{project.name}.jpeg", content_type: 'image/jpeg')
-    )
+    photo: rand_project_photo.sample
+  )
+end
 
-# 5 * tyler projects
+puts "Tyler's random exising projects created."
 
-puts "Created User and Projects for Tyler Kitty"
+###############################################################################
+###################### TYLER'S "REAL"/CLICKABLE PROJECTS ######################
+###############################################################################
 
+puts "Creating Tyler's realistic, interactable private project..."
 
+t1 = Project.create!(
+  title: "corduroy_velvet_final_v8",
+  description: "A short film for musician Emmitt James. I produced all of the music that soundtracks this film. Emmitt and I worked closely for seven months throughout his album creation process.",
+  media_type: "video",
+  published: false,
+  user_id: User.first.id,
+  category: "Composition",
+  video_url: "https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0",
+)
+  file = URI.open(Rails.root.join('app','assets','images','tyler-project-thumbnail.png'))
+  t1.photo = file
 
-######### User creation ###########
+puts "Tyler's realistic, interactable private project created."
+
+###############################################################################
+############################# DUMMY USER CREATION #############################
+###############################################################################
 
 # 10 * user
 
 puts "Creating 10 fake users..."
 
-10.times do
-  User.create!(
+20.times do
+  user = User.create!(
     email: Faker::Internet.email,
     username: Faker::Internet.unique.username,
     password: '******',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    bio: Faker::Lorem.paragraph(sentence_count: 2),
-    specialty: 'a'
+    bio: Faker::Lorem.paragraph(sentence_count: 5),
+    specialty: rand_category.sample
     )
+  file = URI.open(Rails.root.join('app','assets','images', 'dummy_avatars', dummy_avatar.sample))
+  user.photo.attach(io: file, filename: "#{user.username}.jpeg", content_type: 'image/jpeg')
+  puts "created #{user.username}"
 end
 
-######### Project creation ###########
+puts "10 fake users created."
 
-puts "Creating new projects..."
+###############################################################################
+######################### DUMMY USER PROJECT CREATION #########################
+###############################################################################
 
-# 30 * projects
+puts "Creating fake projects..."
 
-20.times do
+80.times do
   Project.create!(
     title: Faker::Music.album,
     description: Faker::Movies::PrincessBride.quote,
-    media_type: ["audio","video"].sample,
-    category: cats.sample,
+    media_type: rand_media_type.sample,
+    category: rand_category.sample,
     published: true,
-    user_id: rand(2..11),
+    user_id: rand(2..21),
+    photo: rand_project_photo.sample,
     video_url: "https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0",
-    # file = URI.open(Rails.root.join('app','assets','images','iu-3.jpeg'))
-    # project.photo.attach(io: file, filename: "#{project.name}.jpeg", content_type: 'image/jpeg')
   )
 end
 
+puts "Fake projects created."
 
-puts "All seeds for projects have been created successfully!"
+puts "Seeded successfully!"
 
+###############################################################################
+############################### SAVED FOR LATER ###############################
+###############################################################################
 
 # file = URI.open(Rails.root.join('app','assets','images','iu-3.jpeg'))
 # user.photos.attach(io: file, filename: "#{user.name}.jpeg", content_type: 'image/jpeg')
 
+######### Category creation ###########
+# puts "Generating categories..."
 
-
-# create_table "users", force: :cascade do |t|
-#   t.string "email", default: "", null: false
-#   t.string "encrypted_password", default: "", null: false
-#   t.string "reset_password_token"
-#   t.datetime "reset_password_sent_at"
-#   t.datetime "remember_created_at"
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-#   t.string "first_name"
-#   t.string "last_name"
-#   t.text "bio"
-#   t.string "specialty"
-#   t.string "username"
-#   t.index ["email"], name: "index_users_on_email", unique: true
-#   t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-# end
-
-# create_table "projects", force: :cascade do |t|
-#   t.string "title"
-#   t.text "description"
-#   t.string "media_type"
-#   t.boolean "published", default: false
-#   t.bigint "user_id", null: false
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-#   t.string "video_url"
-#   t.index ["user_id"], name: "index_projects_on_user_id"
-# end
-
-
+#   cats.each do |category|
+#     Category.create!(
+#       name: category
+#       )
+#   end
