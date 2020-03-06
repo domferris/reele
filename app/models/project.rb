@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :project_categories
-  has_one :category, through: :project_categories
+  # has_many :project_categories
+  # has_one :category, through: :project_categories
   has_many :comments, dependent: :destroy
 
   # CLOUDINARY RELATION -- REMOVED UNTIL STABLE

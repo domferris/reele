@@ -70,7 +70,7 @@
       width: 100%;
       padding: 6px 12px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
 
       .fas:not(:last-of-type) {
         margin-right: 12px;
@@ -87,6 +87,7 @@
       }
     }
   }
+
   .project-card-user {
     margin: 8px 12px;
     display: flex;

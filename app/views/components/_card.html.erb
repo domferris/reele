@@ -9,9 +9,12 @@
         <%= image_tag "project-default.jpg", class: "project-image" %>
       <% end %>
       <div class="project-card-info">
-        <i class="fas fa-heart">23</i>
-        <i class="fas fa-eye">50</i>
-        <i class="fas fa-comment">15</i>
+        <p><%= project.title %></p>
+        <div>
+          <i class="fas fa-heart">23</i>
+          <i class="fas fa-eye">50</i>
+          <i class="fas fa-comment">15</i>
+        </div>
       </div>
     </div>
     <% end %>
@@ -19,7 +22,7 @@
     <%= link_to project_path(project) do %>
     <div class="project-card-user">
       <img src="" alt="" class="project-avatar">
-      <span>username</span>
+      <span><%= project.user.username %></span>
     </div>
     <% end %>
   </div>
