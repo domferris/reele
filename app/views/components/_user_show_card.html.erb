@@ -1,0 +1,19 @@
+  <!-- NEED TO CHANGE PATH OF THIS LINK TO PROJECT SHOW -->
+<% @user.projects[0..-2].each do |project| %>
+  <div class="project-card">
+    <%= link_to project_path(project) do %>
+      <div class="project-card-content">
+        <% if project.photo != nil %>
+          <%= image_tag project.photo, class: "project-image" %>
+        <% else %>
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+        <% end %>
+        <div class="project-card-info">
+          <i class="fas fa-heart">23</i>
+          <i class="fas fa-eye">50</i>
+          <i class="fas fa-comment">15</i>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
