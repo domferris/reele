@@ -1,10 +1,13 @@
   <!-- NEED TO CHANGE PATH OF THIS LINK TO PROJECT SHOW -->
 
+<% if @featured.empty? %>
+  <h3 class="text-center">No projects yet!</h3>
+<% else %>
   <div class="user-featured-project-card">
-    <%= link_to project_path(@user.projects.last) do %>
+    <%= link_to project_path(@featured.last) do %>
       <div class="user-featured-project-card-content">
-        <% if @user.projects.last.photo != nil %>
-          <%= image_tag @user.projects.last.photo, class: "project-image" %>
+        <% if @featured.last.photo != nil %>
+          <%= image_tag @featured.last.photo, class: "project-image" %>
         <% else %>
           <%= image_tag "project-default.jpg", class: "project-image" %>
         <% end %>
@@ -16,4 +19,5 @@
       </div>
     <% end %>
   </div>
+<% end %>
 
