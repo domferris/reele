@@ -40,7 +40,7 @@
 <!----------------------------------------->
       <div class="project-description">
         <h1><%= @project.title %></h1>
-        <h4>Category: Composition</h4>
+        <h4>Category: <%= @project.category %></h4>
         <p class='description'><%= @project.description %></p>
         <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-dash share' %></p>
         <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-dash edit' if @project.user == current_user %></p>
@@ -142,7 +142,7 @@
                     <% end %>
                   </div>
                   <p class="title"><%= project.title %></p>
-                  <p>Composition</p>
+                  <p><%= project.category %></p>
               </div>
             <% end %>
           <% end %>
