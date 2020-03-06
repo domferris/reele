@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: true
   has_many :projects, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
