@@ -19,6 +19,8 @@
         <%= @project.soundcloud_scrape(@project.audio_url).html_safe %>
       <% elsif @project.audio_url.include?('spotify') %>
         <%= @project.spotify_embed(@project.audio_url).html_safe %>
+      <% elsif @project.audio_url.include?('apple') %>
+        <%= @project.apple_embed(@project.audio_url).html_safe %>
       <% end %>
     </div>
   <% else %>
