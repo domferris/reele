@@ -8,8 +8,14 @@
 <!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE 👆 -->
 <!----------------------------------------->
 <!----------------------------------------->
-  <% else %>
+  <% elsif @project.audio_url.present? %>
 <!----------------------------------------->
+<!--------------- AUDIO EMBED ---------------->
+<!----------------------------------------->
+    <%= @project.bandcamp_scrape(@project.audio_url) %>
+    <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/v=2/track=3778792531/size=medium//linkcol=0084B4/notracklist=true" seamless></iframe>
+    <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/v=2/track=3778792531/size=medium/linkcol=0084B4/notracklist=true" seamless></iframe>
+  <% else %>
 <!--------------- IF AUDIO ---------------->
 <!----------------------------------------->
     <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
@@ -23,7 +29,11 @@
 <!-- AUDIO PLAYER TO GO HERE 👆 -->
 <!----------------------------------------->
 <!----------------------------------------->
+<!----------------------------------------->
+
+
   <% end %>
+
 </div>
 
 <!------------------------------------------------->

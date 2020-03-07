@@ -1,4 +1,4 @@
-require 'Nokogiri'
+require 'nokogiri'
 require 'open-uri'
 
 class Project < ApplicationRecord
@@ -12,6 +12,15 @@ class Project < ApplicationRecord
   MEDIA_TYPE = ['audio', 'video']
   validates :title, :media_type, presence: true
 
+
+  ####################################################
+  ############## BANDCAMP EMBED METHODS ##############
+  ####################################################
+
+  def bandcamp_embed(part1, part2)
+   return "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
+  end
+
   def bandcamp_scrape(url)
     html = open(url).read
     doc = Nokogiri::HTML(html)
@@ -19,10 +28,7 @@ class Project < ApplicationRecord
     embed = string.scan(/https.*list=true/)
     # split string into two portions for insertion into iframe
     embed_split = embed[0].split('size=large')
-  end
-
-  def bandcamp_embed
-
+    bandcamp_embed(embed_split[0], embed_split[1])
   end
 end
 
