@@ -18,8 +18,9 @@ class Project < ApplicationRecord
   ####################################################
 
   def bandcamp_embed(part1, part2)
-   iframe = "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
-   iframe.html_safe
+    iframe = "<iframe style=\"border: 0; width: 100%; height: 120px;\"
+              src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
+    iframe.html_safe
   end
 
   def bandcamp_scrape(url)
@@ -33,7 +34,8 @@ class Project < ApplicationRecord
   end
 
   def soundcloud_embed(embed)
-    iframe = "<iframe style=\"border: 0; width: 50%; height: 120px;\" src=\"#{embed}\" frameborder=\"0\"></iframe>"
+    iframe = "<iframe style=\"border: 0; width: 50%; height: 120px;\"
+              src=\"#{embed}\" frameborder=\"0\"></iframe>"
     iframe.html_safe
   end
 
@@ -47,10 +49,21 @@ class Project < ApplicationRecord
 
   def spotify_embed(url)
     split_url = url.split('track')
-    iframe = "<iframe src=\"#{split_url[0]}embed/track#{split_url[1]}\" width=\"300\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>"
+    iframe = "<iframe src=\"#{split_url[0]}embed/track#{split_url[1]}\" width=\"100%\" height=\"80\" frameborder=\"0\"
+              allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>"
     iframe.html_safe
   end
 
+  def apple_embed(url)
+    split_url = url.split('music')
+    iframe = "<iframe allow=\"autoplay *; encrypted-media *;\" frameborder=\"0\" height=\"450\"
+              style=\"width:100%;max-width:660px;overflow:hidden;background:transparent;\"
+              sandbox=\"allow-forms allow-popups allow-same-origin allow-scripts
+              allow-storage-access-by-user-activation allow-top-navigation-by-user-activation\"
+              src=\"#{split_url[0]}embed.music#{split_url[1]}?app=music\">
+              </iframe>"
+    iframe.html_safe
+  end
 end
 
 # interpolating the return int othe recipe instance
