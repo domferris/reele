@@ -18,7 +18,8 @@ class Project < ApplicationRecord
   ####################################################
 
   def bandcamp_embed(part1, part2)
-   return "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
+   @send = "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
+   @send.html_safe
   end
 
   def bandcamp_scrape(url)
