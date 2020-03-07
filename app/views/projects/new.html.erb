@@ -11,6 +11,8 @@
 
               <%= f.label 'upload an audio file' %>
               <%= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
+              <%= f.label 'Embed from Bandcamp' %>
+              <%= f.input :audio_url, label: false, placeholder: 'Paste Bandcamp URL' %>
               <%= f.label 'or add a video' %>
               <%= f.input :video_url, label: false, placeholder: 'Project URL' %>
             </div>
