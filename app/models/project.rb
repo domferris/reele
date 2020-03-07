@@ -45,6 +45,11 @@ class Project < ApplicationRecord
     soundcloud_embed(embed.reduce)
   end
 
+  def spotify_embed(url)
+    split_url = url.split('track')
+    iframe = "<iframe src=\"#{split_url[0]}embed/track#{split_url[1]}\" width=\"300\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>"
+    iframe.html_safe
+  end
 
 end
 

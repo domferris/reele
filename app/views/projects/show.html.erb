@@ -17,6 +17,8 @@
         <%= @project.bandcamp_scrape(@project.audio_url).html_safe %>
       <% elsif @project.audio_url.include?('soundcloud')%>
         <%= @project.soundcloud_scrape(@project.audio_url).html_safe %>
+      <% elsif @project.audio_url.include?('spotify') %>
+        <%= @project.spotify_embed(@project.audio_url).html_safe %>
       <% end %>
     </div>
   <% else %>
