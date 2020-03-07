@@ -18,8 +18,8 @@ class Project < ApplicationRecord
   ####################################################
 
   def bandcamp_embed(part1, part2)
-   @send = "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
-   @send.html_safe
+   iframe = "<iframe style=\"border: 0; width: 100%; height: 120px;\" src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
+   iframe.html_safe
   end
 
   def bandcamp_scrape(url)
@@ -31,6 +31,21 @@ class Project < ApplicationRecord
     embed_split = embed[0].split('size=large')
     bandcamp_embed(embed_split[0], embed_split[1])
   end
+
+  def soundcloud_embed(embed)
+    iframe = "<iframe style=\"border: 0; width: 50%; height: 120px;\" src=\"#{embed}\" frameborder=\"0\"></iframe>"
+    iframe.html_safe
+  end
+
+  def soundcloud_scrape(url)
+    html = open(url).read
+    doc = Nokogiri::HTML(html)
+    string = doc.css('meta[property="twitter:player"]').to_s
+    embed = string.scan(/https.*;/)
+    soundcloud_embed(embed)
+  end
+
+
 end
 
 # interpolating the return int othe recipe instance
