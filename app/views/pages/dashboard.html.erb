@@ -1,5 +1,8 @@
 <div class="dash-controls">
   <div class="dash-controls-section">
+    <input id="availability-switch" class="btn-dash" type="button" value="Signal availability" <% flip_availability(current_user) %>>
+  </div>
+  <div class="dash-controls-section">
     <%= link_to "+ New Project", new_project_path, class: 'btn-dash-lg' %>
   </div>
   <div class="dash-controls-section">
@@ -88,6 +91,10 @@
         </div>
       </div>
     <% end %>
+  <% else %>
+    <div class="container d-flex justify-content-center">
+      <h5>Add a project to get started managing your profile</h5>
+    </div>
   <% end %>
 </div>
 

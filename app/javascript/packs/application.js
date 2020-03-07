@@ -43,10 +43,15 @@ if (audioDiv) {
     waveform.play();
   });
   document.querySelector('#waveform-pause').addEventListener('click', () => {
-    waveform.pause()
-  })
+    waveform.pause();
+  });
 }
 
 $('.carousel').carousel({
   interval: false
 })
+
+// document.querySelector('#availability-switch').addEventListener('click', () => {
+
+// });
+
