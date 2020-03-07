@@ -12,8 +12,12 @@
 <!----------------------------------------->
 <!--------------- AUDIO EMBED ---------------->
 <!----------------------------------------->
-    <div class="container" >
-      <%= @project.bandcamp_scrape(@project.audio_url).html_safe %>
+    <div class="container">
+      <% if @project.audio_url.include?('bandcamp')%>
+        <%= @project.bandcamp_scrape(@project.audio_url).html_safe %>
+      <% elsif @project.audio_url.include?('soundcloud')%>
+        <%= @project.soundcloud_scrape(@project.audio_url).html_safe %>
+      <% end %>
     </div>
   <% else %>
 <!--------------- IF AUDIO ---------------->
@@ -30,7 +34,6 @@
 <!----------------------------------------->
 <!----------------------------------------->
 <!----------------------------------------->
-
 
   <% end %>
 

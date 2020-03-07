@@ -14,7 +14,7 @@ class Project < ApplicationRecord
 
 
   ####################################################
-  ############## BANDCAMP EMBED METHODS ##############
+  ############## AUDIO SCRAPE / EMBED METHODS ##############
   ####################################################
 
   def bandcamp_embed(part1, part2)
@@ -42,7 +42,7 @@ class Project < ApplicationRecord
     doc = Nokogiri::HTML(html)
     string = doc.css('meta[property="twitter:player"]').to_s
     embed = string.scan(/https.*;/)
-    soundcloud_embed(embed)
+    soundcloud_embed(embed.reduce)
   end
 
 
