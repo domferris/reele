@@ -1,6 +1,16 @@
 <div class="dash-controls">
+
+  <!--                                           -->
+  <!-- toggle availability function in div below -->
+  <!--                                           -->
   <div class="dash-controls-section">
-    <input id="availability-switch" class="btn-dash" type="button" value="Signal availability" <% flip_availability(current_user) %>>
+    <!-- <input id="availability-switch" class="btn-dash" type="button" value="Signal availability" <%# flip_availability(current_user) %>> -->
+    <%#= link_to user_registration_path(current_user) method: :patch do %>
+      <!-- input id="availability-switch" class="btn-dash" type="button" value="Signal availability"> -->
+    <%# end %>
+    <%#= simple_form_for [@user], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
+      <%#= f.button :available, as: :boolean %>
+    <%# end %>
   </div>
   <div class="dash-controls-section">
     <%= link_to "+ New Project", new_project_path, class: 'btn-dash-lg' %>
