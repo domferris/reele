@@ -18,9 +18,11 @@
           </div>
 
           <div class="form-actions d-flex justify-content-center">
-            <%= f.button :submit, "Log in", class: "btn btn-dark py-3" %>
+            <%= f.button :submit, "Log in", class: "btn btn-dark py-3 mt-2" %>
           </div>
-          <%= render "devise/shared/links" %>
+          <p class="mt-2"> Not a member?
+            <%= render "devise/shared/links" %>
+          </p>
         <% end %>
 
       </div>
