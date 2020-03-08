@@ -9,6 +9,21 @@ class Project < ApplicationRecord
 
   has_one_attached :audio_file
 
+  CATEGORY = ["Music",
+              "Songwriting",
+              "Session Musician",
+              "Mixing",
+              "Mastering",
+              "Audio Engineer",
+              "Producer",
+              "Sound Design",
+              "Composition",
+              "Voice-Over",
+              "ADR Recording",
+              "Music Editor",
+              "Foley Walker",
+              "Podcast",
+              "Music Supervision"]
   MEDIA_TYPE = ['audio', 'video']
 
   validates :title, :media_type, presence: true
