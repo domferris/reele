@@ -297,3 +297,68 @@
     }
   }
 }
+
+////////////////////////////////////////////
+///////////////// CHATROOMS ////////////////
+////////////////////////////////////////////
+
+.chatroom-cards {
+
+}
+
+////////////////////////////////////////////
+///////////////// MESSAGES /////////////////
+////////////////////////////////////////////
+
+.message-card {
+  display: flex;
+  background: white;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  width: 100%;
+  // position: absolute;
+
+  img {
+    height: 60px;
+    border-radius: 4px;
+    margin-right: 16px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .message-content {
+    width: 100%;
+    flex-grow: 1;
+
+    .message-data {
+      display: flex;
+      justify-content: space-between;
+
+      .username  {
+        padding-bottom: 5px;
+        margin: 0;
+        font-weight: bold;
+        color: black;
+      }
+    }
+
+  }
+
+  .sent-at {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}
+
+
+
+
+
+
+
+
+

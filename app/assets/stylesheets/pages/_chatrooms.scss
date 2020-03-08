@@ -1,14 +1,15 @@
 .chatrooms-main {
   display: flex;
-  margin-top: 40px;
   width: 100%;
   justify-content: space-between;
 }
 
 .chatrooms-container-left {
   width: 40%;
+  border: 1px solid red;
 }
 
 .chatrooms-container-right {
   width: 60%;
+  border: 1px solid blue;
 }

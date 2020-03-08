@@ -1,23 +1,30 @@
-<div class="feed project-comments">
+<div class="message-feed">
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-    <div class="feed-scroll">
+    <div class="messages-scroll">
       <% @chatroom.messages.each do |message| %>
-        <div class="card-feed d-flex mb-2">
+        <div class="message-card">
           <%= link_to user_path(message.user.username) do %>
             <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
           <% end %>
-          <%= link_to user_path(message.user.username) do %>
-            <p class="username font-weight-bold pt-2"><%= message.user.username %></p>
-          <% end %>
-          <p class="user-text"><%= message.content %>
-            <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-          </p>
+          <div class="message-content">
+            <div class="message-data">
+              <%= link_to user_path(message.user.username) do %>
+                <p class="username"><%= message.user.username %></p>
+              <% end %>
+              <small class="sent-at"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </div>
+            <p><%= message.content %></p>
+          </div>
+
         </div>
       <% end %>
     </div>
   </div>
 </div>
 
-<%= simple_form_for [ @chatroom, @message ] do |f| %>
-  <%= f.input :content, label: false, placeholder: "Write a message..." %>
-<% end %>
+<div class="new-message">
+  <%= simple_form_for [ @chatroom, @message ] do |f| %>
+    <%= f.input :content, label: false, placeholder: "Type your message...", autofocus: true %>
+    <%#= f.submit value: 'send', class: 'btn-dash' %>
+  <% end %>
+</div>

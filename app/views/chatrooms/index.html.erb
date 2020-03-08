@@ -1,5 +1,13 @@
-<% @chatrooms.each do |chatroom| %>
-  <%= link_to chatroom_path(chatroom) do %>
-    <p><%= chatroom.name %></p>
-  <% end %>
-<% end %>
+<div class="chatrooms-main">
+  <div class="chatrooms-container-left">
+    <% @chatrooms.each do |chatroom| %>
+      <%= link_to chatroom_path(chatroom) do %>
+        <p><%= chatroom.name %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="chatrooms-container-right">
+
+  </div>
+</div>
