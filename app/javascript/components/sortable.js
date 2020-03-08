@@ -1,8 +1,12 @@
 import Sortable from 'sortablejs';
 
 const initSortable = () => {
-  const list = document.querySelector('#results');
-  Sortable.create(list);
+  const dashboard = document.getElementById('dashboard-cards');
+  // Sortable.create(dashboard);
+  Sortable.create(dashboard, {
+    handle: '.dash-card',
+    animation: 150
+  });
 };
 
 export { initSortable };
