@@ -2,7 +2,26 @@
   <div class="chatrooms-container-left">
     <% @chatrooms.each do |chatroom| %>
       <%= link_to chatroom_path(chatroom) do %>
+<!-- chatroom.messages.last -->
+        <div class="message-card">
+          <%= link_to user_path(message.user.username) do %>
+            <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
+          <% end %>
+          <div class="message-content">
+            <div class="message-data">
+              <%= link_to user_path(message.user.username) do %>
+                <p class="username"><%= message.user.username %></p>
+              <% end %>
+              <small class="sent-at"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </div>
+            <p><%= message.content %></p>
+          </div>
+        </div>
+
+
         <p><%= chatroom.name %></p>
+
+
       <% end %>
     <% end %>
   </div>
