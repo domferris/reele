@@ -22,7 +22,11 @@
         <span class="user-projects-count"><%= @published_projects.count %> projects</span> |
         <span class="user-location">los angeles</span>
       </p>
-
+      <%# if @user.available %>
+        <div class="availability-display">
+          <p>Available</p>
+        </div>
+      <%# end %>
       <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash' %>
       </div>
       <!-- END of column -->
