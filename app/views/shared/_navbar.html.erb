@@ -15,7 +15,7 @@
             <%= link_to "+ add project", new_project_path, class: "btn btn-dash"  %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Messages", chatrooms_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://cdn2.iconfinder.com/data/icons/clean-minimal-set/16/open-menu-01-512.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
