@@ -23,6 +23,7 @@ require("channels")
 // ----------------------------------------------------
 import "bootstrap";
 import WaveSurfer from "wavesurfer.js"
+import { initSortable } from '../components/sortable';
 
 const audioDiv = document.querySelector('#waveform')
 if (audioDiv) {
@@ -50,3 +51,5 @@ if (audioDiv) {
 $('.carousel').carousel({
   interval: false
 })
+
+import { loadDynamicBannerText } from '../components/banner';
