@@ -12,7 +12,9 @@
 <!----------------------------------------->
 <!--------------- AUDIO EMBED ---------------->
 <!----------------------------------------->
+
     <div class="container">
+      <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
       <% if @project.audio_url.include?('bandcamp')%>
         <%= @project.bandcamp_scrape(@project.audio_url).html_safe %>
       <% elsif @project.audio_url.include?('soundcloud')%>

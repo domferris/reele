@@ -22,7 +22,8 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     # video.strip = params[:file]
     Cloudinary::Uploader.upload(params[:file], {:resource_type => "video"})
-    # @project.video_url
+    raise
+    @project.video_url =
     if @project.save
       redirect_to dashboard_path
     else
