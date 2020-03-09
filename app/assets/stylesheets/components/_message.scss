@@ -26,13 +26,22 @@
 
     img {
       height: 120px;
+      width: 120px;
+      object-fit: cover;
       border-radius: 4px;
       margin-right: 12px;
     }
 
-    h5 {
-      margin: 10px 0;
+    h4 {
+      margin-top: 10px;
+      margin-bottom: 0;
       font-weight: bold;
+      font-size: 1.4em;
+    }
+
+    h5 {
+      margin-top: 6px;
+      // font-weight: bold;
       font-size: 1.4em;
     }
 
