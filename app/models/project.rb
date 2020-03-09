@@ -55,6 +55,11 @@ class Project < ApplicationRecord
   end
 
   def spotify_embed(project)
+    html = open(project.audio_url).read
+    doc = Nokogiri::HTML(html)
+    image = doc.css('.cover-art-image')[0].attributes['style'].value.split("\)").first.split("\(\/\/").last
+    project.photo = "https://#{image}"
+    project.save!
     split_url = project.audio_url.split('track')
     iframe = "<iframe src=\"#{split_url[0]}embed/track#{split_url[1]}\" width=\"100%\" height=\"80\" frameborder=\"0\"
               allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>"
