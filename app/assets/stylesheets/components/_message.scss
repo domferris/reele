@@ -8,12 +8,21 @@
 .messages-scroll {
   max-height: 80vh;
   overflow: scroll;
+  border-bottom: 1px solid lightgrey;
 
   .message-header {
     border-bottom: 1px solid lightgrey;
     padding: 16px 12px;
     background: white;
     margin-bottom: 10px;
+
+    a {
+      color: black;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
 
     img {
       height: 120px;
@@ -24,6 +33,7 @@
     h5 {
       margin: 10px 0;
       font-weight: bold;
+      font-size: 1.4em;
     }
 
     h6 {
