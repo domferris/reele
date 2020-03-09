@@ -302,8 +302,48 @@
 ///////////////// CHATROOMS ////////////////
 ////////////////////////////////////////////
 
-.chatroom-cards {
+.chatroom-card {
+  display: flex;
+  background: white;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  padding: 10px 12px;
+  width: 100%;
+  // position: absolute;
 
+  img {
+    height: 60px;
+    border-radius: 4px;
+    margin-right: 16px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .chatroom-content {
+    width: 100%;
+    flex-grow: 1;
+
+    .chatroom-data {
+      display: flex;
+      justify-content: space-between;
+
+      .username  {
+        padding-bottom: 5px;
+        margin: 0;
+        font-weight: bold;
+        color: black;
+      }
+    }
+  }
+
+  .sent-at {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
 }
 
 ////////////////////////////////////////////
@@ -353,12 +393,3 @@
     right: 0;
   }
 }
-
-
-
-
-
-
-
-
-

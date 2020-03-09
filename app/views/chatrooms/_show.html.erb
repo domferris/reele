@@ -1,6 +1,21 @@
 <div class="message-feed">
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <div class="messages-scroll">
+      <section class="message-header">
+        <% if @chatroom.sender == current_user %>
+          <%= link_to user_path(@chatroom.receiver.username) do %>
+            <%= cl_image_tag @chatroom.receiver.photo.key if @chatroom.receiver.photo.attached? %>
+          <% end %>
+          <h5><%= @chatroom.receiver.username %></h5>
+          <h6>Specialty: <%= @chatroom.receiver.specialty %></h6>
+        <% else %>
+          <%= link_to user_path(@chatroom.sender.username) do %>
+            <%= cl_image_tag @chatroom.sender.photo.key if @chatroom.sender.photo.attached? %>
+          <% end %>
+          <h5><%= @chatroom.sender.username %></h5>
+          <h6>Specialty: <%= @chatroom.sender.specialty %></h6>
+        <% end %>
+      </section>
       <% @chatroom.messages.each do |message| %>
         <div class="message-card">
           <%= link_to user_path(message.user.username) do %>

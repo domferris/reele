@@ -1,5 +1,4 @@
 .message-feed {
-  border: 1px solid red;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -9,9 +8,30 @@
 .messages-scroll {
   max-height: 80vh;
   overflow: scroll;
+
+  .message-header {
+    border-bottom: 1px solid lightgrey;
+    padding: 16px 12px;
+    background: white;
+    margin-bottom: 10px;
+
+    img {
+      height: 120px;
+      border-radius: 4px;
+      margin-right: 12px;
+    }
+
+    h5 {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    h6 {
+      margin: 0;
+    }
+  }
 }
 
 .new-message > form {
-  border: 1px solid green;
   padding: 12px;
 }
