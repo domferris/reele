@@ -8,8 +8,22 @@
 <!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE 👆 -->
 <!----------------------------------------->
 <!----------------------------------------->
-  <% else %>
+  <% elsif @project.audio_url.present? %>
 <!----------------------------------------->
+<!--------------- AUDIO EMBED ---------------->
+<!----------------------------------------->
+    <div class="container">
+      <% if @project.audio_url.include?('bandcamp')%>
+        <%= @project.bandcamp_scrape(@project.audio_url).html_safe %>
+      <% elsif @project.audio_url.include?('soundcloud')%>
+        <%= @project.soundcloud_scrape(@project.audio_url).html_safe %>
+      <% elsif @project.audio_url.include?('spotify') %>
+        <%= @project.spotify_embed(@project.audio_url).html_safe %>
+      <% elsif @project.audio_url.include?('apple') %>
+        <%= @project.apple_embed(@project.audio_url).html_safe %>
+      <% end %>
+    </div>
+  <% else %>
 <!--------------- IF AUDIO ---------------->
 <!----------------------------------------->
     <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
@@ -23,7 +37,10 @@
 <!-- AUDIO PLAYER TO GO HERE 👆 -->
 <!----------------------------------------->
 <!----------------------------------------->
+<!----------------------------------------->
+
   <% end %>
+
 </div>
 
 <!------------------------------------------------->
