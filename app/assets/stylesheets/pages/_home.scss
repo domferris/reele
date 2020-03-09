@@ -18,12 +18,12 @@
     }
 
     &.active {
-      background-color: rgba(100,100,100, 0.5);
-      padding: 10px 20px;
+      color: white;
+      background: rgba(74,74,74, 0.5);
+      transition: background 0.3s ease;
+      padding: 8px 16px;
       border-radius: 4px;
-      color: rgb(100, 100, 100);
       font-weight: bold;
-
     }
   }
 }
