@@ -22,7 +22,11 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 import "bootstrap";
-import WaveSurfer from "wavesurfer.js"
+
+import WaveSurfer from "wavesurfer.js";
+
+// IMPORT SORTABLE FUNCTION
+import { initSortable } from '../components/sortable';
 
 const audioDiv = document.querySelector('#waveform')
 if (audioDiv) {
@@ -50,3 +54,12 @@ if (audioDiv) {
 $('.carousel').carousel({
   interval: false
 })
+
+// CALL SORTABLE FUNCTION
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  // [...]
+  initSortable();
+});
+
