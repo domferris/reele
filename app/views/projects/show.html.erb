@@ -127,10 +127,7 @@
             <% end %>
           </div>
 
-
-          <%#= link_to "Message me", chatrooms_path(current_user), class: "btn btn-dash" %>
-
-      <%= simple_form_for Chatroom.new do |f| %>
+          <%= simple_form_for Chatroom.new do |f| %>
             <%= f.hidden_field :sender_id, value: current_user.id %>
             <%= f.hidden_field :receiver_id, value: @project.user.id %>
             <%= f.submit 'Message me', class: "btn btn-dash" %>
