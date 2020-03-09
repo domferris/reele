@@ -1,12 +1,7 @@
 module ApplicationHelper
 
-  def flip_availability(user)
-    if user.available == true
-      user.available = false
-    else
-      user.available == false
-      user.available = true
-    end
-    user.save
+  def current_class?(test_path)
+    return 'active' if params[:query] == test_path
+    ''
   end
 end

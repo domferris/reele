@@ -17,7 +17,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    #@tag_list = Progect.tag_list.split
+    #@project = Project.new(project_params)
     @project.user = current_user
     if @project.save
       redirect_to dashboard_path
@@ -42,10 +43,11 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :media_type, :published, :audio_file)
+    params.require(:project).permit(:title, :description, :media_type, :published, :audio_file, :video_url, :audio_url, :tag_list)
   end
 
   def find_project
     @project = Project.find(params[:id])
   end
+
 end

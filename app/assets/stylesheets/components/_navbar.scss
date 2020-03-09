@@ -1,21 +1,35 @@
 .navbar-lewagon {
+  // display: flex;
+
   justify-content: space-between;
   background: white;
-}
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+   .navbar-brand {
+    display: flex;
+    align-items: center;
 
-.navbar-lewagon .navbar-brand {
+    i {
+      font-size: 1.4em;
+      margin-right: 10px;
+    }
 
-  i {
-    font-size: 1.2em;
-    margin-right: 12px;
+    h2 {
+      margin-bottom: 0;
+      font-size: 1.7em;
+      letter-spacing: 0.7px;
+    }
   }
 
-  h1 {
-    margin-bottom: 0;
-    font-size: 1.5em;
+  .navbar-collapse {
+    flex-grow: 0;
+
+    .nav-item {
+      margin-left: 12px;
+    }
+  }
+
+  .hamburger {
+    height: 40px;
+    width: 40px;
   }
 }
