@@ -11,36 +11,68 @@
       <% end %>
     </div>
 
-    <ul class="chatrooms"> <!-- onclick="removeActive(event);chooseChat(event);" -->
+    <ul class="chatrooms">
       <li class="chatroom-card active">
-        <%= link_to user_path(@chatrooms.first.messages.last.user.username) do %>
-          <%= cl_image_tag @chatrooms.first.messages.last.user.photo.key if @chatrooms.first.messages.last.user.photo.attached? %>
+        <% if @chatrooms.first.sender == current_user %>
+          <%= link_to user_path(@chatrooms.first.receiver) do %>
+            <%= cl_image_tag @chatrooms.first.receiver.photo.key if @chatrooms.first.messages.last.user.photo.attached? %>
+          <% end %>
+        <% else %>
+          <%= link_to user_path(@chatrooms.first.sender) do %>
+            <%= cl_image_tag @chatrooms.first.sender.photo.key if @chatrooms.first.messages.last.user.photo.attached? %>
+          <% end %>
         <% end %>
         <div class="chatroom-content">
           <div class="chatroom-data">
-            <%= link_to user_path(@chatrooms.first.messages.last.user.username) do %>
-              <p class="username"><%= @chatrooms.first.messages.last.user.username %></p>
+            <% if @chatrooms.first.sender == current_user %>
+              <%= link_to user_path(@chatrooms.first.receiver.username) do %>
+                <p class="username"><%= @chatrooms.first.receiver.username %></p>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(@chatrooms.first.sender.username) do %>
+                <p class="username"><%= @chatrooms.first.sender.username %></p>
+              <% end %>
             <% end %>
-            <small class="sent-at"><%= @chatrooms.first.messages.last.created_at.strftime("%a %b %e") %></small>
+            <small class="sent-at"><%= @chatrooms.first.messages.last.created_at.strftime("%b %e") %></small>
           </div>
-          <p><%= @chatrooms.first.messages.last.content %></p>
+          <% if @chatroom.messages.last.user == current_user %>
+            <p>You: <%= @chatrooms.first.messages.last.content %></p>
+          <% else %>
+            <p><%= @chatrooms.first.messages.last.user.username %>: <%= @chatrooms.first.messages.last.content %></p>
+          <% end %>
         </div>
       </li>
 
       <% @chatrooms[1..-1].each do |chatroom| %>
         <%= link_to chatroom_path(chatroom) do %>
           <li class="chatroom-card">
-            <%= link_to user_path(chatroom.messages.last.user.username) do %>
-              <%= cl_image_tag chatroom.messages.last.user.photo.key if chatroom.messages.last.user.photo.attached? %>
+            <% if @chatrooms.first.sender == current_user %>
+              <%= link_to user_path(@chatrooms.first.receiver) do %>
+                <%= cl_image_tag @chatrooms.first.receiver.photo.key if @chatrooms.first.messages.last.user.photo.attached? %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(@chatrooms.first.sender) do %>
+                <%= cl_image_tag @chatrooms.first.sender.photo.key if @chatrooms.first.messages.last.user.photo.attached? %>
+              <% end %>
             <% end %>
             <div class="chatroom-content">
               <div class="chatroom-data">
-                <%= link_to user_path(chatroom.messages.last.user.username) do %>
-                  <p class="username"><%= chatroom.messages.last.user.username %></p>
+                <% if @chatrooms.first.sender == current_user %>
+                  <%= link_to user_path(@chatrooms.first.receiver.username) do %>
+                    <p class="username"><%= @chatrooms.first.receiver.username %></p>
+                  <% end %>
+                <% else %>
+                  <%= link_to user_path(@chatrooms.first.sender.username) do %>
+                    <p class="username"><%= @chatrooms.first.sender.username %></p>
+                  <% end %>
                 <% end %>
-                <small class="sent-at"><%= chatroom.messages.last.created_at.strftime("%a %b %e") %></small>
+                <small class="sent-at"><%= chatroom.messages.last.created_at.strftime("%b %e") %></small>
               </div>
-              <p><%= chatroom.messages.last.content %></p>
+              <% if chatroom.messages.last.user == current_user %>
+                <p>You: <%= chatroom.messages.last.content %></p>
+              <% else %>
+                <p><%= chatroom.messages.last.user.username %>: <%= @chatrooms.first.messages.last.content %></p>
+              <% end %>
             </div>
           </li>
         <% end %>
@@ -60,10 +92,9 @@ const chooseChat = () => {
   for (const chatroomCard of chatroomCards) {
     chatroomCard.addEventListener('click', (event) => {
       document.querySelectorAll(".chatroom-card").forEach((chatCard) => {
-        // remove active from all other cards
         chatCard.classList.remove('active');
       })
-      // add active class to target
+
       event.currentTarget.classList.add('active');
     });
   }
