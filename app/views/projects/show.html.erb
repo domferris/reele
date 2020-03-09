@@ -126,8 +126,7 @@
               <h6>@<%= @project.user.username %></h6>
             <% end %>
           </div>
-          <%#=cl_image_tag @project.user.photo.key, class='avatar' %>
-          <button type="button" class="btn btn-dash">Message me</button>
+          <%= link_to "Message me", chatrooms_path(current_user), class: "btn btn-dash" %>
         </div>
 
         <div class="project-data">
