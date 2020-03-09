@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-10 mt-4">
-      <%= simple_form_for @project do |f| %>
+      <%= simple_form_for @project, html: {multipart: true} do |f| %>
         <%= f.error_notification %>
 
         <div id="new-proj-carousel" class="carousel slide" data-ride="carousel">
@@ -9,8 +9,10 @@
             <div class="carousel-item active">
               <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE, label: false, prompt: 'Select media type' %>
 
-              <%= f.label 'upload an audio file' %>
-              <%= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
+              <%#= f.label 'upload an audio file' %>
+              <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
+              <%= cl_upload_tag(:video_id, resource_type: :video,
+                                :html => {:id => "tag"}) %>
               <%= f.label 'Embed from Bandcamp' %>
               <%= f.input :audio_url, label: false, placeholder: 'Paste Bandcamp URL' %>
               <%= f.label 'or add a video' %>
