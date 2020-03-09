@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="dash-projects">
+<div class="dash-projects" id="dashboard-cards">
   <% if @user.projects.present? %>
     <div class="dash-card-headers">
       <div class="dash-card-section">
@@ -39,13 +39,15 @@
       <div class="dash-card">
         <div class="dash-card-section">
           <strong>
-            <p>
-              <% if project.title.length > 18 %>
-                <%= project.title[0..17] + "..." %>
-              <% else %>
-                <%= project.title %>
-              <% end %>
-            </p>
+            <%= link_to project_path(project) do  %>
+              <p>
+                <% if project.title.length > 18 %>
+                  <%= project.title[0..17] + "..." %>
+                <% else %>
+                  <%= project.title %>
+                <% end %>
+              </p>
+            <% end %>
           </strong>
         </div>
         <div class="dash-card-section">

@@ -99,10 +99,14 @@
         <div class="user-contact">
           <div class="username-container">
             <%= link_to user_path(@project.user.username) do %>
-              <i class="fas fa-user-circle"></i>
+              <% if @project.user.photo.attached? %>
+                  <%= cl_image_tag @project.user.photo.key, class: 'project-show-avatar' %>
+                <% else %>
+                  <img src="" alt="" class="project-avatar">
+              <% end %>
             <% end %>
             <%= link_to user_path(@project.user.username) do %>
-              <h6><%= @project.user.username  %></h6>
+              <h6>@<%= @project.user.username %></h6>
             <% end %>
           </div>
           <%#=cl_image_tag @project.user.photo.key, class='avatar' %>
