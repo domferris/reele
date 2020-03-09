@@ -3,31 +3,34 @@
   <div class="project-card">
     <%= link_to project_path(project) do %>
     <div class="project-card-content">
-      <% if project.photo != nil %>
-        <%= image_tag project.photo, class: "project-image" %>
-      <% else %>
-        <%= image_tag "project-default.jpg", class: "project-image" %>
-      <% end %>
+      <div class="proj-gradient"></div>
+        <% if project.photo != nil %>
+          <%= image_tag project.photo, class: "project-image" %>
+        <% else %>
+          <%= image_tag "project-default.jpg", class: "project-image" %>
+        <% end %>
       <div class="project-card-info">
-        <p class="proj-title"><%= project.title %></p>
-        <div>
-          <i class="fas fa-heart">23</i>
-          <i class="fas fa-eye">50</i>
-          <i class="fas fa-comment">15</i>
+        <div class="proj-details">
+          <p class="proj-title"><%= project.title %></p>
+          <p class="proj-category"><%= project.category %></p>
         </div>
+        <ul>
+          <li><i class="fas fa-heart"></i>300</li>
+          <li><i class="fas fa-eye"></i>990</li>
+        </ul>
       </div>
     </div>
     <% end %>
     <!-- NEED TO CHANGE PATH OF THIS LINK TO USER SHOW -->
-    <%= link_to user_path(project.user.username) do %>
     <div class="project-card-user">
-      <% if project.user.photo.attached? %>
-          <%= cl_image_tag project.user.photo.key, class: 'project-avatar' %>
-        <% else %>
-          <img src="" alt="" class="project-avatar">
+      <%= link_to user_path(project.user.username) do %>
+        <% if project.user.photo.attached? %>
+            <%= cl_image_tag project.user.photo.key, class: 'project-avatar' %>
+          <% else %>
+            <img src="" alt="" class="project-avatar">
+        <% end %>
+        <span><%= project.user.username %></span>
       <% end %>
-      <span><%= project.user.username %></span>
     </div>
-    <% end %>
   </div>
 <% end %>
