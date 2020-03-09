@@ -70,10 +70,7 @@
                 <% if chatroom.messages.present? %>
                   <small class="sent-at"><%= chatroom.messages.last.created_at.strftime("%b %e") %></small>
                 <% end %>
-
               </div>
-
-
               <% if chatroom.messages.present? %>
                 <% if chatroom.messages.last.user == current_user %>
                   <p>You: <%= chatroom.messages.last.content %></p>
@@ -81,10 +78,6 @@
                   <p><%= chatroom.messages.last.user.username %>: <%= chatroom.messages.last.content %></p>
                 <% end %>
               <% end %>
-
-
-
-
             </div>
           </li>
         <% end %>
