@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_03_09_101347) do
     t.string "video_url"
     t.string "photo"
     t.string "category"
+    t.string "audio_url"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
