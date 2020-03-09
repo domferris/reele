@@ -16,5 +16,14 @@
     &:hover {
       text-decoration: none;
     }
+
+    &.active {
+      background-color: rgba(100,100,100, 0.5);
+      padding: 10px 20px;
+      border-radius: 4px;
+      color: rgb(100, 100, 100);
+      font-weight: bold;
+
+    }
   }
 }
