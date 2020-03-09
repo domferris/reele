@@ -11,78 +11,81 @@
       <% end %>
     </div>
 
-    <ul class="chatrooms">
-      <li class="chatroom-card active">
-        <% if @chatrooms.first.sender == current_user %>
-          <%= link_to user_path(@chatrooms.first.receiver.username) do %>
-            <%= cl_image_tag @chatrooms.first.receiver.photo.key if @chatrooms.first.receiver.photo.attached? %>
-          <% end %>
-        <% else %>
-          <%= link_to user_path(@chatrooms.first.sender.username) do %>
-            <%= cl_image_tag @chatrooms.first.sender.photo.key if @chatrooms.first.sender.photo.attached? %>
-          <% end %>
-        <% end %>
-        <div class="chatroom-content">
-          <div class="chatroom-data">
-            <% if @chatrooms.first.sender == current_user %>
-              <p class="username"><%= @chatrooms.first.receiver.username %></p>
-            <% else %>
-              <p class="username"><%= @chatrooms.first.sender.username %></p>
+    <div class="chatrooms">
+      <ul>
+        <li class="chatroom-card active">
+          <% if @chatrooms.first.sender == current_user %>
+            <%= link_to user_path(@chatrooms.first.receiver.username) do %>
+              <%= cl_image_tag @chatrooms.first.receiver.photo.key if @chatrooms.first.receiver.photo.attached? %>
             <% end %>
-            <% if @chatrooms.first.messages.empty? %>
-              <small class="sent-at"><%= @chatrooms.first.created_at.strftime("%b %e") %></small>
-            <% else %>
-              <small class="sent-at"><%= @chatrooms.first.messages.last.created_at.strftime("%b %e") %></small>
-            <% end %>
-          </div>
-
-          <% if @chatroom.messages.present? %>
-            <% if @chatroom.messages.last.user == current_user %>
-              <p>You: <%= @chatrooms.first.messages.last.content %></p>
-            <% else %>
-              <p><%= @chatrooms.first.messages.last.user.username %>: <%= @chatrooms.first.messages.last.content %></p>
+          <% else %>
+            <%= link_to user_path(@chatrooms.first.sender.username) do %>
+              <%= cl_image_tag @chatrooms.first.sender.photo.key if @chatrooms.first.sender.photo.attached? %>
             <% end %>
           <% end %>
-
-        </div>
-      </li>
-
-      <% @chatrooms[1..-1].each do |chatroom| %>
-        <%= link_to chatroom_path(chatroom) do %>
-          <li class="chatroom-card">
-            <% if chatroom.sender == current_user %>
-              <%= link_to user_path(chatroom.receiver.username) do %>
-                <%= cl_image_tag chatroom.receiver.photo.key if chatroom.sender.photo.attached? %>
+          <div class="chatroom-content">
+            <div class="chatroom-data">
+              <% if @chatrooms.first.sender == current_user %>
+                <p class="username"><%= @chatrooms.first.receiver.username %></p>
+              <% else %>
+                <p class="username"><%= @chatrooms.first.sender.username %></p>
               <% end %>
-            <% else %>
-              <%= link_to user_path(chatroom.sender.username) do %>
-                <%= cl_image_tag chatroom.sender.photo.key if chatroom.receiver.photo.attached? %>
-              <% end %>
-            <% end %>
-            <div class="chatroom-content">
-              <div class="chatroom-data">
-                <% if chatroom.sender == current_user %>
-                  <p class="username"><%= chatroom.receiver.username %></p>
-                <% else %>
-                  <p class="username"><%= chatroom.sender.username %></p>
-                <% end %>
-
-                <% if chatroom.messages.present? %>
-                  <small class="sent-at"><%= chatroom.messages.last.created_at.strftime("%b %e") %></small>
-                <% end %>
-              </div>
-              <% if chatroom.messages.present? %>
-                <% if chatroom.messages.last.user == current_user %>
-                  <p>You: <%= chatroom.messages.last.content %></p>
-                <% else %>
-                  <p><%= chatroom.messages.last.user.username %>: <%= chatroom.messages.last.content %></p>
-                <% end %>
+              <% if @chatrooms.first.messages.empty? %>
+                <small class="sent-at"><%= @chatrooms.first.created_at.strftime("%b %e") %></small>
+              <% else %>
+                <small class="sent-at"><%= @chatrooms.first.messages.last.created_at.strftime("%b %e") %></small>
               <% end %>
             </div>
-          </li>
+
+            <% if @chatroom.messages.present? %>
+              <% if @chatroom.messages.last.user == current_user %>
+                <p>You: <%= @chatrooms.first.messages.last.content %></p>
+              <% else %>
+                <p><%= @chatrooms.first.messages.last.user.username %>: <%= @chatrooms.first.messages.last.content %></p>
+              <% end %>
+            <% end %>
+
+          </div>
+        </li>
+
+        <% @chatrooms[1..-1].each do |chatroom| %>
+          <%= link_to chatroom_path(chatroom) do %>
+            <li class="chatroom-card">
+              <% if chatroom.sender == current_user %>
+                <%= link_to user_path(chatroom.receiver.username) do %>
+                  <%= cl_image_tag chatroom.receiver.photo.key if chatroom.sender.photo.attached? %>
+                <% end %>
+              <% else %>
+                <%= link_to user_path(chatroom.sender.username) do %>
+                  <%= cl_image_tag chatroom.sender.photo.key if chatroom.receiver.photo.attached? %>
+                <% end %>
+              <% end %>
+              <div class="chatroom-content">
+                <div class="chatroom-data">
+                  <% if chatroom.sender == current_user %>
+                    <p class="username"><%= chatroom.receiver.username %></p>
+                  <% else %>
+                    <p class="username"><%= chatroom.sender.username %></p>
+                  <% end %>
+
+                  <% if chatroom.messages.present? %>
+                    <small class="sent-at"><%= chatroom.messages.last.created_at.strftime("%b %e") %></small>
+                  <% end %>
+                </div>
+                <% if chatroom.messages.present? %>
+                  <% if chatroom.messages.last.user == current_user %>
+                    <p>You: <%= chatroom.messages.last.content %></p>
+                  <% else %>
+                    <p><%= chatroom.messages.last.user.username %>: <%= chatroom.messages.last.content %></p>
+                  <% end %>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
+
   </section>
 
   <section class="chatrooms-container-right">
