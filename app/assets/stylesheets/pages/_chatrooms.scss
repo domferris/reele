@@ -33,4 +33,6 @@
 .chatrooms-container-right {
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
+  flex-shrink: 0;
+  flex-grow: 1;
 }
