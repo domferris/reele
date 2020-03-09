@@ -16,6 +16,8 @@
                   label: false,
                   as: :text,
                   placeholder: 'Tell us about your project...'  %>
+              <%= f.label 'add some tags' %>
+              <%= f.input :tag_list,label: false, placeholder: 'music, video, beats, artist...' %>
               <%= f.input :published, as: :radio_buttons %>
               <%= f.button :submit, value: 'edit', class: 'btn-dash' %>
             </div>

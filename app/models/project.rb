@@ -11,5 +11,8 @@ class Project < ApplicationRecord
 
   MEDIA_TYPE = ['audio', 'video']
 
-  validates :title, :media_type, presence: true
+  # validates :title, :media_type, presence: true
+
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  # acts_as_taggable_on :skills, :interests
 end
