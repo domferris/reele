@@ -2,7 +2,9 @@
   <div class="container">
     <h1>Discover the best talent in audio</h1>
     <p>Reele helps sound designers showcase their skills, find collaboration opportunities, and thrive in the industry.</p>
-    <a class="btn btn-dash" href="#">Sign up</a>
+    <% if !user_signed_in? %>
+      <a class="btn btn-dash" href="#">Sign up</a>
+    <% end %>
   </div>
 </div>
 <div class="filter-bar">
