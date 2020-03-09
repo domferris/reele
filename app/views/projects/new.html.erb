@@ -15,6 +15,7 @@
               <%= f.input :audio_url, label: false, placeholder: 'Paste Bandcamp URL' %>
               <%= f.label 'or add a video' %>
               <%= f.input :video_url, label: false, placeholder: 'Project URL' %>
+              <%= f.button :submit, value: 'add project', class: 'btn-ghost' %>
             </div>
             <div class="carousel-item">
               <%= f.input :title,
@@ -25,8 +26,10 @@
                   label: false,
                   as: :text,
                   placeholder: 'Tell us about your project...'  %>
+              <%= f.label 'add some tags' %>
+              <%= f.input :tag_list,label: false, placeholder: 'music, video, beats, artist...' %>
               <%= f.input :published, as: :radio_buttons %>
-              <%= f.button :submit, value: 'add project', class: 'btn-dash-lg' %>
+
             </div>
           </div>
           <div class="carousel-controllers">

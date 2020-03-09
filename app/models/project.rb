@@ -10,6 +10,10 @@ class Project < ApplicationRecord
   # has_one_attached :photo
   has_one_attached :audio_file
   MEDIA_TYPE = ['audio', 'video']
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  # acts_as_taggable_on :skills, :interests
+  acts_as_taggable_on :tags
+
   validates :title, :media_type, presence: true
 
 
@@ -65,8 +69,3 @@ class Project < ApplicationRecord
     iframe.html_safe
   end
 end
-
-# interpolating the return int othe recipe instance
-
-
-# <input type="text" class="embed_text" data-bind="value: code" readonly="">
