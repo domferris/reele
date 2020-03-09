@@ -17,45 +17,52 @@ class Project < ApplicationRecord
   ############## AUDIO SCRAPE / EMBED METHODS ##############
   ####################################################
 
-  def bandcamp_embed(part1, part2)
+  def bandcamp_embed(part1, part2, track_image)
+
     iframe = "<iframe style=\"border: 0; width: 100%; height: 120px;\"
               src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
     iframe.html_safe
   end
 
-  def bandcamp_scrape(url)
-    html = open(url).read
+  def bandcamp_scrape(project)
+    html = open(project.audio_url).read
     doc = Nokogiri::HTML(html)
+    image = doc.css('.popupImage img')
+    project.photo = image[0].attributes['src'].value
+    project.save!
     string = doc.css('meta[property="twitter:player"]').to_s
     embed = string.scan(/https.*list=true/)
     # split string into two portions for insertion into iframe
     embed_split = embed[0].split('size=large')
-    bandcamp_embed(embed_split[0], embed_split[1])
+    bandcamp_embed(embed_split[0], embed_split[1], track_image)
   end
 
   def soundcloud_embed(embed)
-    iframe = "<iframe style=\"border: 0; width: 50%; height: 120px;\"
+    iframe = "<iframe style=\"border: 0; width: 100%; height: 240px;\"
               src=\"#{embed}\" frameborder=\"0\"></iframe>"
     iframe.html_safe
   end
 
-  def soundcloud_scrape(url)
-    html = open(url).read
+  def soundcloud_scrape(project)
+    html = open(project.audio_url).read
     doc = Nokogiri::HTML(html)
+    image = doc.css('meta[property="og:image"]')
+    project.photo = image[0].attributes['content'].value
+    project.save!
     string = doc.css('meta[property="twitter:player"]').to_s
     embed = string.scan(/https.*;/)
     soundcloud_embed(embed.reduce)
   end
 
-  def spotify_embed(url)
-    split_url = url.split('track')
+  def spotify_embed(project)
+    split_url = project.audio_url.split('track')
     iframe = "<iframe src=\"#{split_url[0]}embed/track#{split_url[1]}\" width=\"100%\" height=\"80\" frameborder=\"0\"
               allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>"
     iframe.html_safe
   end
 
-  def apple_embed(url)
-    split_url = url.split('music')
+  def apple_embed(project)
+    split_url = project.audio_url.split('music')
     iframe = "<iframe allow=\"autoplay *; encrypted-media *;\" frameborder=\"0\" height=\"450\"
               style=\"width:100%;max-width:660px;overflow:hidden;background:transparent;\"
               sandbox=\"allow-forms allow-popups allow-same-origin allow-scripts
