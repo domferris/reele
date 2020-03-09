@@ -17,7 +17,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    #@tag_list = Progect.tag_list.split
+    #@project = Project.new(project_params)
     @project.user = current_user
     if @project.save
       redirect_to dashboard_path
@@ -48,4 +49,5 @@ class ProjectsController < ApplicationController
   def find_project
     @project = Project.find(params[:id])
   end
+
 end

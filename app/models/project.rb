@@ -3,6 +3,7 @@ class Project < ApplicationRecord
   # has_many :project_categories
   # has_one :category, through: :project_categories
   has_many :comments, dependent: :destroy
+  # before_save :split_tags
 
   # CLOUDINARY RELATION -- REMOVED UNTIL STABLE
   # has_one_attached :photo
@@ -15,4 +16,9 @@ class Project < ApplicationRecord
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   # acts_as_taggable_on :skills, :interests
+  acts_as_taggable_on :tags
+
+  #def split_tags
+    #self[:tag_list] = tag_list.join(' ').split(' ').map { |tag| "##{tag}" }
+  #end
 end

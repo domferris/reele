@@ -116,7 +116,11 @@
         <div class="project-data">
           <div class="project-data-section">
             <i class="fas fa-tag"></i>
-            <p><%= @project.tag_list %> </p>
+            <p><% @project.tag_list.each do |tag| %>
+              <%= "#" + tag %>
+              <% end %>
+            </p>
+
           </div>
           <div class="project-data-section">
             <i class="fas fa-heart"></i><p>0</p>
