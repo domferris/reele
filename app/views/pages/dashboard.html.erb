@@ -44,21 +44,23 @@
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <div class="dash-projects" id="dashboard-cards">
             <% if @user.projects.present? %>
-              <div class="dash-card">
+              <div class="dash-card-headers">
                 <div class="dash-card-section">
-                  <p><strong>title</strong></p>
+                  <p><strong>Title</strong></p>
                 </div>
                 <div class="dash-card-section">
-                  <p><strong>description</strong></p>
+                  <p><strong>Description</strong></p>
                 </div>
                 <div class="dash-card-section">
-                  <p><strong>media type</strong></p>
+                  <p><strong>Media type</strong></p>
                 </div>
                 <div class="dash-card-section">
-                  <p><strong>status</strong></p>
+                  <p><strong>Status</strong></p>
                 </div>
                 <div class="dash-card-section">
-                  <p><strong>uploaded on</strong></p>
+                  <p><strong>Uploaded on</strong></p>
+                </div>
+                <div class="dash-card-section">
                 </div>
               </div>
               <% @published_projects.reverse.each do |project| %>
