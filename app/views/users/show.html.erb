@@ -15,6 +15,7 @@
           <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash btn-100w' %>
         <% end %>
       </div>
+
       <div class="user-details">
         <h5 class="user-specialty">Specialty: <%= @user.specialty %></h5>
         <p class="user-bio"><%= @user.bio %></p>
@@ -25,33 +26,30 @@
         </div>
       </div>
 
-      <ul class="find-me">
-        <li>
+      <!-- <div class="user-stats"></div> -->
+
+      <div class="find-me">
+        <div class="find-me-section">
           <%= link_to "#" do %>
           <i class="fab fa-linkedin"></i> LinkedIn
           <% end %>
-        </li>
-        <li>
+        </div>
+        <div class="find-me-section">
           <%= link_to "#" do %>
           <i class="fab fa-spotify"></i> Spotify
           <% end %>
-        </li>
-        <li>
-          <%= link_to "#" do %>
-          <i class="fab fa-soundcloud"></i> SoundCloud
-          <% end %>
-        </li>
-        <li>
+        </div>
+        <div class="find-me-section">
           <%= link_to "#" do %>
           <i class="fab fa-instagram"></i> Instagram
           <% end %>
-        </li>
-        <li>
+        </div>
+        <div class="find-me-section">
           <%= link_to "#" do %>
           <i class="fab fa-twitter-square"></i> Twitter
           <% end %>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   </div>
   <!------------------------------------------------->
@@ -62,6 +60,7 @@
   <div class="user-container-right">
     <h4>Latest project:</h4>
     <%= render 'components/user_show_card_featured' %>
+
     <h5>Browse all projects (<%= @published_projects.count %>)</h5>
     <div class="user-cards">
       <%= render 'components/user_show_card' %>
