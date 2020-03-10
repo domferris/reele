@@ -12,8 +12,10 @@
 <!----------------------------------------->
 <!--------------- AUDIO EMBED ---------------->
 <!----------------------------------------->
+
     <div class="container">
-      <% if  @project.audio_url.include?('bandcamp')%>
+      <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
+      <% if @project.audio_url.include?('bandcamp')%>
         <%= @project.bandcamp_scrape(@project).html_safe %>
       <% elsif @project.audio_url.include?('soundcloud')%>
         <%= @project.soundcloud_scrape(@project).html_safe %>
@@ -26,19 +28,15 @@
   <% else %>
 <!--------------- IF AUDIO ---------------->
 <!----------------------------------------->
-    <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
-<!-- AUDIO PLAYER TO GO HERE 👇 -->
-    <div id="waveform" class="relative-banner" data-audio="http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3">
+    <div>
+      <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
+      <div id="waveform" class="wave-banner" data-audio=<%= @project.video_url%>>
+      </div>
+      <div class="wave-controls">
+       <i id="waveform-play" class="fas fa-play-circle"></i>
+       <i id="waveform-pause"class="fas fa-pause-circle"></i>
+      </div>
     </div>
-     <div class="wave-controls">
-      <i id="waveform-play" class="fas fa-play-circle"></i>
-      <i id="waveform-pause"class="fas fa-pause-circle"></i>
-    </div>
-<!-- AUDIO PLAYER TO GO HERE 👆 -->
-<!----------------------------------------->
-<!----------------------------------------->
-<!----------------------------------------->
-
   <% end %>
 
 </div>
@@ -126,13 +124,28 @@
               <h6>@<%= @project.user.username %></h6>
             <% end %>
           </div>
-          <%#=cl_image_tag @project.user.photo.key, class='avatar' %>
-          <button type="button" class="btn btn-dash">Message me</button>
+
+          <% if current_user %>
+            <%= simple_form_for Chatroom.new do |f| %>
+              <%= f.hidden_field :sender_id, value: current_user.id %>
+              <%= f.hidden_field :receiver_id, value: @project.user.id %>
+              <%= f.submit 'Message me', class: "btn btn-dash" %>
+            <% end %>
+          <% else %>
+            <%= link_to "Message me", new_user_session_path, class: "btn btn-dash" %>
+          <% end %>
         </div>
 
         <div class="project-data">
           <div class="project-data-section">
-            <i class="fas fa-tag"></i><p>#composition #music #hiphop #soundtrack #producing #shortfilm</p>
+            <% if @project.tags != nil %>
+              <i class="fas fa-tag"></i>
+              <p>
+                <% @project.tag_list.each do |tag| %>
+                #<%= tag %>
+                <% end %>
+              </p>
+            <% end %>
           </div>
           <div class="project-data-section">
             <i class="fas fa-heart"></i><p>0</p>
@@ -150,7 +163,7 @@
 <!---------------- MORE BY ---------------->
 <!----------------------------------------->
       <div class="more-by-user">
-        <h4>More by <%= @project.user.username %></h4>
+        <h4>More by @<%= @project.user.username %></h4>
         <div class="more-user-projects">
           <% @published_projects.each do |project| %>
             <%= link_to project_path(project) do %>
@@ -174,7 +187,11 @@
 <!----------------------------------------->
       <div class="browse-more">
         <h5>Browse more projects in</h5>
-        <h4><%= link_to "Composition", "#" %></h4>
+          <!-- DEAD LINK -->
+          <%= link_to "#" do %>
+            <h4><%= @project.category %></h4>
+          <% end %>
+          <!-- DEAD LINK -->
       </div>
     </div>
   </div>
@@ -182,11 +199,19 @@
 
 <script>
   document.addEventListener('turbolinks:load', () => {
-    if (localStorage['scroll']) {
+    const commentForm = document.getElementById('new_comment');
+    const scroll = '<%= params[:scroll].present? %>' === 'true';
+    if (scroll && localStorage['scroll']) {
       window.scroll({ top: localStorage['scroll'] })
     }
-    window.addEventListener('scroll', () => {
+    commentForm.addEventListener('submit', () => {
       localStorage['scroll'] = window.scrollY;
+    });
+
+    document.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        localStorage['scroll'] = 0;
+      });
     });
   });
 </script>

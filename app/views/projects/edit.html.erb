@@ -1,13 +1,11 @@
 <div class="container">
-  <h1>Edit a new project</h1>
   <div class="row justify-content-center">
-    <div class="col-lg-10">
-      <%= simple_form_for @project do |f| %>
-        <%= f.error_notification %>
-
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
+    <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6">
+      <div class="form-project-edit">
+        <h2 class="mt-4">Edit current project</h2>
+        <%= simple_form_for @project do |f| %>
+          <%= f.error_notification %>
+            <div class="form-inputs">
                <%= f.input :title,
                   label: false,
                   placeholder: 'Project name',
@@ -16,12 +14,15 @@
                   label: false,
                   as: :text,
                   placeholder: 'Tell us about your project...'  %>
-              <%= f.input :published, as: :radio_buttons %>
-              <%= f.button :submit, value: 'edit', class: 'btn-dash' %>
+              <%= f.label 'Add or update tags' %>
+              <%= f.input :tag_list,label: false, placeholder: 'music, video, beats, artist...' %>
+              <%= f.input :published, label: "Mark as published?", as: :radio_buttons %>
             </div>
-          </div>
-        </div>
-      <% end %>
+            <div class="form-actions d-flex justify-content-center">
+              <%= f.button :submit, value: 'edit', class: "btn btn-dark py-3 mt-2" %>
+            </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

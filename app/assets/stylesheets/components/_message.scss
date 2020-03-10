@@ -1,54 +1,57 @@
-.main-container {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.threads {
-  padding: 20px;
-  flex-basis: 14%;
-  height: 100%;
-}
-
-.channels {
-  overflow: scroll;
-  padding: 16px;
-  flex-basis: 260px;
-  flex-shrink: 0;
-}
-
-.feed {
+.message-feed {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
+  max-height: 100%;
 }
 
-.message-feed {
-  padding: 10px 20px;
-  background-color: white;
-}
-
-.feed-scroll {
-  max-height: 80vh;
+.messages-scroll {
+  max-height: 100%;
   overflow: scroll;
+  flex-grow: 1;
+  border-bottom: 1px solid lightgrey;
+
+  .message-header {
+    border-bottom: 1px solid lightgrey;
+    padding: 16px 12px;
+    background: white;
+    margin-bottom: 10px;
+
+    a {
+      color: black;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    img {
+      height: 120px;
+      width: 120px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 12px;
+    }
+
+    h4 {
+      margin-top: 10px;
+      margin-bottom: 0;
+      font-weight: bold;
+      font-size: 1.4em;
+    }
+
+    h5 {
+      margin-top: 6px;
+      font-size: 1.4em;
+    }
+
+    h6 {
+      margin: 0;
+    }
+  }
 }
 
-img {
-  vertical-align: middle;
-}
-.message-feed img {
-  height: 60px;
-  border-radius: 4px;
-  margin-right: 16px;
+.new-message > form {
+  padding: 12px;
 }
 
-.message-feed p.user-text  {
-  padding: 0;
-  margin: 0;
-}
-
-.message-feed p.username  {
-  padding-bottom: 5px;
-  margin: 0;
-
-}

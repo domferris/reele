@@ -1,30 +1,26 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0,0.9));">
+<div class="banner" id="home" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0,0.9));">
   <div class="container">
+    <a href="#test"></a>
     <h1>Discover the best talent in audio</h1>
     <p>Reele helps sound designers showcase their skills, find collaboration opportunities, and thrive in the industry.</p>
     <% if !user_signed_in? %>
-      <a class="btn btn-dash" href="#">Sign up</a>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-dash" %>
+      <!-- <a class="btn btn-dash" href="#">Sign up</a> -->
     <% end %>
   </div>
 </div>
 <div class="filter-bar">
-  <!-- <input class="mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
     <h5 class="m-0">Filter by category:</h5>
-    <%= link_to 'Mixing', root_path(query: 'Mixing') %>
-    <%= link_to 'Mastering', root_path(query: 'Mastering') %>
-    <%= link_to 'Audio Engineer', root_path(query: 'Audio Engineer') %>
-    <%= link_to 'Producer', root_path(query: 'Producer') %>
-    <%= link_to 'Sound Design', root_path(query: 'Sound Design') %>
-    <%= link_to 'Composition', root_path(query: 'Composition') %>
+    <%= link_to 'All', root_path, class: "#{params[:query].present? ?  '' : 'active'}", data: { turbolinks: false } %>
+    <%= link_to 'Mixing', root_path(query: 'Mixing'), class: current_class?('Mixing'), data: { turbolinks: false } %>
+    <%= link_to 'Mastering', root_path(query: 'Mastering'), class: current_class?('Mastering'), data: { turbolinks: false } %>
+    <%= link_to 'Audio Engineer', root_path(query: 'Audio Engineer'), class: current_class?('Audio Engineer'), data: { turbolinks: false } %>
+    <%= link_to 'Producer', root_path(query: 'Producer'), class: current_class?('Producer'), data: { turbolinks: false } %>
+    <%= link_to 'Sound Design', root_path(query: 'Sound Design'), class: current_class?('Sound Design'), data: { turbolinks: false } %>
+    <%= link_to 'Composition', root_path(query: 'Composition'), class: current_class?('Composition'), data: { turbolinks: false } %>
 </div>
 <div class="container mt-4 mb-4">
-  <div class="cards">
+  <div class="cards" id="test">
     <%= render 'components/card' %>
-    <!-- WE WILL NEED THIS TO ITERATE OVER PROJECTS -->
-    <%# @projects.each do |project| %>
-      <%#= render 'components/card', project: project %>
-    <%# end %>
   </div>
 </div>
-

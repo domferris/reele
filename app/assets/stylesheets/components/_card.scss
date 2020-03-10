@@ -342,3 +342,114 @@
     }
   }
 }
+
+////////////////////////////////////////////
+///////////////// CHATROOMS ////////////////
+////////////////////////////////////////////
+
+.chatroom-card {
+  display: flex;
+  background: white;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  padding: 10px 12px;
+  width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(245, 245, 245);
+  }
+
+  img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 16px;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .chatroom-content {
+    width: 100%;
+    flex-grow: 1;
+
+    .chatroom-data {
+      display: flex;
+      justify-content: space-between;
+
+      .username  {
+        padding-bottom: 5px;
+        margin: 0;
+        font-weight: bold;
+        color: black;
+      }
+    }
+  }
+
+  .sent-at {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}
+
+////////////////////////////////////////////
+///////////////// MESSAGES /////////////////
+////////////////////////////////////////////
+
+.message-card {
+  display: flex;
+  background: white;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  width: 100%;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 16px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .message-content {
+    width: 100%;
+    flex-grow: 1;
+
+    .message-data {
+      display: flex;
+      justify-content: space-between;
+
+      .username  {
+        padding-bottom: 5px;
+        margin: 0;
+        font-weight: bold;
+        color: black;
+      }
+    }
+
+  }
+
+  .sent-at {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}
