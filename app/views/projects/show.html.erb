@@ -203,11 +203,19 @@
 
 <script>
   document.addEventListener('turbolinks:load', () => {
-    if (localStorage['scroll']) {
+    const commentForm = document.getElementById('new_comment');
+    const scroll = '<%= params[:scroll].present? %>' === 'true';
+    if (scroll && localStorage['scroll']) {
       window.scroll({ top: localStorage['scroll'] })
     }
-    window.addEventListener('scroll', () => {
+    commentForm.addEventListener('submit', () => {
       localStorage['scroll'] = window.scrollY;
+    });
+
+    document.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        localStorage['scroll'] = 0;
+      });
     });
   });
 </script>
