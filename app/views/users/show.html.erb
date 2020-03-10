@@ -23,7 +23,9 @@
         <span class="user-location">los angeles</span>
       </p>
 
-      <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash' %>
+      <% if user_signed_in? %>
+        <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash' %>
+      <% end %>
       </div>
       <!-- END of column -->
   </div>
