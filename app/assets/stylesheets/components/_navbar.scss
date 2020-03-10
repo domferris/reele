@@ -1,12 +1,15 @@
 .navbar-lewagon {
-  // display: flex;
-
   justify-content: space-between;
-  background: white;
+  background: $black;
 
-   .navbar-brand {
+  .navbar-brand {
     display: flex;
     align-items: center;
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
 
     i {
       font-size: 1.4em;
@@ -17,6 +20,30 @@
       margin-bottom: 0;
       font-size: 1.7em;
       letter-spacing: 0.7px;
+    }
+  }
+
+  .nav-item > a.nav-link {
+    color: $white;
+
+    &:hover {
+      color: $light-gray;
+    }
+  }
+
+  .dropdown-menu {
+    padding: 0;
+    border: none;
+  }
+
+  .dropdown-menu > a.dropdown-item {
+    color: $white;
+    background: $black;
+    padding: 6px 0 6px 24px;
+
+    &:hover {
+      background: $white;
+      color: $black;
     }
   }
 
