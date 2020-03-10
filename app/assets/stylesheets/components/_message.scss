@@ -9,16 +9,16 @@
   max-height: 100%;
   overflow: scroll;
   flex-grow: 1;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid $gray;
 
   .message-header {
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid $gray;
     padding: 16px 12px;
-    background: white;
+    background: $white;
     margin-bottom: 10px;
 
     a {
-      color: black;
+      color: $black;
 
       &:hover {
         text-decoration: none;
