@@ -16,13 +16,13 @@
     <div class="container">
       <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
       <% if @project.audio_url.include?('bandcamp')%>
-        <%= @project.bandcamp_scrape(@project.audio_url).html_safe %>
+        <%= @project.bandcamp_scrape(@project).html_safe %>
       <% elsif @project.audio_url.include?('soundcloud')%>
-        <%= @project.soundcloud_scrape(@project.audio_url).html_safe %>
+        <%= @project.soundcloud_scrape(@project).html_safe %>
       <% elsif @project.audio_url.include?('spotify') %>
-        <%= @project.spotify_embed(@project.audio_url).html_safe %>
+        <%= @project.spotify_embed(@project).html_safe %>
       <% elsif @project.audio_url.include?('apple') %>
-        <%= @project.apple_embed(@project.audio_url).html_safe %>
+        <%= @project.apple_embed(@project).html_safe %>
       <% end %>
     </div>
   <% else %>
