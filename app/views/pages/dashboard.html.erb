@@ -46,7 +46,7 @@
             <% if @user.projects.present? %>
               <div class="dash-card">
                 <div class="dash-card-section no-bg">
-                  <p><strong>Title</strong></p>
+                  <p class="align-self-start"><strong>Title</strong></p>
                 </div>
                 <div class="dash-card-section">
                   <p><strong>Description</strong></p>
@@ -60,7 +60,7 @@
                 <div class="dash-card-section">
                   <p><strong>Uploaded on</strong></p>
                 </div>
-                <div class="dash-card-section">
+                <div class="dash-card-section pl-4">
                   <p><strong>Controls</strong></p>
                 </div>
               </div>
@@ -104,7 +104,7 @@
                     <p><%= project.created_at.strftime("%d/%m/%Y at %I:%M %p") %></p>
                   </div>
 
-                  <div class="dash-card-section align-self-end">
+                  <div class="dash-card-section d-flex justify-content-center">
                       <%= link_to edit_project_path(project), class: "button postfix" do %>
                           <i class="fas fa-share btn-dash-sm share"></i>
                       <% end %>
