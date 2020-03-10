@@ -11,8 +11,7 @@
 
               <%#= f.label 'upload an audio file' %>
               <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
-              <%= cl_upload_tag(:video_id, resource_type: :video,
-                                :html => {:id => "tag"}) %>
+              <%= cl_upload_tag(:video_id, resource_type: :video) %>
               <%= f.label 'Embed from Bandcamp' %>
               <%= f.input :audio_url, label: false, placeholder: 'Paste Bandcamp URL' %>
               <%= f.label 'or add a video' %>

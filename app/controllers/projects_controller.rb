@@ -20,10 +20,8 @@ class ProjectsController < ApplicationController
     #@tag_list = Progect.tag_list.split
     @project = Project.new(project_params)
     @project.user = current_user
-    # video.strip = params[:file]
-    Cloudinary::Uploader.upload(params[:file], {:resource_type => "video"})
-    @project.video_url = params[:video_id]
-    raise
+    obj = Cloudinary::Uploader.upload(params[:file], {:resource_type => "video"})
+    @project.video_url = obj['secure_url']
     if @project.save
       redirect_to dashboard_path
     else
