@@ -10,11 +10,12 @@
                 <div class="col">
                   <%= f.input :title,
                       label: "Title",
-                      autofocus: true %>
+                      autofocus: true,
+                      placeholder: "New track" %>
                 </div>
 
                 <div class="col">
-                  <%= f.label 'Add some tags' %>
+                  <%= f.label 'Add tags' %>
                   <%= f.input :tag_list,label: false, placeholder: 'A/V, Mixdown, MPC-2000...' %>
                 </div>
 
@@ -30,30 +31,28 @@
 
               <div class="form-row mt-2">
                 <div class="col">
+                  <%= f.input :media_type, collection: Project::MEDIA_TYPE,
+                               label: "Audio or video project?", prompt: 'Select media type' %>
+                </div>
+                <div class="col ml-4">
                   <%= f.input :published, as: :radio_buttons, label: "Mark as published?" %>
                 </div>
 
-                <div class="col">
-                  <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE,
-                               label: false, prompt: 'Select media type' %>
-                </div>
               </div>
 
 
               </div>
-              <h2 class="text-dark mt-4">Upload/embed file</h2>
+              <h2 class="text-dark pt-2 mt-4 mb-4">Upload/embed file</h2>
 
-              <%#= f.label 'upload an audio file' %>
-              <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
               <%= cl_upload_tag(:video_id, resource_type: :video) %>
               <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
-              <%= f.label 'Embed from Bandcamp, Soundcloud, Spotify, or Apple Music' %>
-              <%= f.input :audio_url, label: false, placeholder: 'Paste URL here...' %>
+              <%= f.label 'embed from Bandcamp, Soundcloud, Spotify, or Apple Music', class: "mt-3" %>
+              <%= f.input :audio_url, label: false, placeholder: 'Paste Bandcamp URL here...', class: "mt-3" %>
               <%= f.label 'Or add a video from Vimeo' %>
-              <%= f.input :video_url, label: false, placeholder: 'Vimeo URL' %>
+              <%= f.input :video_url, label: false, placeholder: 'Paste Vimeo URL', class: "mt-3" %>
 
               <div class="d-flex justify-content-center">
-                <%= f.button :submit, value: 'add project', class: 'btn btn btn-dark py-3 mt-2 ' %>
+                <%= f.button :submit, value: 'Add project', class: 'btn btn btn-dark py-3 mt-3 ' %>
               </div>
             <% end %>
             </div>
