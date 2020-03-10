@@ -3,7 +3,8 @@
     <h1>Discover the best talent in audio</h1>
     <p>Reele helps sound designers showcase their skills, find collaboration opportunities, and thrive in the industry.</p>
     <% if !user_signed_in? %>
-      <a class="btn btn-dash" href="#">Sign up</a>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-dash" %>
+      <!-- <a class="btn btn-dash" href="#">Sign up</a> -->
     <% end %>
   </div>
 </div>
