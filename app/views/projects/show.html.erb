@@ -129,12 +129,15 @@
             <% end %>
           </div>
 
-          <%= simple_form_for Chatroom.new do |f| %>
-            <%= f.hidden_field :sender_id, value: current_user.id %>
-            <%= f.hidden_field :receiver_id, value: @project.user.id %>
-            <%= f.submit 'Message me', class: "btn btn-dash" %>
+          <% if current_user %>
+            <%= simple_form_for Chatroom.new do |f| %>
+              <%= f.hidden_field :sender_id, value: current_user.id %>
+              <%= f.hidden_field :receiver_id, value: @project.user.id %>
+              <%= f.submit 'Message me', class: "btn btn-dash" %>
+            <% end %>
+          <% else %>
+            <%= link_to "Message me", new_user_session_path, class: "btn btn-dash" %>
           <% end %>
-
         </div>
 
         <div class="project-data">
