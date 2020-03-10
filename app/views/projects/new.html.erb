@@ -4,18 +4,19 @@
       <div class="form-new-proj">
         <%= simple_form_for @project, html: {multipart: true} do |f| %>
           <%= f.error_notification %>
-            <h2 class="text-dark mt-4">Details</h2>
+            <h2 class="text-dark mt-4">Project details</h2>
             <div class="form-inputs">
               <div class="form-row mt-2">
                 <div class="col">
                   <%= f.input :title,
                       label: "Title",
-                      autofocus: true %>
+                      autofocus: true,
+                      placeholder: "New track" %>
                 </div>
 
                 <div class="col">
                   <%= f.label 'Add tags to your project' %>
-                  <%= f.input :tag_list,label: false, placeholder: 'A/V, Mixdown, MPC-2000...' %>
+                  <%= f.input :tag_list,label: false, placeholder: 'A/V, mixdown, MPC-2000...' %>
                 </div>
               </div>
 
@@ -31,8 +32,8 @@
               </div>
 
             </div>
-          <h2 class="text-dark mt-4">Upload/embed file</h2>
-          <%= f.label 'Upload an audio file' %>
+          <h2 class="text-dark mt-5 mb-3">Upload/embed file</h2>
+          <%= f.label 'Upload an audio file'%>
           <div class="mb-3">
             <%= cl_upload_tag(:video_id, resource_type: :video)%>
           </div>
