@@ -282,64 +282,78 @@
 ///////////////// USER SHOW ////////////////
 ////////////////////////////////////////////
 
-.user-featured-project-card {
+.featured-user-show-card {
+  border-radius: 4px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 10% 16px;
+  position: relative;
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
 
-  .user-featured-project-card-content {
-    height: 370px;
-    background: white;
-    border-radius: 6px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-
-    .project-image {
-      object-fit: cover;
-      padding: 12px 12px 0 12px;
-      width: 100%;
-      height: 346px;
-    }
-
-    .project-featured-image {
-      height: 360px;
-    }
-
-    .user-featured-project-card-info {
-      font-size: 12px;
-      width: 100%;
-      padding: 6px 12px;
-      display: flex;
-      justify-content: flex-end;
-
-      .fas:not(:last-of-type) {
-        margin-right: 12px;
-      }
-
-      .fas {
-        color: #757575;
-      }
-
-      .fa-heart:before, .fa-eye:before, .fa-comment:before {
-        position: relative;
-        left: -2px;
-        font-size: 11px;
-      }
-    }
+  &:hover {
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
   }
 
-  .user-featured-project-card-user {
-    margin: 8px 12px;
-    display: flex;
-    align-items: center;
+  .featured-user-show-photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 4px;
+  }
 
-    .project-avatar {
-      border-radius: 50%;
-      border: 1px solid black;
-      height: 16px;
-      width: 16px;
-    }
+  .title {
+    font-size: 1.2em;
+  }
 
-    > span {
-      font-size: 12px;
-      margin: 6px;
-    }
+  p {
+    margin: 0;
+    color: white;
+  }
+}
+
+
+.user-show-card {
+  border-radius: 4px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  // margin: 6px 0;
+  position: relative;
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+
+  &:hover {
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  }
+
+  .user-show-photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 4px;
+  }
+
+  .title {
+    font-size: 1.2em;
+  }
+
+  p {
+    margin: 0;
+    color: white;
   }
 }
 
@@ -444,7 +458,6 @@
         color: black;
       }
     }
-
   }
 
   .sent-at {
