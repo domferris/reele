@@ -40,14 +40,14 @@ document.addEventListener('turbolinks:load', () => {
       container: audioDiv,
       mediaControls: true,
       waveColor: '#BBE1FA',
-      backgroundColor: "rgba(15, 76, 117, 0.7)",
+      // backgroundColor: "rgba(15, 76, 117, 0.7)",
       progressColor: '#3282B8',
       cursorColor: '#3282B8',
-      autocenter: true,
+      hideScrollbar: true,
       barWidth: 7,
       barRadius: 2,
       cursorWidth: 1,
-      height: 140,
+      height: 150,
       barGap: 2
     })
     waveform.load(audioDiv.dataset.audio);

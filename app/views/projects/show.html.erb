@@ -28,17 +28,22 @@
   <% else %>
 <!--------------- IF AUDIO ---------------->
 <!----------------------------------------->
-    <div>
-      <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
-      <div id="waveform" class="wave-banner" data-audio=<%= @project.video_url%>>
+    <div class="wave-container">
+      <div class="wave-section">
+        <div class="wave-info-top">
+          <h1><%= @project.title %></h1>
+          <!-- <p>By <%= @project.user.username %></p> -->
+          <div class="wave-controls">
+           <i id="waveform-play" class="fas fa-play-circle"></i>
+<!--            <i id="waveform-pause"class="fas fa-pause-circle"></i>
+ -->          </div>
+        </div>
+        <div id="waveform" data-audio=<%= @project.video_url%>>
+        </div>
       </div>
-      <div class="wave-controls">
-       <i id="waveform-play" class="fas fa-play-circle"></i>
-       <i id="waveform-pause"class="fas fa-pause-circle"></i>
-      </div>
+      <%= image_tag(@project.photo, class:"wave-image") %>
     </div>
   <% end %>
-
 </div>
 
 <!------------------------------------------------->
@@ -49,16 +54,17 @@
 
 <div class="container">
   <div class="content-container">
-    <div class="project-container-left">
+    <div class="project-container-left m-0">
 <!----------------------------------------->
 <!------------ PROJ INFO LEFT ------------->
 <!----------------------------------------->
+        <div class="d-flex justify-content-between">
+          <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-dash share' %></p>
+          <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-dash edit' if @project.user == current_user %></p>
+        </div>
       <div class="project-description">
-        <h1><%= @project.title %></h1>
         <h4>Category: <%= @project.category %></h4>
         <p class='description'><%= @project.description %></p>
-        <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-dash share' %></p>
-        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-dash edit' if @project.user == current_user %></p>
       </div>
 <!----------------------------------------->
 <!--------------- COMMENTS ---------------->
@@ -213,5 +219,16 @@
         localStorage['scroll'] = 0;
       });
     });
+  });
+</script>
+<script>
+  clickPlay = document.querySelector('#waveform-play');
+  clickPlay.addEventListener("click", (event) => {
+    clickPlay.classList.toggle('click');
+    setTimeout(function() {
+      clickPlay.classList.toggle('click');
+    }, 200)
+    clickPlay.classList.remove('fa-play-circle')
+    clickPlay.classList.toggle('fa-pause-circle');
   });
 </script>

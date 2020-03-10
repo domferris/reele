@@ -2,15 +2,11 @@
   text-align: center;
   position: relative;
 
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    height: 50%;
-    width: 100%;
-    object-fit: cover;
-  }
+  background: #000428;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 10px;
+
 
   iframe {
     margin-top: 50px;
@@ -35,7 +31,7 @@
 
 .project-description{
   position: relative;
-  padding-bottom: 60px;
+  // padding-bottom: 20px;
 
   h1 {
     font-size: 3em;
@@ -163,4 +159,6 @@
     }
   }
 }
+
+
 
