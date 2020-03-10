@@ -17,6 +17,12 @@
   }
 }
 
+.project-container{
+  display: flex;
+  margin-top: 40px;
+  width: 100%;
+  justify-content: space-between;
+}
 
 .project-container-left {
   width: 60%;
@@ -24,13 +30,6 @@
 
 .project-container-right {
   width: 33%;
-}
-
-.content-container{
-  display: flex;
-  margin-top: 40px;
-  width: 100%;
-  justify-content: space-between;
 }
 
 .project-description{
