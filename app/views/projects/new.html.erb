@@ -24,6 +24,9 @@
                          label: false, prompt: 'Select media type' %>
             <%#= f.label 'Upload an audio file' %>
           </div>
+          <%#= f.label 'upload an audio file' %>
+          <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
+          <%= cl_upload_tag(:video_id, resource_type: :video) %>
           <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
           <%= f.label 'Embed from Bandcamp, Soundcloud, Spotify, or Apple Music' %>
           <%= f.input :audio_url, label: false, placeholder: 'Paste URL here...' %>
@@ -34,11 +37,8 @@
           <%= f.input :published, as: :radio_buttons, label: "Publish?" %>
           <div class="d-flex justify-content-center">
             <%= f.button :submit, value: 'add project', class: 'btn btn btn-dark py-3 mt-2 ' %>
-
           </div>
-
         <% end %>
-
       </div>
     </div>
   </div>

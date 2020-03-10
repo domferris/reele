@@ -19,6 +19,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
+    obj = Cloudinary::Uploader.upload(params[:file], {:resource_type => "video"})
+    @project.video_url = obj['secure_url']
     if @project.save
       redirect_to dashboard_path
     else
@@ -42,7 +44,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :media_type, :published, :audio_file, :video_url, :audio_url, :tag_list)
+    params.require(:project).permit(:title, :description, :media_type, :published, :audio_file, :video_url, :audio_url, :tag_list, :video_id, :file)
   end
 
   def find_project
