@@ -33,7 +33,8 @@
     border-bottom: 1px solid $gray;
 
     h1 {
-      margin: 0;
+      margin: 10px 0 0 0;
+      text-align: center;
     }
 
     h2 {
@@ -86,7 +87,7 @@
         font-size: 1.3em;
 
         &:hover {
-          color: $dark-gray;
+          color: $darker-gray;
           text-decoration: none;
         }
       }

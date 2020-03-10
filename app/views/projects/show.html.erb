@@ -57,18 +57,18 @@
         <h1><%= @project.title %></h1>
         <h4>Category: <%= @project.category %></h4>
         <p class='description'><%= @project.description %></p>
-        <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-dash share' %></p>
-        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-dash edit' if @project.user == current_user %></p>
+        <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-box-dark share' %></p>
+        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-box-dark edit' if @project.user == current_user %></p>
       </div>
 <!----------------------------------------->
 <!--------------- COMMENTS ---------------->
 <!----------------------------------------->
       <div class="feed justify-content-between project-comments">
         <div>
-          <div class="container p-3">
-            <nav class="d-flex border-bottom">
+          <div class="comments-header">
+
               <h4>Comments</h4>
-            </nav>
+
           </div>
 
           <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
@@ -129,7 +129,7 @@
             <%= simple_form_for Chatroom.new do |f| %>
               <%= f.hidden_field :sender_id, value: current_user.id %>
               <%= f.hidden_field :receiver_id, value: @project.user.id %>
-              <%= f.submit 'Message me', class: "btn btn-dash" %>
+              <%= f.submit 'Message me', class: "btn btn-box-dark" %>
             <% end %>
           <% else %>
             <%= link_to "Message me", new_user_session_path, class: "btn btn-dash" %>
