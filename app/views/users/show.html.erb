@@ -6,12 +6,17 @@
   <!------------------------------------------------->
   <div class="user-container-left">
     <div class="user-info">
-      <div class="user-details">
+      <div class="user-header">
         <%= cl_image_tag @user.photo.key, gravity: :faces, crop: :fill, class: "avatar-user-show" if @user.photo.attached? %>
         <h1><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %></h1>
         <h2>@<%= @user.username %></h2>
+        <h5 class="user-location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</h5>
+        <% if @user == current_user %>
+          <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash btn-100w' %>
+        <% end %>
+      </div>
+      <div class="user-details">
         <h5 class="user-specialty">Specialty: <%= @user.specialty %></h5>
-        <h5 class="user-location">Los Angeles, CA</h5>
         <p class="user-bio"><%= @user.bio %></p>
 
         <div class="user-connect-buttons">
@@ -20,11 +25,33 @@
         </div>
       </div>
 
-
-
-      <% if user_signed_in? %>
-        <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash' %>
-      <% end %>
+      <ul class="find-me">
+        <li>
+          <%= link_to "#" do %>
+          <i class="fab fa-linkedin"></i> LinkedIn
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+          <i class="fab fa-spotify"></i> Spotify
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+          <i class="fab fa-soundcloud"></i> SoundCloud
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+          <i class="fab fa-instagram"></i> Instagram
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+          <i class="fab fa-twitter-square"></i> Twitter
+          <% end %>
+        </li>
+      </ul>
     </div>
   </div>
   <!------------------------------------------------->
