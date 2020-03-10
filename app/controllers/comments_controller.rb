@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment.project = @project
     @comment.user = current_user
     if @comment.save
-      redirect_to project_path(@project)
+      redirect_to project_path(@project, scroll: true)
     else
       render 'projects/show'
     end
