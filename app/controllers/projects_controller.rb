@@ -17,7 +17,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    #@tag_list = Progect.tag_list.split
     @project = Project.new(project_params)
     @project.user = current_user
     if @project.save
