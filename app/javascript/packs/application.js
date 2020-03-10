@@ -27,39 +27,43 @@ import WaveSurfer from "wavesurfer.js";
 
 // IMPORT SORTABLE FUNCTION
 import { initSortable } from '../components/sortable';
+import { scrollHome } from '../components/init_scroll_home';
 
-const audioDiv = document.querySelector('#waveform')
-if (audioDiv) {
-  const waveform = WaveSurfer.create({
-    container: audioDiv,
-    mediaControls: true,
-    waveColor: '#D9DCFF',
-    progressColor: '#4353FF',
-    cursorColor: '#4353FF',
-    barWidth: 4,
-    barRadius: 2,
-    cursorWidth: 1,
-    height: 150,
-    barGap: 2
-  })
-  waveform.load(audioDiv.dataset.audio);
-  document.querySelector('#waveform-play').addEventListener('click', () => {
-    waveform.play();
-  });
-  document.querySelector('#waveform-pause').addEventListener('click', () => {
-    waveform.pause()
-  })
-}
-
-$('.carousel').carousel({
-  interval: false
-})
 
 // CALL SORTABLE FUNCTION
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
+  const audioDiv = document.querySelector('#waveform')
+  if (audioDiv) {
+    const waveform = WaveSurfer.create({
+      container: audioDiv,
+      mediaControls: true,
+      waveColor: '#D9DCFF',
+      progressColor: '#4353FF',
+      cursorColor: '#4353FF',
+      barWidth: 4,
+      barRadius: 2,
+      cursorWidth: 1,
+      height: 150,
+      barGap: 2
+    })
+    waveform.load(audioDiv.dataset.audio);
+    document.querySelector('#waveform-play').addEventListener('click', () => {
+      waveform.play();
+    });
+    document.querySelector('#waveform-pause').addEventListener('click', () => {
+      waveform.pause()
+    })
+  }
+
+  $('.carousel').carousel({
+    interval: false
+  });
+
   initSortable();
+
+  scrollHome();
 });
 
