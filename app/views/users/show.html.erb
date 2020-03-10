@@ -17,7 +17,9 @@
       </div>
 
       <div class="user-details">
-        <h5 class="user-specialty">Specialty: <%= @user.specialty %></h5>
+        <% if @user.specialty %>
+          <h5 class="user-specialty">Specialty: <%= @user.specialty %></h5>
+        <% end %>
         <p class="user-bio"><%= @user.bio %></p>
 
         <div class="user-connect-buttons">
@@ -58,12 +60,16 @@
   <!------------------------------------------------->
   <!------------------------------------------------->
   <div class="user-container-right">
-    <h4>Latest project:</h4>
-    <%= render 'components/user_show_card_featured' %>
+      <% if @user.projects.present? %>
+        <h4>Latest project:</h4>
+      <% end %>
+      <%= render 'components/user_show_card_featured' %>
 
-    <h5>Browse all projects (<%= @published_projects.count %>)</h5>
-    <div class="user-cards">
-      <%= render 'components/user_show_card' %>
-    </div>
+      <% if @user.projects.present? %>
+        <h5>Browse all projects (<%= @published_projects.count %>)</h5>
+        <div class="user-cards">
+          <%= render 'components/user_show_card' %>
+        </div>
+      <% end %>
   </div>
 </div>
