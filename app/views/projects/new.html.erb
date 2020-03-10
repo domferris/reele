@@ -11,14 +11,16 @@
                   <%= f.input :title,
                       label: "Title",
                       autofocus: true %>
-                  <%= f.input :description,
-                      label: "Describe your project - Features, Details, and more",
-                      as: :text,
-                      placeholder: 'Tell us about your project...'  %>
+                </div>
+
+                <div class="col">
+                  <%= f.label 'Add tags to your project (separated by commas)' %>
+                  <%= f.input :tag_list,label: false, placeholder: 'A/V, Mixdown, MPC-2000...' %>
                 </div>
               </div>
+
             </div>
-          <h2 class="text-dark mt-2">Upload</h2>
+          <h2 class="text-dark mt-2">Upload/embed file</h2>
           <div class="col">
             <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE,
                          label: false, prompt: 'Select media type' %>
@@ -31,8 +33,6 @@
           <%= f.input :audio_url, label: false, placeholder: 'Paste URL here...' %>
           <%= f.label 'Or add a video from Vimeo' %>
           <%= f.input :video_url, label: false, placeholder: 'Vimeo URL' %>
-          <%= f.label 'Add some tags (separated by commas)' %>
-          <%= f.input :tag_list,label: false, placeholder: 'A/V, Mixdown, MPC-2000...' %>
           <%= f.input :published, as: :radio_buttons, label: "Publish?" %>
           <div class="d-flex justify-content-center">
             <%= f.button :submit, value: 'add project', class: 'btn btn btn-dark py-3 mt-2 ' %>
