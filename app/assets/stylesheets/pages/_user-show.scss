@@ -1,0 +1,20 @@
+.user-container {
+  display: flex;
+  margin: 50px;
+  border: 1px solid blue;
+  justify-content: space-between;
+}
+
+.user-container-left {
+  border: 1px solid red;
+  width: 33%;
+}
+
+.user-container-right {
+  border: 1px solid green;
+  width: 50%;
+}
+
+.user-info {
+
+}
