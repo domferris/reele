@@ -10,7 +10,7 @@
 
 .user-container-right {
   padding-bottom: 16px;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid $gray;
   width: 60%;
 
   h4 {
@@ -30,7 +30,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0 32px 20px 32px;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid $gray;
 
     h1 {
       margin: 0;
@@ -48,7 +48,7 @@
   .user-details {
     margin-top: 20px;
     padding: 0 32px 20px 32px;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid $gray;
 
     p {
       margin-top: 20px;
@@ -68,7 +68,7 @@
   // .user-stats {
   //   margin-top: 20px;
   //   padding: 0 32px 20px 32px;
-  //   border-bottom: 1px solid lightgrey;
+  //   border-bottom: 1px solid $gray;
   //   border: 1px solid red;
   // }
 
@@ -79,15 +79,14 @@
     .find-me-section {
       display: flex;
       align-items: center;
-      color: darkgrey;
       padding-bottom: 10px;
 
       a {
-        color: grey;
+        color: $dark-gray;
         font-size: 1.3em;
 
         &:hover {
-          color: black;
+          color: $dark-gray;
           text-decoration: none;
         }
       }
@@ -107,7 +106,7 @@
   overflow: scroll;
   margin-top: 16px;
   padding: 16px 8px 0 8px;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid $gray;
 
   a {
     color: black;

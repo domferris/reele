@@ -52,7 +52,36 @@
   width: 100%;
 }
 
-.btn-box {
+.btn-box-dark {
+  color: $light-gray;
+  background: $darker-gray;
+  // border: 1px solid $white;
+  padding: 8px 24px;
+  border-radius: 2px;
+  transition: background 0.1s ease;
+
+  &:hover {
+    color: $darker-gray;
+    background: $white;
+    text-decoration: none;
+  }
+}
+
+.btn-box-outline-dark {
+  color: $black;
+  border: 1px solid $black;
+  padding: 8px 24px;
+  border-radius: 2px;
+  transition: background 0.1s ease;
+
+  &:hover {
+    color: $white;
+    background: $black;
+    text-decoration: none;
+  }
+}
+
+.btn-box-outline-light {
   color: $white;
   border: 1px solid $white;
   padding: 8px 24px;
@@ -60,40 +89,11 @@
   transition: background 0.1s ease;
 
   &:hover {
-    // background: $gray;
     color: $black;
     background: $white;
     text-decoration: none;
   }
 }
-
-
-
-
-
-
-
-
-
-
-.btn-filter {
-  color: $white;
-  border-right: 1px solid $white;
-  border-left: 1px solid $white;
-  padding: 8px 24px;
-  border-radius: 2px;
-  transition: background 0.1s ease;
-
-  &:hover {
-    // background: $gray;
-    color: $black;
-    background: $white;
-    text-decoration: none;
-  }
-}
-
-
-
 
 ////////////////////////////////////////////
 ///////////////// DASHBOARD ////////////////
