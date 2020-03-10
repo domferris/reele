@@ -22,17 +22,16 @@
           <div class="col">
             <%= f.input :media_type, as: :radio_buttons, collection: Project::MEDIA_TYPE,
                          label: false, prompt: 'Select media type' %>
-            <%#= f.label 'Upload an audio file' %>
           </div>
-          <%#= f.label 'upload an audio file' %>
-          <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
-          <%= cl_upload_tag(:video_id, resource_type: :video) %>
-          <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
+          <%= f.label 'Upload an audio file' %>
+          <div class="mb-3">
+            <%= cl_upload_tag(:video_id, resource_type: :video)%>
+          </div>
           <%= f.label 'Embed from Bandcamp, Soundcloud, Spotify, or Apple Music' %>
           <%= f.input :audio_url, label: false, placeholder: 'Paste URL here...' %>
           <%= f.label 'Or add a video from Vimeo' %>
           <%= f.input :video_url, label: false, placeholder: 'Vimeo URL' %>
-          <%= f.label 'Add some tags' %>
+          <%= f.label 'Add some tags (separated by commas)' %>
           <%= f.input :tag_list,label: false, placeholder: 'A/V, Mixdown, MPC-2000...' %>
           <%= f.input :published, as: :radio_buttons, label: "Publish?" %>
           <div class="d-flex justify-content-center">
