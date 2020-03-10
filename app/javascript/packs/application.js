@@ -51,12 +51,26 @@ document.addEventListener('turbolinks:load', () => {
       barGap: 2
     })
     waveform.load(audioDiv.dataset.audio);
-    document.querySelector('#waveform-play').addEventListener('click', () => {
+    clickPlay = document.querySelector('#waveform-play')
+    clickPlay.addEventListener('click', () => {
       waveform.play();
     });
-    document.querySelector('#waveform-pause').addEventListener('click', () => {
-      waveform.pause()
+
+    document.querySelector('.fa-pause-circle').addEventListener('click', () => {
+      waveform.pause();
     })
+
+  // clickPlay = document.querySelector('#waveform-play');
+  // clickPlay.addEventListener("click", (event) => {
+  //   clickPlay.classList.toggle('fa-play-circle');
+  //   clickPlay.classList.toggle('click');
+  //   setTimeout(function() {
+  //     clickPlay.classList.toggle('click');
+  //   }, 200)
+  //   clickPlay.classList.toggle('fa-pause-circle');
+  // });
+
+
   }
 
   $('.carousel').carousel({

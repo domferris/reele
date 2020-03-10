@@ -1,13 +1,11 @@
 .project-media {
   text-align: center;
   position: relative;
-
-  background: #000428;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  padding: 10px;
-
-
+  background: #FF416C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 300px;
+  display: flex;
   iframe {
     margin-top: 50px;
   }
@@ -24,13 +22,13 @@
 
 .content-container{
   display: flex;
-  margin-top: 40px;
+  margin-top: 30px;
   width: 100%;
   justify-content: space-between;
 }
 
 .project-description{
-  position: relative;
+  // position: relative;
   // padding-bottom: 20px;
 
   h1 {
@@ -44,15 +42,18 @@
   }
 
   .share {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    align-self: center;
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
   }
 
   .edit {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    padding: 0;
+    align-self: center;
+    // position: absolute;
+    // bottom: 0;
+    // right: 0;
   }
 }
 
@@ -75,6 +76,7 @@
   .username-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-bottom: 10px;
 
     i {
@@ -94,15 +96,18 @@
 }
 
 .project-data {
-  margin-top: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid lightgrey;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  // margin-top: 20px;
+
+  // border-bottom: 1px solid lightgrey;
 
   .project-data-section {
     display: flex;
     align-items: center;
     color: darkgrey;
-    padding-bottom: 10px;
+    padding: 10px;
 
     i {
       font-size: 1.2em;
@@ -112,6 +117,7 @@
     p {
       font-size: 1.1em;
       margin: 0;
+      margin-top: 0;
     }
   }
 }
@@ -135,7 +141,7 @@
 }
 
 .browse-more {
-  margin-top: 20px;
+  // margin-top: 20px;
   color: darkgrey;
 
   a {

@@ -31,12 +31,16 @@
     <div class="wave-container">
       <div class="wave-section">
         <div class="wave-info-top">
-          <h1><%= @project.title %></h1>
-          <!-- <p>By <%= @project.user.username %></p> -->
+          <div class="text-left">
+            <h1><%= @project.title %></h1>
+            <h4>Category: <%= @project.category %></h4>
+            <!-- <p>By <%= @project.user.username %></p> -->
+
+          </div>
           <div class="wave-controls">
            <i id="waveform-play" class="fas fa-play-circle"></i>
 <!--            <i id="waveform-pause"class="fas fa-pause-circle"></i>
- -->          </div>
+ -->      </div>
         </div>
         <div id="waveform" data-audio=<%= @project.video_url%>>
         </div>
@@ -58,12 +62,31 @@
 <!----------------------------------------->
 <!------------ PROJ INFO LEFT ------------->
 <!----------------------------------------->
-        <div class="d-flex justify-content-between">
-          <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-dash share' %></p>
-          <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-dash edit' if @project.user == current_user %></p>
+
+      <div class="project-data">
+        <div class=" project-data-section">
+          <% if @project.tags != nil %>
+            <i class="fas fa-tag"></i>
+            <p>
+              <% @project.tag_list.each do |tag| %>
+              #<%= tag %>
+              <% end %>
+            </p>
+          <% end %>
         </div>
+        <div class="project-data-section">
+          <i class="fas fa-heart"></i><p>120</p>
+        </div>
+        <div class="project-data-section">
+          <i class="fas fa-eye"></i><p>449</p>
+        </div>
+        <div class="project-data-section">
+          <i class="fas fa-comment"></i><p><%= @project.comments.count %></p>
+        </div>
+        <p ><%= link_to "Share", edit_project_path(@project), class: 'btn btn-dash share' %></p>
+        <p><%= link_to "Edit", edit_project_path(@project), class: 'btn btn-dash edit' if @project.user == current_user %></p>
+      </div>
       <div class="project-description">
-        <h4>Category: <%= @project.category %></h4>
         <p class='description'><%= @project.description %></p>
       </div>
 <!----------------------------------------->
@@ -142,16 +165,16 @@
           <% end %>
         </div>
 
-        <div class="project-data">
+<!--         <div class="project-data">
           <div class="project-data-section">
-            <% if @project.tags != nil %>
+            <%# if @project.tags != nil %>
               <i class="fas fa-tag"></i>
               <p>
-                <% @project.tag_list.each do |tag| %>
-                #<%= tag %>
-                <% end %>
+                <%# @project.tag_list.each do |tag| %>
+                #<%#= tag %>
+                <%# end %>
               </p>
-            <% end %>
+            <%# end %>
           </div>
           <div class="project-data-section">
             <i class="fas fa-heart"></i><p>0</p>
@@ -160,10 +183,10 @@
             <i class="fas fa-eye"></i><p>0</p>
           </div>
           <div class="project-data-section">
-            <i class="fas fa-comment"></i><p><%= @project.comments.count %></p>
+            <i class="fas fa-comment"></i><p><%#= @project.comments.count %></p>
           </div>
         </div>
-      </div>
+      </div> -->
 
 <!----------------------------------------->
 <!---------------- MORE BY ---------------->
@@ -221,14 +244,15 @@
     });
   });
 </script>
-<script>
+<!-- <script>
   clickPlay = document.querySelector('#waveform-play');
   clickPlay.addEventListener("click", (event) => {
     clickPlay.classList.toggle('click');
+    event.currentTarget.classList.toggle('click');
     setTimeout(function() {
       clickPlay.classList.toggle('click');
-    }, 200)
-    clickPlay.classList.remove('fa-play-circle')
-    clickPlay.classList.toggle('fa-pause-circle');
+    }, 300);
+    clickPlay.classList.toggle('fa-play-circle')
+    clickPlay.classList.toggle()
   });
-</script>
+</script> -->
