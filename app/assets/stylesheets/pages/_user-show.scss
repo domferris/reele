@@ -1,0 +1,154 @@
+.user-container {
+  display: flex;
+  margin: 50px;
+  justify-content: space-between;
+}
+
+.user-container-left {
+  width: 33%;
+}
+
+.user-container-right {
+  padding-bottom: 16px;
+  border-bottom: 1px solid lightgrey;
+  width: 60%;
+
+  h4 {
+    margin-left: 10%;
+  }
+
+  h5 {
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 0;
+  }
+}
+
+.user-info {
+  .user-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 32px 20px 32px;
+    border-bottom: 1px solid lightgrey;
+
+    h1 {
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+    }
+
+    a {
+      margin-top: 16px;
+    }
+  }
+
+  .user-details {
+    margin-top: 20px;
+    padding: 0 32px 20px 32px;
+    border-bottom: 1px solid lightgrey;
+
+    p {
+      margin-top: 20px;
+    }
+
+    .user-connect-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        width: 47%
+      }
+    }
+  }
+
+  // .user-stats {
+  //   margin-top: 20px;
+  //   padding: 0 32px 20px 32px;
+  //   border-bottom: 1px solid lightgrey;
+  //   border: 1px solid red;
+  // }
+
+  .find-me {
+    margin-top: 20px;
+    padding: 0 32px;
+
+    .find-me-section {
+      display: flex;
+      align-items: center;
+      color: darkgrey;
+      padding-bottom: 10px;
+
+      a {
+        color: grey;
+        font-size: 1.3em;
+
+        &:hover {
+          color: black;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+////////////////////////////////////////////
+////////////// USER SHOW CARDS /////////////
+////////////////////////////////////////////
+
+.user-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  max-height: 900px;
+  overflow: scroll;
+  margin-top: 16px;
+  padding: 16px 8px 0 8px;
+  border-top: 1px solid lightgrey;
+
+  a {
+    color: black;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .user-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .user-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .user-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .user-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .user-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
