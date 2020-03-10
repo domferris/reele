@@ -37,22 +37,31 @@
                 <div class="col ml-4">
                   <%= f.input :published, as: :radio_buttons, label: "Mark as published?" %>
                 </div>
-
               </div>
 
 
               </div>
-              <h2 class="text-dark pt-2 mt-4 mb-4">Upload/embed file</h2>
+              <h2 class="text-dark pt-2 mt-4 mb-4">Upload/embed files</h2>
 
-              <%= cl_upload_tag(:video_id, resource_type: :video) %>
-              <%#= f.input :audio_file, as: :file, resource_type: :video, label: false  %>
+              <div class="form-row mt-2">
+                <div class="col">
+                  <%= f.input :photo, as: :file, label: "Add a photo to your project"%>
+                </div>
+
+                <div class="col">
+                  <%= f.label "Add audio/video file" %>
+                  <%= cl_upload_tag(:video_id, resource_type: :video) %>
+                </div>
+              </div>
+
+
               <%= f.label 'embed from Bandcamp, Soundcloud, Spotify, or Apple Music', class: "mt-3" %>
               <%= f.input :audio_url, label: false, placeholder: 'Paste Bandcamp URL here...', class: "mt-3" %>
               <%= f.label 'Or add a video from Vimeo' %>
               <%= f.input :video_url, label: false, placeholder: 'Paste Vimeo URL', class: "mt-3" %>
 
               <div class="d-flex justify-content-center">
-                <%= f.button :submit, value: 'Add project', class: 'btn btn btn-dark py-3 mt-3 ' %>
+                <%= f.button :submit, value: 'Add project', class: 'btn btn btn-dark py-3 mt-3' %>
               </div>
             <% end %>
             </div>
