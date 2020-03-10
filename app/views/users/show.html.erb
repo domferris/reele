@@ -4,7 +4,7 @@
     <div class="col-2 d-flex text-center p-2">
       <div class="user-buttons-container d-flex">
         <a href="" class="btn btn-outline-secondary">Follow</a>
-        <a href="" class="btn btn-dark ml-2">Message</a>
+        <%= link_to "Message", chatrooms_path, class: "btn btn-dark ml-2" %>
       </div>
     </div>
   </div>
@@ -23,7 +23,9 @@
         <span class="user-location">los angeles</span>
       </p>
 
-      <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash' %>
+      <% if user_signed_in? %>
+        <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-dash' %>
+      <% end %>
       </div>
       <!-- END of column -->
   </div>

@@ -1,0 +1,117 @@
+<div class="chatrooms-main">
+  <section class="chatrooms-container-left">
+
+    <div class="searchbar">
+      <%= form_tag chatrooms_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-input",
+          placeholder: "Search messages"
+        %>
+      <% end %>
+    </div>
+
+    <% if @chatrooms.present? %>
+      <div class="chatrooms">
+        <ul>
+          <li class="chatroom-card active">
+            <% if @chatrooms.first.sender == current_user %>
+              <%= link_to user_path(@chatrooms.first.receiver.username) do %>
+                <%= cl_image_tag @chatrooms.first.receiver.photo.key if @chatrooms.first.receiver.photo.attached? %>
+              <% end %>
+            <% else %>
+              <%= link_to user_path(@chatrooms.first.sender.username) do %>
+                <%= cl_image_tag @chatrooms.first.sender.photo.key if @chatrooms.first.sender.photo.attached? %>
+              <% end %>
+            <% end %>
+            <div class="chatroom-content">
+              <div class="chatroom-data">
+                <% if @chatrooms.first.sender == current_user %>
+                  <p class="username"><%= @chatrooms.first.receiver.username %></p>
+                <% else %>
+                  <p class="username"><%= @chatrooms.first.sender.username %></p>
+                <% end %>
+                <% if @chatrooms.first.messages.empty? %>
+                  <small class="sent-at"><%= @chatrooms.first.created_at.strftime("%b %e") %></small>
+                <% else %>
+                  <small class="sent-at"><%= @chatrooms.first.messages.last.created_at.strftime("%b %e") %></small>
+                <% end %>
+              </div>
+
+              <% if @chatroom.messages.present? %>
+                <% if @chatroom.messages.last.user == current_user %>
+                  <p>You: <%= @chatrooms.first.messages.last.content %></p>
+                <% else %>
+                  <p><%= @chatrooms.first.messages.last.user.username %>: <%= @chatrooms.first.messages.last.content %></p>
+                <% end %>
+              <% end %>
+
+            </div>
+          </li>
+
+          <% @chatrooms[1..-1].each do |chatroom| %>
+            <%= link_to chatroom_path(chatroom) do %>
+              <li class="chatroom-card">
+                <% if chatroom.sender == current_user %>
+                  <%= link_to user_path(chatroom.receiver.username) do %>
+                    <%= cl_image_tag chatroom.receiver.photo.key if chatroom.sender.photo.attached? %>
+                  <% end %>
+                <% else %>
+                  <%= link_to user_path(chatroom.sender.username) do %>
+                    <%= cl_image_tag chatroom.sender.photo.key if chatroom.receiver.photo.attached? %>
+                  <% end %>
+                <% end %>
+                <div class="chatroom-content">
+                  <div class="chatroom-data">
+                    <% if chatroom.sender == current_user %>
+                      <p class="username"><%= chatroom.receiver.username %></p>
+                    <% else %>
+                      <p class="username"><%= chatroom.sender.username %></p>
+                    <% end %>
+
+                    <% if chatroom.messages.present? %>
+                      <small class="sent-at"><%= chatroom.messages.last.created_at.strftime("%b %e") %></small>
+                    <% end %>
+                  </div>
+                  <% if chatroom.messages.present? %>
+                    <% if chatroom.messages.last.user == current_user %>
+                      <p>You: <%= chatroom.messages.last.content %></p>
+                    <% else %>
+                      <p><%= chatroom.messages.last.user.username %>: <%= chatroom.messages.last.content %></p>
+                    <% end %>
+                  <% end %>
+                </div>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </section>
+
+  <section class="chatrooms-container-right">
+    <% if @chatrooms.present? %>
+      <%= render 'show' %>
+    <% else %>
+      <h4 class="no-messages">No messages yet!</h4>
+    <% end %>
+  </section>
+</div>
+
+<script>
+const chooseChat = () => {
+  const chatroomCards = document.querySelectorAll('.chatroom-card')
+
+  for (const chatroomCard of chatroomCards) {
+    chatroomCard.addEventListener('click', (event) => {
+      document.querySelectorAll(".chatroom-card").forEach((chatCard) => {
+        chatCard.classList.remove('active');
+      })
+
+      event.currentTarget.classList.add('active');
+    });
+  }
+}
+
+chooseChat();
+</script>

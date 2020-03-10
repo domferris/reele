@@ -126,18 +126,25 @@
               <h6>@<%= @project.user.username %></h6>
             <% end %>
           </div>
-          <%#=cl_image_tag @project.user.photo.key, class='avatar' %>
-          <button type="button" class="btn btn-dash">Message me</button>
+
+          <%= simple_form_for Chatroom.new do |f| %>
+            <%= f.hidden_field :sender_id, value: current_user.id %>
+            <%= f.hidden_field :receiver_id, value: @project.user.id %>
+            <%= f.submit 'Message me', class: "btn btn-dash" %>
+          <% end %>
+
         </div>
 
         <div class="project-data">
           <div class="project-data-section">
-            <i class="fas fa-tag"></i>
-            <p><% @project.tag_list.each do |tag| %>
-              <%= "#" + tag %>
-              <% end %>
-            </p>
-
+            <% if @project.tags != nil %>
+              <i class="fas fa-tag"></i>
+              <p>
+                <% @project.tag_list.each do |tag| %>
+                #<%= tag %>
+                <% end %>
+              </p>
+            <% end %>
           </div>
           <div class="project-data-section">
             <i class="fas fa-heart"></i><p>0</p>
@@ -155,7 +162,7 @@
 <!---------------- MORE BY ---------------->
 <!----------------------------------------->
       <div class="more-by-user">
-        <h4>More by <%= @project.user.username %></h4>
+        <h4>More by @<%= @project.user.username %></h4>
         <div class="more-user-projects">
           <% @published_projects.each do |project| %>
             <%= link_to project_path(project) do %>
@@ -179,7 +186,11 @@
 <!----------------------------------------->
       <div class="browse-more">
         <h5>Browse more projects in</h5>
-        <h4><%= link_to "Composition", "#" %></h4>
+          <!-- DEAD LINK -->
+          <%= link_to "#" do %>
+            <h4><%= @project.category %></h4>
+          <% end %>
+          <!-- DEAD LINK -->
       </div>
     </div>
   </div>
