@@ -174,12 +174,12 @@
 
 .dash-card-headers {
   display: flex;
-  justify-content: space-between;
   padding: 6px 6px 0 6px;
   margin: 6px 0 12px 0;
 
   .dash-card-section {
-    width: 25%;
+    display: flex;
+    justify-content: space-around;
     text-align: left;
     margin: 4px 4px 0 4px;
     border-bottom: 0.75px solid rgba(0, 0, 0, 0.1);
@@ -193,7 +193,6 @@
 
 .dash-card {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background: white;
   border-radius: 4px;

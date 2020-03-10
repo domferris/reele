@@ -1,10 +1,13 @@
+.main-container {
+  margin: 0 auto;
+}
+
 .dash-controls {
   // border: 1px solid blue;
   height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: grey;
 
   .dash-controls-section {
     // border: 1px solid red;
@@ -13,14 +16,13 @@
 
     a {
       margin: 8px 10px;
+      color: black;
+      text-decoration: none;
     }
   }
 }
 
 .dash-projects {
-  // border: 1px solid green;
-  margin: 0;
-  padding: 48px;
 
   ul {
     list-style: none;
@@ -49,5 +51,19 @@
   a {
     color: black;
     text-decoration: none;
+  }
+}
+
+.tab-link {
+  background-color: transparent !important;
+  color: black !important;
+  font-size: 20px;
+
+  &.active {
+    font-weight: bold !important;
+    color: black !important;
+    margin: 0 20px !important;
+    border-bottom: 2px solid black;
+
   }
 }
