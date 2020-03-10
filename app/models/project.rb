@@ -4,10 +4,10 @@ require 'open-uri'
 class Project < ApplicationRecord
   belongs_to :user
   # has_many :project_categories
-  # has_one :category, through: :project_categories
+  # has_one :cītegory, through: :project_categories
   has_many :comments, dependent: :destroy
   # CLOUDINARY RELATION -- REMOVED UNTIL STABLE
-  # has_one_attached :photo
+  # has_one_attached :image
   has_one_attached :audio_file
   MEDIA_TYPE = ['audio', 'video']
   acts_as_taggable # Alias for acts_as_taggable_on :tags
