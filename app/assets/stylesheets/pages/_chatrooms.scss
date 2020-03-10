@@ -1,0 +1,54 @@
+.chatrooms-main {
+  display: flex;
+  height: 78.7vh;
+  width: 100%;
+}
+
+.chatrooms-container-left {
+  width: 35%;
+  height: 100%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-top: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+
+  .searchbar {
+    padding: 8px 12px;
+  }
+
+  .chatrooms {
+    height: calc(100% - 54px);
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-height: 100%;
+      overflow: scroll;
+
+      .active {
+        background: rgb(230, 230, 230);
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+}
+
+.chatrooms-container-right {
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  width: 100%;
+  min-width: 340px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  height: 100%;
+
+  .no-messages {
+    margin: auto;
+  }
+}
