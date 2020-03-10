@@ -28,19 +28,15 @@
   <% else %>
 <!--------------- IF AUDIO ---------------->
 <!----------------------------------------->
-    <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
-<!-- AUDIO PLAYER TO GO HERE 👇 -->
-    <div id="waveform" class="relative-banner" data-audio="http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3">
+    <div>
+      <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
+      <div id="waveform" class="wave-banner" data-audio=<%= @project.video_url%>>
+      </div>
+      <div class="wave-controls">
+       <i id="waveform-play" class="fas fa-play-circle"></i>
+       <i id="waveform-pause"class="fas fa-pause-circle"></i>
+      </div>
     </div>
-     <div class="wave-controls">
-      <i id="waveform-play" class="fas fa-play-circle"></i>
-      <i id="waveform-pause"class="fas fa-pause-circle"></i>
-    </div>
-<!-- AUDIO PLAYER TO GO HERE 👆 -->
-<!----------------------------------------->
-<!----------------------------------------->
-<!----------------------------------------->
-
   <% end %>
 
 </div>

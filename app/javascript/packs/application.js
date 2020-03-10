@@ -29,7 +29,6 @@ import WaveSurfer from "wavesurfer.js";
 import { initSortable } from '../components/sortable';
 import { scrollHome } from '../components/init_scroll_home';
 
-
 // CALL SORTABLE FUNCTION
 
 document.addEventListener('turbolinks:load', () => {
@@ -40,13 +39,15 @@ document.addEventListener('turbolinks:load', () => {
     const waveform = WaveSurfer.create({
       container: audioDiv,
       mediaControls: true,
-      waveColor: '#D9DCFF',
-      progressColor: '#4353FF',
-      cursorColor: '#4353FF',
-      barWidth: 4,
+      waveColor: '#BBE1FA',
+      backgroundColor: "rgba(15, 76, 117, 0.7)",
+      progressColor: '#3282B8',
+      cursorColor: '#3282B8',
+      autocenter: true,
+      barWidth: 7,
       barRadius: 2,
       cursorWidth: 1,
-      height: 150,
+      height: 140,
       barGap: 2
     })
     waveform.load(audioDiv.dataset.audio);
