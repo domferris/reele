@@ -12,6 +12,18 @@ puts "All users and projects destroyed."
 ################################# CONSTANTS ###################################
 ###############################################################################
 
+        rand_AUDIO_tags = %w(music hiphop rap dj art singer musician musica artist dance rock party like follow guitar livemusic song live concert photography newmusic producer band musicvideo bhfyp
+        art artist beats countrymusic dance dj funko folk goodmusic indiemusic livemusic love musician newmusic newsong party partymusic pop pop popmusic remix sing singer bass dance deephouse dj djlife dubstep
+        edm edmfamily edmlife edmlifestyle edmmusic electro electrohouse electronic electronicmusic
+        festival goodmusic hiphop hipphopmusic house housemusic indiemusic livemusic musicaltheatre
+        musicclover musicfestival musicphotography musicproducer musicproduction
+        musicvideo newmusic nightlife party partymusic plur popmusic producer
+        progressivehouse rave rockmusic summer techhouse techno tomorrowland)
+
+        rand_VIDEO_tags = %w(musicvideos viral guitar pop musiclife livemusic songwriter explorepage film beats dj singersongwriter likeforlikes spotify repost soundcloud rock musiclover rapmusic hiphopmusic director goodmusic coversong videography songs singing studio musicvideo music hiphop musician video rap newmusic love musically singer artist song youtube musica musicproducer like rapper musicians musicislife art follow producer cover tiktok photography dance bhfyp progressivehouse rave rockmusic summer techhouse techno tomorrowland
+        goodmusic indiemusic livemusic love musician newmusic newsong party partymusic pop pop popmusic)
+
+
 rand_category = ["Music",
                 "Songwriting",
                 "Session Musician",
@@ -65,7 +77,7 @@ dummy_avatar = ['112155602-98394085-28e5-49d3-9dbf-5f3309eafd6c.jpg',
                 'recent-portraits-random-people-in-random-places_10.jpg',
                 'USZWGM4N_400x400.jpg']
 
-###############################################################################
+#############################################################################
 ############################### TYLER CREATION ################################
 ###############################################################################
 
@@ -167,14 +179,32 @@ puts "10 fake users created."
 ######################### DUMMY USER PROJECT CREATION #########################
 ###############################################################################
 
-puts "Creating fake projects..."
+puts "Creating fake VIDEO projects..."
 
 80.times do
   rand_views = rand(500..200000)
   Project.create!(
     title: Faker::Music.album,
     description: Faker::Movies::PrincessBride.quote,
-    media_type: rand_media_type.sample,
+    media_type: "video",
+    category: rand_category.sample,
+    published: true,
+    user_id: rand(2..21),
+    photo: rand_project_photo.sample,
+    video_url: "https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0",
+    view_count: rand_views,
+    likes: (rand_views*rand(0.1..0.2)).floor
+  )
+end
+
+puts "Creating fake AUDIO projects..."
+
+80.times do
+  rand_views = rand(500..200000)
+  Project.create!(
+    title: Faker::Music.album,
+    description: Faker::Movies::PrincessBride.quote,
+    media_type: "audio",
     category: rand_category.sample,
     published: true,
     user_id: rand(2..21),
