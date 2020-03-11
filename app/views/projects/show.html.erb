@@ -1,52 +1,21 @@
 <div class="project-media">
   <% if @project.media_type == 'video' %>
-<!----------------------------------------->
-<!--------------- IF VIDEO ---------------->
-<!----------------------------------------->
-    <img src="https://content.fortune.com/wp-content/uploads/2017/08/empty-movie-theater.jpg?resize=1500,1000" alt="", style="object-position: contain ;">
-    <iframe src="https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE 👆 -->
-<!----------------------------------------->
-<!----------------------------------------->
+    <%= render 'components/video_embed' %>
   <% elsif @project.audio_url.present? %>
-<!----------------------------------------->
-<!--------------- AUDIO EMBED ---------------->
-<!----------------------------------------->
-<!--       <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
--->
     <% if @project.audio_url.include?('bandcamp')%>
         <%= @project.bandcamp_scrape(@project).html_safe %>
       <% elsif @project.audio_url.include?('soundcloud')%>
-        <%= @project.soundcloud_scrape(@project).html_safe %>
+<!--         <iframe width="80%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F646304142&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+ -->
+        <<!-- iframe width="80%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2F723315721&color=%23141414&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true -->"></iframe>
+        <%=  @project.soundcloud_scrape(@project).html_safe %>
       <% elsif @project.audio_url.include?('spotify') %>
         <%= @project.spotify_embed(@project).html_safe %>
       <% elsif @project.audio_url.include?('apple') %>
         <%= @project.apple_embed(@project).html_safe %>
       <% end %>
   <% else %>
-<!--------------- IF AUDIO ---------------->
-<!----------------------------------------->
-    <div class="wave-container">
-      <div class="wave-section">
-        <div class="wave-info-top">
-          <div class="text-left">
-            <h1><%= @project.title %></h1>
-            <h4>Category: <%= @project.category %></h4>
-            <!-- <p>By <%= @project.user.username %></p> -->
-
-          </div>
-          <div class="wave-controls">
-           <i id="waveform-play" class="fas fa-play-circle"></i>
-<!--            <i id="waveform-pause"class="fas fa-pause-circle"></i>
- -->      </div>
-        </div>
-        <div id="waveform" data-audio=<%= @project.video_url%>>
-
-        </div>
-
-      </div>
-      <%= image_tag(@project.photo, class:"wave-image") %>
-    </div>
+    <%= render 'components/wavesurfer_upload' %>
   <% end %>
 </div>
 
@@ -55,16 +24,9 @@
 <!------------------- LEFT HALF ------------------->
 <!------------------------------------------------->
 <!------------------------------------------------->
-
 <div class="container">
-
   <div class="content-container">
     <div class="project-container-left m-0">
-
-<!----------------------------------------->
-<!------------ PROJ INFO LEFT ------------->
-<!----------------------------------------->
-
       <div class="project-data">
         <div class=" project-data-section">
           <% if @project.tags != nil %>

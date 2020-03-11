@@ -42,8 +42,8 @@ class Project < ApplicationRecord
   end
 
   def soundcloud_embed(embed)
-    iframe = "<iframe style=\"border: 0; width: 80%; height: 240px;\"
-              src=\"#{embed}\" frameborder=\"0\"></iframe>"
+    iframe = "<iframe width=\"80%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\"
+      src=\"https://w.soundcloud.com/player/?url=https\%3A//api.soundcloud.com/tracks/#{embed}&color=%23141414&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true\"></iframe>"
     iframe.html_safe
   end
 
@@ -54,8 +54,9 @@ class Project < ApplicationRecord
     project.photo = image[0].attributes['content'].value
     project.save!
     string = doc.css('meta[property="twitter:player"]').to_s
-    embed = string.scan(/https.*;/)
-    soundcloud_embed(embed.reduce)
+    embed = string.scan(/s%2F*\d*/)
+    soundcloud_embed(embed.reduce.split('s%2F')[1])
+    # raise
   end
 
   def spotify_embed(project)
