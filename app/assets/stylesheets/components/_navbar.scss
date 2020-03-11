@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $black;
+  z-index: 2;
 
   .navbar-brand {
     display: flex;

@@ -127,12 +127,12 @@ SiriWave.prototype.setNoise = SiriWave.prototype.setAmplitude = function(v) {
 };
 
 var SW = new SiriWave({
-  width: 1150,
+  width: window.innerWidth,
   height: 600,
   color: '#fff',
   container: document.getElementById('siri'),
   ratio: 1
 });
 SW.setSpeed(0.002);//0.2
-SW.setNoise(0.5);//0.9
+SW.setNoise(0.6);//0.9
 SW.start();//@ sourceURL=pen.js
