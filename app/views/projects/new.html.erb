@@ -40,10 +40,15 @@
 
             </div>
           <h2 class="text-dark mt-5 mb-3">Upload/embed file</h2>
-            <%= f.input :photo %>
-          <%= f.label 'Upload an audio file'%>
-          <div class="mb-3">
-            <%= cl_upload_tag(:video_id, resource_type: :video)%>
+
+          <div class="form-row">
+            <div class="col mb-3">
+              <%= f.label 'Upload an audio file'%>
+              <%= cl_upload_tag(:video_id, resource_type: :video)%>
+            </div>
+            <div class="col mb-3">
+              <%= f.input :photo, label: "Add an image url" %>
+            </div>
           </div>
           <%= f.label 'Embed from Bandcamp, Soundcloud, Spotify, or Apple Music', class: "mt-2" %>
           <%= f.input :audio_url, label: false, placeholder: 'Paste URL here...', class: "mt-2" %>
