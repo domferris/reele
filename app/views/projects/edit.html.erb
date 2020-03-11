@@ -16,6 +16,7 @@
                   placeholder: 'Tell us about your project...'  %>
               <%= f.label 'Add or update tags (separated by commas)' %>
               <%= f.input :tag_list,label: false, placeholder: 'music, video, beats, artist...' %>
+              <%= f.input :photo, label: "Add an image url" %>
               <%= f.input :published, label: "Mark as published?", as: :radio_buttons %>
             </div>
             <div class="form-actions d-flex justify-content-center">
