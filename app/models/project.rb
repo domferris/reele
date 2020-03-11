@@ -23,8 +23,8 @@ class Project < ApplicationRecord
 
   def bandcamp_embed(part1, part2)
 
-    iframe = "<iframe style=\"border: 0; width: 100%; height: 120px;\"
-              src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
+    iframe = "<iframe style=\" justify-content-center; border: 0; width: 100%; height: 42px;\"
+              src=\"#{part1}size=small#{part2}\" seamless></iframe>"
     iframe.html_safe
   end
 
@@ -42,7 +42,7 @@ class Project < ApplicationRecord
   end
 
   def soundcloud_embed(embed)
-    iframe = "<iframe style=\"border: 0; width: 100%; height: 240px;\"
+    iframe = "<iframe style=\"border: 0; width: 80%; height: 240px;\"
               src=\"#{embed}\" frameborder=\"0\"></iframe>"
     iframe.html_safe
   end
