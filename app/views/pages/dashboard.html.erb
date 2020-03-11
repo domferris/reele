@@ -130,48 +130,50 @@
                 </div>
               </div>
               <% @private_projects.reverse.each do |project| %>
-                <div class="dash-card d-flex justify-content-around">
-                  <div class="dash-card-section py-2 d-flex justify-content-center">
-                    <strong>
-                      <%= link_to project_path(project) do  %>
-                        <p>
-                          <% if project.title.length > 18 %>
-                            <%= project.title[0..17] + "..." %>
-                          <% else %>
-                            <%= project.title %>
-                          <% end %>
-                        </p>
-                      <% end %>
-                    </strong>
-                  </div>
-                  <div class="dash-card-section py-2">
-                    <p>
-                      <% if project.description.length > 18 %>
-                        <%= project.description[0..17] + "..." %>
-                      <% else %>
-                        <%= project.description %>
-                      <% end %>
-                    </p>
-                  </div>
-                  <div class="dash-card-section py-2">
-                    <p><%= project.media_type %></p>
-                  </div>
-                  <div class="dash-card-section py-2">
-                    <p><%= project.created_at.strftime("%d/%m/%Y at %I:%M %p") %></p>
-                  </div>
+                <div class="dash-projects" id="dashboard-cards">
+                  <div class="dash-card d-flex justify-content-around">
+                    <div class="dash-card-section py-2 d-flex justify-content-center">
+                      <strong>
+                        <%= link_to project_path(project) do  %>
+                          <p>
+                            <% if project.title.length > 18 %>
+                              <%= project.title[0..17] + "..." %>
+                            <% else %>
+                              <%= project.title %>
+                            <% end %>
+                          </p>
+                        <% end %>
+                      </strong>
+                    </div>
+                    <div class="dash-card-section py-2">
+                      <p>
+                        <% if project.description.length > 18 %>
+                          <%= project.description[0..17] + "..." %>
+                        <% else %>
+                          <%= project.description %>
+                        <% end %>
+                      </p>
+                    </div>
+                    <div class="dash-card-section py-2">
+                      <p><%= project.media_type %></p>
+                    </div>
+                    <div class="dash-card-section py-2">
+                      <p><%= project.created_at.strftime("%d/%m/%Y at %I:%M %p") %></p>
+                    </div>
 
 
-                 <div class="dash-card-section py-2 d-flex justify-content-center">
-                     <%= link_to edit_project_path(project), class: "button postfix" do %>
-                         <i class="fas fa-share btn-dash-sm share"></i>
-                     <% end %>
-                     <%= link_to edit_project_path(project), class: "button postfix pl-2" do %>
-                         <i class="fas fa-edit btn-dash-sm"></i>
-                     <% end %>
-                     <%= link_to project_path(project), method: :delete, data: { confirm: "Are you sure?"}, class: "button postfix pl-2" do %>
-                         <i class="fas fa-trash btn-dash-sm delete"></i>
-                     <% end %>
-                 </div>
+                   <div class="dash-card-section py-2 d-flex justify-content-center">
+                       <%= link_to edit_project_path(project), class: "button postfix" do %>
+                           <i class="fas fa-share btn-dash-sm share"></i>
+                       <% end %>
+                       <%= link_to edit_project_path(project), class: "button postfix pl-2" do %>
+                           <i class="fas fa-edit btn-dash-sm"></i>
+                       <% end %>
+                       <%= link_to project_path(project), method: :delete, data: { confirm: "Are you sure?"}, class: "button postfix pl-2" do %>
+                           <i class="fas fa-trash btn-dash-sm delete"></i>
+                       <% end %>
+                   </div>
+                  </div>
                 </div>
               <% end %>
             <% end %>
