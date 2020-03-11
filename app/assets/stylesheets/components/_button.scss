@@ -52,44 +52,87 @@
   width: 100%;
 }
 
+.btn-box {
+  color: $white;
+  border: 1px solid $white;
+  padding: 8px 24px;
+  border-radius: 2px;
+  transition: background 0.1s ease;
+
+  &:hover {
+    // background: $gray;
+    color: $black;
+    background: $white;
+    text-decoration: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.btn-filter {
+  color: $white;
+  border-right: 1px solid $white;
+  border-left: 1px solid $white;
+  padding: 8px 24px;
+  border-radius: 2px;
+  transition: background 0.1s ease;
+
+  &:hover {
+    // background: $gray;
+    color: $black;
+    background: $white;
+    text-decoration: none;
+  }
+}
+
+
+
+
 ////////////////////////////////////////////
 ///////////////// DASHBOARD ////////////////
 ////////////////////////////////////////////
 
 .btn-dash {
-  color: black;
+  color: $black;
   padding: 8px 24px;
   border-radius: 4px;
-  background: lightgrey;
+  background: $light-gray;
   transition: background 0.2s ease;
 
   &:hover {
-    background: darkgrey;
-    color: white;
+    background: $gray;
+    color: $white;
     text-decoration: none;
   }
 }
 
 .btn-dash-lg {
-  color: black;
+  color: $black;
   padding: 40px;
   border-radius: 4px;
-  background: lightgrey;
+  background: $light-gray;
   transition: background 0.2s ease;
 
   &:hover {
-    background: darkgrey;
-    color: white;
+    background: $gray;
+    color: $white;
     text-decoration: none;
   }
 }
 
 .btn-dash-sm {
-  color: grey;
+  color: $gray;
   transition: background 0.2s ease;
 
   &:hover {
-    color: black;
+    color: $black;
     text-decoration: none;
   }
 }
