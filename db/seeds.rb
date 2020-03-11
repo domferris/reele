@@ -170,6 +170,7 @@ puts "10 fake users created."
 puts "Creating fake projects..."
 
 80.times do
+  rand_views = rand(500..200000)
   Project.create!(
     title: Faker::Music.album,
     description: Faker::Movies::PrincessBride.quote,
@@ -179,6 +180,8 @@ puts "Creating fake projects..."
     user_id: rand(2..21),
     photo: rand_project_photo.sample,
     video_url: "https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0",
+    view_count: rand_views,
+    likes: (rand_views*rand(0.1..0.2)).floor
   )
 end
 
