@@ -13,12 +13,12 @@ puts "All users and projects destroyed."
 ###############################################################################
 
         rand_AUDIO_tags = %w(music hiphop rap dj art singer musician musica artist dance rock party like follow guitar livemusic song live concert photography newmusic producer band musicvideo bhfyp
-art artist beats countrymusic dance dj funko folk goodmusic indiemusic livemusic love musician newmusic newsong party partymusic pop pop popmusic remix sing singer bass dance deephouse dj djlife dubstep
-edm edmfamily edmlife edmlifestyle edmmusic electro electrohouse electronic electronicmusic
-festival goodmusic hiphop hipphopmusic house housemusic indiemusic livemusic musicaltheatre
-musicclover musicfestival musicphotography musicproducer musicproduction
-musicvideo newmusic nightlife party partymusic plur popmusic producer
-progressivehouse rave rockmusic summer techhouse techno tomorrowland)
+        art artist beats countrymusic dance dj funko folk goodmusic indiemusic livemusic love musician newmusic newsong party partymusic pop pop popmusic remix sing singer bass dance deephouse dj djlife dubstep
+        edm edmfamily edmlife edmlifestyle edmmusic electro electrohouse electronic electronicmusic
+        festival goodmusic hiphop hipphopmusic house housemusic indiemusic livemusic musicaltheatre
+        musicclover musicfestival musicphotography musicproducer musicproduction
+        musicvideo newmusic nightlife party partymusic plur popmusic producer
+        progressivehouse rave rockmusic summer techhouse techno tomorrowland)
 
         rand_VIDEO_tags = %w(musicvideos viral guitar pop musiclife livemusic songwriter explorepage film beats dj singersongwriter likeforlikes spotify repost soundcloud rock musiclover rapmusic hiphopmusic director goodmusic coversong videography songs singing studio musicvideo music hiphop musician video rap newmusic love musically singer artist song youtube musica musicproducer like rapper musicians musicislife art follow producer cover tiktok photography dance bhfyp progressivehouse rave rockmusic summer techhouse techno tomorrowland
         goodmusic indiemusic livemusic love musician newmusic newsong party partymusic pop pop popmusic)
