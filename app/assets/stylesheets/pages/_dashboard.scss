@@ -1,31 +1,39 @@
 .main-container {
-  margin: 0 auto;
+  padding: 50px;
 }
 
-.dash-controls {
-  // border: 1px solid blue;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.overview {
+  // margin-left: 40px;
 
-  .dash-controls-section {
-    // border: 1px solid red;
+  h1 {
+    margin: 0 0 20px 0px;
+  }
+
+  .dash-controls {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin-left: 0px;
 
-    a {
-      margin: 8px 10px;
-      color: black;
-      text-decoration: none;
+    .dash-controls-section {
+      display: flex;
+      flex-direction: column;
 
-      &:hover {
-        font-weight: bold;
+      a {
+        margin: 8px 0 8px 16px;
+        color: $black;
+        font-size: 1.2em;
+        text-decoration: none;
+
+        &:hover {
+          color: $reele-secondary;
+        }
       }
-    }
 
+    }
   }
 }
+
 
 .dash-projects {
 
@@ -63,22 +71,25 @@
   display: flex;
   align-items: center;
   background-color: transparent !important;
-  color: black !important;
-  font-size: 20px !important;
+  color: $gray !important;
+  font-size: 1.5em !important;
+  border-bottom: 5px solid transparent;
+  font-weight: bold;
+
 
   small {
-    padding-left: 4px;
+    margin-left: 5px;
+    font-weight: bold !important;
+
   }
 
   &.active {
-    font-weight: bold !important;
-    color: black !important;
-    margin: 0 20px !important;
-    border-bottom: 2px solid black;
+    border-bottom: 5px solid $reele-cta;
+    color: $black !important;
+    border-radius: 0;
 
     small {
      font-weight: bold !important;
     }
-
   }
 }
