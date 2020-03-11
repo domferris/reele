@@ -52,13 +52,17 @@ document.addEventListener('turbolinks:load', () => {
     })
     waveform.load(audioDiv.dataset.audio);
     clickPlay = document.querySelector('#waveform-play')
-    clickPlay.addEventListener('click', () => {
-      waveform.play();
+    clickPlay.addEventListener('click', (event) => {
+      if([...event.currentTarget.classList].includes('fa-pause-circle')) {
+        waveform.play();
+      } else {
+        waveform.pause();
+      }
     });
 
-    document.querySelector('.fa-pause-circle').addEventListener('click', () => {
-      waveform.pause();
-    })
+    // document.querySelector('.fa-pause-circle').addEventListener('click', () => {
+    //   waveform.pause();
+    // })
 
   // clickPlay = document.querySelector('#waveform-play');
   // clickPlay.addEventListener("click", (event) => {

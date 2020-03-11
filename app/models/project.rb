@@ -23,8 +23,8 @@ class Project < ApplicationRecord
 
   def bandcamp_embed(part1, part2)
 
-    iframe = "<iframe style=\" justify-content-center; border: 0; width: 100%; height: 42px;\"
-              src=\"#{part1}size=small#{part2}\" seamless></iframe>"
+    iframe = "<iframe class=\"bandcamp_iframe\" style=\"border: 0; width: 100%; height: 240px;\"
+              src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
     iframe.html_safe
   end
 
@@ -42,7 +42,7 @@ class Project < ApplicationRecord
   end
 
   def soundcloud_embed(embed)
-    iframe = "<iframe width=\"80%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\"
+    iframe = "<iframe class=\"soundcloud-iframe\" width=\"80%\" height=\"166\" scrolling=\"no\" frameborder=\"no\" allow=\"autoplay\"
       src=\"https://w.soundcloud.com/player/?url=https\%3A//api.soundcloud.com/tracks/#{embed}&color=%23141414&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true\"></iframe>"
     iframe.html_safe
   end
@@ -66,7 +66,7 @@ class Project < ApplicationRecord
     project.photo = "https://#{image}"
     project.save!
     split_url = project.audio_url.split('track')
-    iframe = "<iframe src=\"#{split_url[0]}embed/track#{split_url[1]}\" width=\"100%\" height=\"80\" frameborder=\"0\"
+    iframe = "<iframe class=\"spotify-iframe\" src=\"#{split_url[0]}embed/track#{split_url[1]}\" width=\"75%\" height=\"80\" frameborder=\"0\"
               allowtransparency=\"true\" allow=\"encrypted-media\"></iframe>"
     iframe.html_safe
   end

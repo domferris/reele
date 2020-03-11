@@ -1,22 +1,28 @@
-<div class="project-media">
-  <% if @project.media_type == 'video' %>
-    <%= render 'components/video_embed' %>
-  <% elsif @project.audio_url.present? %>
-    <% if @project.audio_url.include?('bandcamp')%>
-        <%= @project.bandcamp_scrape(@project).html_safe %>
-      <% elsif @project.audio_url.include?('soundcloud')%>
-<!--         <iframe width="80%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F646304142&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
- -->
-        <<!-- iframe width="80%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2F723315721&color=%23141414&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true -->"></iframe>
-        <%=  @project.soundcloud_scrape(@project).html_safe %>
-      <% elsif @project.audio_url.include?('spotify') %>
-        <%= @project.spotify_embed(@project).html_safe %>
-      <% elsif @project.audio_url.include?('apple') %>
-        <%= @project.apple_embed(@project).html_safe %>
-      <% end %>
-  <% else %>
-    <%= render 'components/wavesurfer_upload' %>
-  <% end %>
+<div class="project-media-holder">
+
+    <% if @project.media_type == 'video' %>
+      <div class="project-media">
+      </div>
+      <%#= render 'components/video_embed' %>
+      <iframe src="https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0" class="video" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+    <% elsif @project.audio_url.present? %>
+      <div class="project-media">
+        <% if @project.audio_url.include?('bandcamp')%>
+            <%= @project.bandcamp_scrape(@project).html_safe %>
+          <% elsif @project.audio_url.include?('soundcloud')%>
+            <%=  @project.soundcloud_scrape(@project).html_safe %>
+          <% elsif @project.audio_url.include?('spotify') %>
+            <%= @project.spotify_embed(@project).html_safe %>
+          <% elsif @project.audio_url.include?('apple') %>
+            <%= @project.apple_embed(@project).html_safe %>
+          <% end %>
+        </div>
+    <% else %>
+      <div class="project-media">
+        <%= render 'components/wavesurfer_upload' %>
+      </div>
+    <% end %>
 </div>
 
 <!------------------------------------------------->
@@ -208,7 +214,7 @@
     });
   });
 </script>
-<!-- <script>
+<script>
   clickPlay = document.querySelector('#waveform-play');
   clickPlay.addEventListener("click", (event) => {
     clickPlay.classList.toggle('click');
@@ -217,6 +223,7 @@
       clickPlay.classList.toggle('click');
     }, 300);
     clickPlay.classList.toggle('fa-play-circle')
+    clickPlay.classList.toggle('fa-pause-circle')
     clickPlay.classList.toggle()
   });
-</script> -->
+</script>

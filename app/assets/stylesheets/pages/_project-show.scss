@@ -7,8 +7,10 @@
   height: 300px;
   display: flex;
   justify-content: center;
+  overflow: hidden;
   iframe {
-    margin-top: 50px;
+    margin-top: 65px;
+    margin-bottom: 10px;
   }
 }
 
@@ -189,5 +191,22 @@
   }
 }
 
+.video {
+  position: relative;
+  margin-top: -250px;
+  left: 15%;
+}
+
+.bandcamp_iframe {
+  position: relative;
+  width: 100%;
+  left: 25%;
+  top: 8%;
+}
+
+.spotify-iframe {
+  position: relative;
+  top: 15%;
+}
 
 
