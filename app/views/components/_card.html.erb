@@ -15,8 +15,21 @@
           <p class="proj-category"><%= project.category %></p>
         </div>
         <ul>
-          <li><i class="fas fa-heart"></i>300</li>
-          <li><i class="fas fa-eye"></i>990</li>
+          <li>
+            <% if project.likes > 1000 %>
+              <i class="fas fa-heart"></i><%= project.likes.to_s[0..1] + "K" %>
+            <% else %>
+              <i class="fas fa-heart"></i><%= project.likes %>
+            <% end %>
+          </li>
+          <li>
+            <% if project.view_count > 1000 %>
+              <i class="fas fa-eye"></i><%= project.view_count.to_s[0..2] + "K" %>
+            <% else %>
+              <i class="fas fa-eye"></i><%= project.view_count %>
+            <% end %>
+
+          </li>
         </ul>
       </div>
     </div>
