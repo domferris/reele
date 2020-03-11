@@ -15,31 +15,36 @@
                 </div>
 
                 <div class="col">
-                  <%= f.label 'Add tags to your project' %>
-                  <%= f.input :tag_list,label: false, placeholder: 'A/V, mixdown, MPC-2000...' %>
-                </div>
-              </div>
-
-              <div class="form-row mt-2">
-                <div class="col">
                   <%= f.input :media_type, collection: Project::MEDIA_TYPE,
                                label: "Audio or video project?", prompt: 'Select media type' %>
                 </div>
 
+
+              </div>
+
+              <div class="form-row mt-2">
+                <div class="col">
+                  <%= f.label 'Add tags to your project' %>
+                  <%= f.input :tag_list,label: false, placeholder: 'A/V, mixdown, MPC-2000...' %>
+                </div>
+
+              </div>
+
+              <div class="form-row mt-2">
+                <div class="col">
+                  <%= f.input :description, placeholder: 'Add detailed information about this project' %>
+
+                </div>
+              </div>
+
+              <div class="form-row">
                 <div class="col ml-3">
                   <%= f.input :published, as: :radio_buttons, label: "Publish upon upload?" %>
                 </div>
               </div>
 
-              <div class="form-row mt-2">
-                <div class="col">
-                  <%= f.input :description, placeholder: 'Tell the world!' %>
-
-                </div>
-              </div>
-
             </div>
-          <h2 class="text-dark mt-5 mb-3">Upload/embed file</h2>
+          <h2 class="text-dark mt-5 mb-3">Upload/embed files</h2>
 
           <div class="form-row">
             <div class="col mb-3">
