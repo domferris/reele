@@ -14,6 +14,27 @@
   }
 }
 
+.project-media-embed {
+  text-align: center;
+  position: relative;
+  background: #FF416C;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+      padding-bottom: 75px;
+
+  iframe {
+    margin-top: 65px;
+  }
+}
+
+.project-media-holder {
+  padding-bottom: 100px;
+}
+
 .project-container{
   display: flex;
   margin: 40px 0 60px 0;
@@ -203,15 +224,22 @@
 }
 
 .bandcamp_iframe {
-  position: relative;
+  position: absolute;
   width: 100%;
   left: 25%;
-  top: 8%;
+  top: 20%;
 }
 
 .spotify-iframe {
-  position: relative;
-  top: 15%;
+  position: absolute;
+  bottom: 67%;
+  left: 10%;
+}
+
+.soundcloud-iframe {
+  position: absolute;
+  bottom: 60%;
+  left: 10%;
 }
 
 

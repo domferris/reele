@@ -23,7 +23,7 @@ class Project < ApplicationRecord
 
   def bandcamp_embed(part1, part2)
 
-    iframe = "<iframe class=\"bandcamp_iframe\" style=\"border: 0; width: 100%; height: 240px;\"
+    iframe = "<iframe class=\"bandcamp_iframe\" style=\"border: 0; width: 100%; height: 120px;\"
               src=\"#{part1}size=medium#{part2}\" seamless></iframe>"
     iframe.html_safe
   end

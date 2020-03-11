@@ -7,7 +7,8 @@
       <iframe src="https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0" class="video" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
     <% elsif @project.audio_url.present? %>
-      <div class="project-media">
+      <div class="project-media-embed">
+      </div>
         <% if @project.audio_url.include?('bandcamp')%>
             <%= @project.bandcamp_scrape(@project).html_safe %>
           <% elsif @project.audio_url.include?('soundcloud')%>
@@ -16,8 +17,7 @@
             <%= @project.spotify_embed(@project).html_safe %>
           <% elsif @project.audio_url.include?('apple') %>
             <%= @project.apple_embed(@project).html_safe %>
-          <% end %>
-        </div>
+        <% end %>
     <% else %>
       <div class="project-media">
         <%= render 'components/wavesurfer_upload' %>
