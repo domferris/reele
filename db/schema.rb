@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 2020_03_11_103751) do
     t.string "photo"
     t.string "category"
     t.string "audio_url"
-    t.integer "likes"
-    t.integer "view_count"
+    t.integer "likes", default: 0
+    t.integer "view_count", default: 0
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
