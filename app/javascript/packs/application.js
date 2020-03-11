@@ -30,7 +30,7 @@ import WaveSurfer from "wavesurfer.js";
 import { initSortable } from '../components/sortable';
 import { scrollHome } from '../components/init_scroll_home';
 
-import "../components/canvas";
+import { initSiri } from "../components/canvas";
 
 // CALL SORTABLE FUNCTION
 
@@ -69,4 +69,7 @@ document.addEventListener('turbolinks:load', () => {
   initSortable();
 
   scrollHome();
+  initSiri()
+  //console.log('fired')
 });
+

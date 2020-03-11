@@ -5,11 +5,9 @@ body {
 
 #siri {
   position: absolute;
-  border: 1px solid red;
   top: 0;
   left: 0;
-  z-index: -0.5;
-  //width: 100%;
+  z-index: initial;
 }
 
 .filter-bar {
