@@ -98,7 +98,7 @@
       font-size: 12px;
       width: 100%;
       position: absolute;
-      color: white;
+      color: $white;
       bottom: 0;
       padding: 6px 12px;
       display: flex;
@@ -190,7 +190,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: $white;
   border-radius: 4px;
   padding: 6px;
   margin: 6px 0;
@@ -232,11 +232,11 @@
     }
 
     .share:hover {
-      color: rgb(23, 233, 25);
+      color: $green;
     }
 
     .delete:hover {
-      color: red;
+      color: $red;
     }
   }
 }
@@ -280,7 +280,7 @@
 
   p {
     margin: 0;
-    color: white;
+    color: $white;
   }
 }
 
@@ -323,7 +323,7 @@
 
   p {
     margin: 0;
-    color: white;
+    color: $white;
   }
 }
 
@@ -362,7 +362,7 @@
 
   p {
     margin: 0;
-    color: white;
+    color: $white;
   }
 }
 

@@ -19,7 +19,7 @@
 
 .project-container{
   display: flex;
-  margin-top: 40px;
+  margin: 40px 0 60px 0;
   width: 100%;
   justify-content: space-between;
 }
@@ -65,7 +65,7 @@
 
 .user-contact {
   padding-bottom: 20px;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid $gray;
 
   a {
     color: inherit;
@@ -99,12 +99,12 @@
 .project-data {
   margin-top: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid $gray;
 
   .project-data-section {
     display: flex;
     align-items: center;
-    color: darkgrey;
+    color: $dark-gray;
     padding-bottom: 10px;
 
     i {
@@ -119,9 +119,14 @@
   }
 }
 
+.comments-header {
+  margin: 0 8px 12px 8px;
+  border-bottom: 1px solid $gray;
+}
+
 .more-by-user {
   padding: 20px 0;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid $gray;
 
   h4 {
     margin-bottom: 16px;
@@ -139,15 +144,15 @@
 
 .browse-more {
   margin-top: 20px;
-  color: darkgrey;
+  color: $dark-gray;
 
   a {
-    color: grey;
+    color: $darker-gray;
   }
 
   a:hover {
     text-decoration: none;
-    color: black;
+    color: $black;
   }
 }
 
