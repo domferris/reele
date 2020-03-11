@@ -1,11 +1,11 @@
 <div class="main-container mt-4 d-flex">
 
-  <div class="row w-100 justify-content-between">
+  <div class="row mt-4 w-100 justify-content-between">
 
     <div class="col-lg-3">
       <div class="container pl-4">
-        <h1 class="white mt-4 ml-4">Overview</h1>
-        <div class="dash-controls ml-4 d-block">
+        <h1 class="white mt-4 ml-5">Overview</h1>
+        <div class="dash-controls ml-5 d-block">
           <h4 class="mt-4 mb-2">Projects</h4>
           <div class="dash-controls-section">
             <%= link_to "All projects", dashboard_path %>
@@ -34,17 +34,17 @@
     <div class="col-lg-9">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link tab-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Public</a>
+          <a class="nav-link tab-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Public (<%= @published_projects.count %>)</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link tab-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Private</a>
+          <a class="nav-link tab-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Private (<%= @private_projects.count %>)</a>
         </li>
       </ul>
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <div class="dash-projects" id="dashboard-cards">
             <% if @user.projects.present? %>
-              <div class="dash-card">
+              <div class="dash-card mb-2">
                 <div class="dash-card-section py-2 no-bg">
                   <p class="align-self-start"><strong>Title</strong></p>
                 </div>
