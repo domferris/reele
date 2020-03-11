@@ -372,16 +372,10 @@
 
 .chatroom-card {
   display: flex;
-  background: $white;
-  border-top: 1px solid $gray;
-  border-bottom: 1px solid $gray;
+  background: $light-gray;
   padding: 10px 12px;
   width: 100%;
   cursor: pointer;
-
-  &:hover {
-    background: rgb(245, 245, 245);
-  }
 
   img {
     height: 60px;

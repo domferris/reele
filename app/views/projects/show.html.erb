@@ -58,7 +58,7 @@
         <h4>Category: <%= @project.category %></h4>
         <p class='description'><%= @project.description %></p>
         <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-box-dark share' %></p>
-        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-box-dark edit' if @project.user == current_user %></p>
+        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-box-light edit' if @project.user == current_user %></p>
       </div>
 <!----------------------------------------->
 <!--------------- COMMENTS ---------------->
@@ -121,7 +121,7 @@
               <% end %>
             <% end %>
             <%= link_to user_path(@project.user.username) do %>
-              <h6>@<%= @project.user.username %></h6>
+              <h6>@<span><%= @project.user.username %></span></h6>
             <% end %>
           </div>
 
@@ -129,7 +129,7 @@
             <%= simple_form_for Chatroom.new do |f| %>
               <%= f.hidden_field :sender_id, value: current_user.id %>
               <%= f.hidden_field :receiver_id, value: @project.user.id %>
-              <%= f.submit 'Message me', class: "btn btn-box-dark" %>
+              <%= f.submit 'Message me', class: "btn btn-box-dark btn-100w" %>
             <% end %>
           <% else %>
             <%= link_to "Message me", new_user_session_path, class: "btn btn-box-dark" %>

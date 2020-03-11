@@ -1,10 +1,10 @@
-<div class="banner" id="home" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0,0.4));">
+<div class="banner" id="home" style="background-image: linear-gradient(115deg, rgba(13, 58, 60, 0.6),rgba(13, 58, 60, 0.8));">
   <div class="container">
     <a href="#test"></a>
     <h1>Discover the best talent in audio</h1>
     <p>Reele helps sound designers showcase their skills, find collaboration opportunities, and thrive in the industry.</p>
     <% if !user_signed_in? %>
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-dash" %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-box-light" %>
       <!-- <a class="btn btn-dash" href="#">Sign up</a> -->
     <% end %>
   </div>
@@ -41,7 +41,7 @@
       <% end %>
     </div>
 </div>
-<div class="container mt-4 mb-4">
+<div class="container mt-5 mb-4">
   <div class="cards" id="test">
     <%= render 'components/card' %>
   </div>

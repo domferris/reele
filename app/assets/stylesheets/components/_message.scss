@@ -43,6 +43,14 @@
     h5 {
       margin-top: 6px;
       font-size: 1.4em;
+
+      span {
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+          border-bottom: 2px solid $reele-cta;
+        }
+      }
     }
 
     h6 {
