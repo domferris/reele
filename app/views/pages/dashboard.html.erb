@@ -111,7 +111,7 @@
                       <%= link_to edit_project_path(project), class: "button postfix pl-2" do %>
                           <i class="fas fa-edit btn-dash-sm"></i>
                       <% end %>
-                      <%= link_to project_path(project), method: :delete, class: "button postfix pl-2" do %>
+                      <%= link_to project_path(project), method: :delete, data: { confirm: "Are you sure?"}, class: "button postfix pl-2" do %>
                           <i class="fas fa-trash btn-dash-sm delete"></i>
                       <% end %>
                   </div>
@@ -192,7 +192,7 @@
                      <%= link_to edit_project_path(project), class: "button postfix pl-2" do %>
                          <i class="fas fa-edit btn-dash-sm"></i>
                      <% end %>
-                     <%= link_to project_path(project), method: :delete, class: "button postfix pl-2" do %>
+                     <%= link_to project_path(project), method: :delete, data: { confirm: "Are you sure?"}, class: "button postfix pl-2" do %>
                          <i class="fas fa-trash btn-dash-sm delete"></i>
                      <% end %>
                  </div>
