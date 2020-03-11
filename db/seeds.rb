@@ -90,6 +90,7 @@ puts "Tyler Dobson AKA tylerkitty created."
 puts "Creating Tyler's random exising projects..."
 
 6.times do
+  views = rand(100..2500)
   Project.create!(
     title: Faker::Music.album,
     description: Faker::Movies::PrincessBride.quote,
@@ -97,7 +98,9 @@ puts "Creating Tyler's random exising projects..."
     category: rand_category.sample,
     published: true,
     user_id: User.first.id,
-    photo: rand_project_photo.sample
+    photo: rand_project_photo.sample,
+    view_count: views,
+    likes: (views*rand(0.1..0.2)).floor
   )
 end
 
