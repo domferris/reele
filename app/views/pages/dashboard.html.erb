@@ -77,11 +77,13 @@
                     </strong>
                   </div>
                   <div class="dash-card-section py-2">
-                    <p>
-                      <% if project.description.length > 18 %>
-                        <%= project.description[0..17] + "..." %>
-                      <% else %>
-                        <%= project.description %>
+                      <p>
+                        <% if project.description %>
+                          <% if project.description.length > 18 %>
+                            <%= project.description[0..17] + "..." %>
+                          <% else %>
+                            <%= project.description %>
+                        <% end %>
                       <% end %>
                     </p>
                   </div>
