@@ -32,7 +32,7 @@
 
               <div class="form-row mt-2">
                 <div class="col">
-                  <%= f.input :description, placeholder: 'Add detailed information about this project' %>
+                  <%= f.input :description, placeholder: 'Tell us about your project...' %>
 
                 </div>
               </div>
@@ -52,11 +52,11 @@
               <%= cl_upload_tag(:video_id, resource_type: :video)%>
             </div>
             <div class="col mb-3">
-              <%= f.input :photo, label: "Add an image url" %>
+              <%= f.input :photo, label: "Add an image", placeholder: 'URL to image' %>
             </div>
           </div>
           <%= f.label 'Embed from Bandcamp, Soundcloud, Spotify, or Apple Music', class: "mt-2" %>
-          <%= f.input :audio_url, label: false, placeholder: 'Paste URL here...', class: "mt-2" %>
+          <%= f.input :audio_url, label: false, placeholder: 'URL to project', class: "mt-2" %>
           <%= f.label 'Or add a video from Vimeo' %>
           <%= f.input :video_url, label: false, placeholder: 'Vimeo URL' %>
 
