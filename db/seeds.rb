@@ -132,7 +132,7 @@ puts "Creating Tyler's random exising projects..."
   rand_views = rand(100..2500)
   Project.create!(
     title: Faker::Music.album,
-    description: Faker::Movies::PrincessBride.quote,
+    description: Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote,
     media_type: rand_media_type.sample,
     category: ["Music", "Composition", "Audio Engineer"].sample,
     published: true,
@@ -146,8 +146,8 @@ end
 
 2.times do
   Project.create!(
-    title: Faker::Music.album + "_v" + rand(3..8).to_s,
-    description: Faker::Movies::PrincessBride.quote,
+    title: Faker::Music.album + " " + "_v" + " " + rand(3..8).to_s,
+    description: Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote,
     media_type: "audio",
     category: ["Music", "Composition", "Audio Engineer"].sample,
     published: false,
@@ -192,7 +192,7 @@ puts "Creating 20 fake users..."
     password: '******',
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    bio: Faker::Lorem.paragraph(sentence_count: 5),
+    bio: Faker::Quote.famous_last_words + " " + Faker::Quote.famous_last_words + " " + Faker::Quote.famous_last_words,
     specialty: rand_category.sample
     )
   file = URI.open(Rails.root.join('app','assets','images', 'dummy_avatars', dummy_avatar.sample))
@@ -212,7 +212,7 @@ puts "Creating fake video projects..."
   rand_views = rand(500..200000)
   Project.create!(
     title: Faker::Music.album,
-    description: Faker::Movies::PrincessBride.quote,
+    description: Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote,
     media_type: "video",
     category: rand_category.sample,
     published: true,
@@ -233,7 +233,7 @@ puts "Creating fake audio projects..."
   rand_views = rand(500..200000)
   Project.create!(
     title: Faker::Music.album,
-    description: Faker::Movies::PrincessBride.quote,
+    description: Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote + " " + Faker::Movies::Lebowski.quote,
     media_type: "audio",
     category: rand_category.sample,
     published: true,
