@@ -48,10 +48,24 @@
           <% end %>
         </div>
         <div class="project-data-section">
-          <i class="fas fa-heart"></i><p>120</p>
+          <i class="fas fa-heart"></i>
+          <p>
+            <% if @project.likes > 1000 %>
+              <%= @project.likes.to_s[0..1] + "K" %>
+            <% else %>
+              <%= @project.likes %>
+            <% end %>
+          </p>
         </div>
         <div class="project-data-section">
-          <i class="fas fa-eye"></i><p>449</p>
+          <i class="fas fa-eye"></i>
+            <p>
+              <% if @project.view_count > 1000 %>
+                <%= @project.view_count.to_s[0..2] + "K" %>
+              <% else %>
+                <%= @project.view_count %>
+              <% end %>
+            </p>
         </div>
         <div class="project-data-section">
           <i class="fas fa-comment"></i><p><%= @project.comments.count %></p>
@@ -138,7 +152,7 @@
               <%= f.submit 'Message me', class: "btn btn-box-dark" %>
             <% end %>
           <% else %>
-            <%= link_to "Message me", new_user_session_path, class: "btn btn-dash" %>
+            <%= link_to "Message me", new_user_session_path, class: "btn btn-box-dark" %>
           <% end %>
         </div>
 
@@ -154,10 +168,24 @@
             <%# end %>
           </div>
           <div class="project-data-section">
-            <i class="fas fa-heart"></i><p>0</p>
+            <i class="fas fa-heart"></i>
+            <p>
+              <% #if @project.likes > 1000 %>
+                <%#= @project.likes.to_s[0..1] + "K" %>
+              <%# else %>
+                <%#= @project.likes %>
+              <%# end %>
+            </p>
           </div>
           <div class="project-data-section">
-            <i class="fas fa-eye"></i><p>0</p>
+            <i class="fas fa-eye"></i>
+              <p>
+                <% if @project.view_count > 1000 %>
+                  <%= @project.view_count.to_s[0..2] + "K" %>
+                <% else %>
+                  <%= @project.view_count %>
+                <% end %>
+              </p>
           </div>
           <div class="project-data-section">
             <i class="fas fa-comment"></i><p><%#= @project.comments.count %></p>

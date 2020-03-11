@@ -103,6 +103,11 @@
 
   .btn {
     width: 100%;
+    color: gainsboro;
+
+    &:hover {
+      color: $darker-gray;
+    }
   }
 }
 
