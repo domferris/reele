@@ -12,17 +12,23 @@ puts "All users and projects destroyed."
 ################################# CONSTANTS ###################################
 ###############################################################################
 
-rand_audio_tags = %w(music hiphop rap dj art singer musician musica artist dance rock party like follow guitar livemusic song live concert photography newmusic producer band musicvideo bhfyp
-art artist beats countrymusic dance dj funko folk goodmusic indiemusic livemusic love musician newmusic newsong party partymusic pop pop popmusic remix sing singer bass dance deephouse dj djlife dubstep
+rand_audio_tags = %w(music hiphop rap dj art singer musician musica artist dance rock party
+like follow guitar livemusic song live concert photography newmusic producer band musicvideo bhfyp
+art artist beats countrymusic dance dj funko folk goodmusic indiemusic livemusic love musician
+newmusic newsong party partymusic pop pop popmusic remix sing singer bass dance deephouse dj djlife dubstep
 edm edmfamily edmlife edmlifestyle edmmusic electro electrohouse electronic electronicmusic
 festival goodmusic hiphop hipphopmusic house housemusic indiemusic livemusic musicaltheatre
 musicclover musicfestival musicphotography musicproducer musicproduction
 musicvideo newmusic nightlife party partymusic plur popmusic producer
 progressivehouse rave rockmusic summer techhouse techno tomorrowland)
 
-rand_video_tags = %w(musicvideos viral guitar pop musiclife livemusic songwriter explorepage film beats dj singersongwriter likeforlikes spotify repost soundcloud rock musiclover rapmusic hiphopmusic director goodmusic coversong videography songs singing studio musicvideo music hiphop musician video rap newmusic love musically singer artist song youtube musica musicproducer like rapper musicians musicislife art follow producer cover tiktok photography dance bhfyp progressivehouse rave rockmusic summer techhouse techno tomorrowland
-goodmusic indiemusic livemusic love musician newmusic newsong party partymusic pop pop popmusic)
-
+rand_video_tags = %w(musicvideos viral guitar pop musiclife livemusic songwriter explorepage
+film beats dj singersongwriter likeforlikes spotify repost soundcloud rock musiclover rapmusic
+hiphopmusic director goodmusic coversong videography songs singing studio musicvideo music hiphop
+musician video rap newmusic love musically singer artist song youtube musica musicproducer like
+rapper musicians musicislife art follow producer cover tiktok photography dance bhfyp progressivehouse
+rave rockmusic summer techhouse techno tomorrowland goodmusic indiemusic livemusic love
+musician newmusic newsong party partymusic pop pop popmusic)
 
 rand_category = ["Music",
                 "Songwriting",
@@ -107,10 +113,10 @@ puts "Creating Tyler Dobson..."
 User.create!(
   first_name: "Tyler",
   last_name: "Dobson",
-  username: "tylerkitty",
+  username: "tyler_dobson",
   bio: "Musician from Los Angeles. New album in the works! I've been working in the industry for the last 4 years as a freelance session musician and sound engineer. If you like what you see, reach out!",
   specialty: "Music, Sound Engineering",
-  email: "tyler@kitty.com",
+  email: "tyler.dobson@gmail.com",
   password: '123456'
   )
 
@@ -123,17 +129,18 @@ puts "Tyler Dobson AKA tylerkitty created."
 puts "Creating Tyler's random exising projects..."
 
 6.times do
-  views = rand(100..2500)
+  rand_views = rand(100..2500)
   Project.create!(
     title: Faker::Music.album,
     description: Faker::Movies::PrincessBride.quote,
     media_type: rand_media_type.sample,
-    category: rand_category.sample,
+    category: ["Music", "Composition", "Audio Engineer"].sample,
     published: true,
     user_id: User.first.id,
     photo: rand_project_photo.sample,
-    view_count: views,
-    likes: (views*rand(0.1..0.2)).floor
+    view_count: rand_views,
+    likes: (rand_views*rand(0.1..0.2)).floor,
+    tag_list: rand_audio_tags.sample(rand(5..10))
   )
 end
 
@@ -142,10 +149,11 @@ end
     title: Faker::Music.album + "_v" + rand(3..8).to_s,
     description: Faker::Movies::PrincessBride.quote,
     media_type: "audio",
-    category: "Music",
+    category: ["Music", "Composition", "Audio Engineer"].sample,
     published: false,
     user_id: User.first.id,
-    photo: rand_project_photo.sample
+    photo: rand_project_photo.sample,
+    tag_list: rand_audio_tags.sample(rand(5..10))
   )
 end
 
@@ -212,9 +220,12 @@ puts "Creating fake video projects..."
     photo: rand_project_photo.sample,
     video_url: "https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0",
     view_count: rand_views,
-    likes: (rand_views*rand(0.1..0.2)).floor
+    likes: (rand_views*rand(0.1..0.2)).floor,
+    tag_list: rand_video_tags.sample(rand(5..10))
   )
 end
+
+puts "Fake video projects created."
 
 puts "Creating fake audio projects..."
 
@@ -230,11 +241,14 @@ puts "Creating fake audio projects..."
     photo: rand_project_photo.sample,
     video_url: "https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0",
     view_count: rand_views,
-    likes: (rand_views*rand(0.1..0.2)).floor
+    likes: (rand_views*rand(0.1..0.2)).floor,
+    tag_list: rand_audio_tags.sample(rand(5..10))
   )
 end
 
-puts "Fake projects created."
+puts "Fake audio projects created."
+
+puts "All fake projects created."
 
 puts "Seeded successfully!"
 
