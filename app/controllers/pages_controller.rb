@@ -14,6 +14,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @published_projects = @user.projects.select { |p| p.published == true }
+    @private_projects = @user.projects.select { |p| p.published == false }
   end
 end
 

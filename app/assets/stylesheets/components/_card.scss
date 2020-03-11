@@ -8,7 +8,7 @@
   grid-gap: 16px;
 
   a {
-    color: black;
+    color: $black;
 
     &:hover {
       text-decoration: none;
@@ -64,11 +64,10 @@
 
   .project-card-content {
     position: relative;
-    background: white;
+    background: $white;
     border-radius: 6px;
     z-index: 1;
     height: 275px;
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
     box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 
     .proj-gradient {
@@ -77,10 +76,10 @@
       position: absolute;
       border-radius: 6px;
       top: 0;
-      background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+      background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
 
       &:hover {
-        background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+        background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.45));
       }
     }
 
@@ -99,7 +98,7 @@
       font-size: 12px;
       width: 100%;
       position: absolute;
-      color: white;
+      color: $white;
       bottom: 0;
       padding: 6px 12px;
       display: flex;
@@ -116,7 +115,6 @@
         .proj-category {
           font-size: 1.3em;
           margin: 0;
-          // font-weight: 600;
         }
       }
 
@@ -160,11 +158,6 @@
       object-fit: cover;
       margin-right: 8px;
     }
-
-    // > span {
-    //   font-size: 1em;
-    //   margin: 6px;
-    // }
   }
 }
 
@@ -174,33 +167,41 @@
 
 .dash-card-headers {
   display: flex;
-  justify-content: space-between;
-  padding: 6px 6px 0 6px;
-  margin: 6px 0 12px 0;
+  justify-content: space-around;
+  margin: 4px 4px 10px 4px;
+  border-bottom: 0.75px solid rgba(0, 0, 0, 0.1);
+
 
   .dash-card-section {
-    width: 25%;
+    display: flex;
+    justify-content: space-around;
     text-align: left;
     margin: 4px 4px 0 4px;
     border-bottom: 0.75px solid rgba(0, 0, 0, 0.1);
 
     p {
-      margin: 0;
-      font-size: 0.8em;
+      margin: 0 auto;
+      font-size: 1em;
     }
   }
 }
 
 .dash-card {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background: white;
+  background: $white;
   border-radius: 4px;
   padding: 6px;
   margin: 6px 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
+
+  &.no-bg {
+   background: transparent;
+   box-shadow: transparent;
+
+  }
 
   &:hover {
     background: rgba(255, 255, 255, 0.6);
@@ -214,6 +215,9 @@
     p {
       margin: 0;
       font-size: 0.9em;
+      width: 80%;
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -228,11 +232,11 @@
     }
 
     .share:hover {
-      color: rgb(23, 233, 25);
+      color: $green;
     }
 
     .delete:hover {
-      color: red;
+      color: $red;
     }
   }
 }
@@ -254,7 +258,7 @@
   background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
 
   &:hover {
-    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
   }
 
   .show-more-photo {
@@ -270,11 +274,13 @@
 
   .title {
     font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.3px;
   }
 
   p {
     margin: 0;
-    color: white;
+    color: $white;
   }
 }
 
@@ -282,64 +288,81 @@
 ///////////////// USER SHOW ////////////////
 ////////////////////////////////////////////
 
-.user-featured-project-card {
+.featured-user-show-card {
+  border-radius: 4px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 10% 16px;
+  position: relative;
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
 
-  .user-featured-project-card-content {
-    height: 370px;
-    background: white;
-    border-radius: 6px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-
-    .project-image {
-      object-fit: cover;
-      padding: 12px 12px 0 12px;
-      width: 100%;
-      height: 346px;
-    }
-
-    .project-featured-image {
-      height: 360px;
-    }
-
-    .user-featured-project-card-info {
-      font-size: 12px;
-      width: 100%;
-      padding: 6px 12px;
-      display: flex;
-      justify-content: flex-end;
-
-      .fas:not(:last-of-type) {
-        margin-right: 12px;
-      }
-
-      .fas {
-        color: #757575;
-      }
-
-      .fa-heart:before, .fa-eye:before, .fa-comment:before {
-        position: relative;
-        left: -2px;
-        font-size: 11px;
-      }
-    }
+  &:hover {
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
   }
 
-  .user-featured-project-card-user {
-    margin: 8px 12px;
-    display: flex;
-    align-items: center;
+  .featured-user-show-photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 4px;
+  }
 
-    .project-avatar {
-      border-radius: 50%;
-      border: 1px solid black;
-      height: 16px;
-      width: 16px;
-    }
+  .title {
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
 
-    > span {
-      font-size: 12px;
-      margin: 6px;
-    }
+  p {
+    margin: 0;
+    color: $white;
+  }
+}
+
+
+.user-show-card {
+  border-radius: 4px;
+  height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35));
+
+  &:hover {
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+  }
+
+  .user-show-photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 4px;
+  }
+
+  .title {
+    font-size: 1.2em;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+
+  p {
+    margin: 0;
+    color: $white;
   }
 }
 
@@ -349,9 +372,9 @@
 
 .chatroom-card {
   display: flex;
-  background: white;
-  border-top: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
+  background: $white;
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray;
   padding: 10px 12px;
   width: 100%;
   cursor: pointer;
@@ -389,7 +412,7 @@
         padding-bottom: 5px;
         margin: 0;
         font-weight: bold;
-        color: black;
+        color: $black;
       }
     }
   }
@@ -407,7 +430,7 @@
 
 .message-card {
   display: flex;
-  background: white;
+  background: $white;
   margin-bottom: 10px;
   padding: 10px 12px;
   width: 100%;
@@ -441,10 +464,9 @@
         padding-bottom: 5px;
         margin: 0;
         font-weight: bold;
-        color: black;
+        color: $black;
       }
     }
-
   }
 
   .sent-at {

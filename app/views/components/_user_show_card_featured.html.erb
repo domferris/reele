@@ -1,23 +1,21 @@
-  <!-- NEED TO CHANGE PATH OF THIS LINK TO PROJECT SHOW -->
-
 <% if @published_projects.empty? %>
-  <h3 class="text-center">No projects yet!</h3>
+  <h3 class="text-center">@<%= @user.username %> has no projects yet!</h3>
 <% else %>
-  <div class="user-featured-project-card">
-    <%= link_to project_path(@published_projects.last) do %>
-      <div class="user-featured-project-card-content">
-        <% if @published_projects.last.photo != nil %>
-          <%= image_tag @published_projects.last.photo, class: "project-image" %>
-        <% else %>
-          <%= image_tag "project-default.jpg", class: "project-image" %>
-        <% end %>
-        <div class="user-featured-project-card-info">
-          <i class="fas fa-heart">23</i>
-          <i class="fas fa-eye">50</i>
-          <i class="fas fa-comment">15</i>
+  <%= link_to project_path(@published_projects.last) do %>
+    <div class="featured-user-show-card">
+        <div>
+          <% if @published_projects.last.photo != nil %>
+            <%= image_tag @published_projects.last.photo, class: "featured-user-show-photo" %>
+          <% else %>
+            <%= image_tag "project-default.jpg", class: "featured-user-show-photo" %>
+          <% end %>
         </div>
-      </div>
-    <% end %>
-  </div>
+        <p class="title"><%= @published_projects.last.title %></p>
+        <p><%= @published_projects.last.category %></p>
+    </div>
+  <% end %>
 <% end %>
+
+
+
 

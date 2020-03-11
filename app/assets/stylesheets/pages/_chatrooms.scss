@@ -1,6 +1,6 @@
-.chatrooms-main {
+.chatrooms-container {
   display: flex;
-  height: 78.7vh;
+  height: 91.55vh;
   width: 100%;
 }
 
@@ -11,9 +11,7 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  border-top: 1px solid lightgrey;
-  border-right: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid $gray;
 
   .searchbar {
     padding: 8px 12px;
@@ -31,16 +29,14 @@
 
       .active {
         background: rgb(230, 230, 230);
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
+        border-top: 1px solid $black;
+        border-bottom: 1px solid $black;
       }
     }
   }
 }
 
 .chatrooms-container-right {
-  border-top: 1px solid lightgrey;
-  border-bottom: 1px solid lightgrey;
   width: 100%;
   min-width: 340px;
   display: flex;

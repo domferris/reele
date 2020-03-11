@@ -57,8 +57,10 @@
 <!------------------------------------------------->
 
 <div class="container">
+
   <div class="content-container">
     <div class="project-container-left m-0">
+
 <!----------------------------------------->
 <!------------ PROJ INFO LEFT ------------->
 <!----------------------------------------->
@@ -94,10 +96,10 @@
 <!----------------------------------------->
       <div class="feed justify-content-between project-comments">
         <div>
-          <div class="container p-3">
-            <nav class="d-flex border-bottom">
+          <div class="comments-header">
+
               <h4>Comments</h4>
-            </nav>
+
           </div>
 
           <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
@@ -158,7 +160,7 @@
             <%= simple_form_for Chatroom.new do |f| %>
               <%= f.hidden_field :sender_id, value: current_user.id %>
               <%= f.hidden_field :receiver_id, value: @project.user.id %>
-              <%= f.submit 'Message me', class: "btn btn-dash" %>
+              <%= f.submit 'Message me', class: "btn btn-box-dark" %>
             <% end %>
           <% else %>
             <%= link_to "Message me", new_user_session_path, class: "btn btn-dash" %>
