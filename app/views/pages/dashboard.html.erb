@@ -55,9 +55,6 @@
                   <p><strong>Media type</strong></p>
                 </div>
                 <div class="dash-card-section py-2">
-                  <p><strong>Status</strong></p>
-                </div>
-                <div class="dash-card-section py-2">
                   <p><strong>Uploaded on</strong></p>
                 </div>
                 <div class="dash-card-section py-2 pl-5">
@@ -90,15 +87,6 @@
                   </div>
                   <div class="dash-card-section py-2">
                     <p><%= project.media_type %></p>
-                  </div>
-                  <div class="dash-card-section py-2">
-                    <p>
-                      <% if project.published %>
-                        public
-                      <% else %>
-                        private
-                      <% end %>
-                    </p>
                   </div>
                   <div class="dash-card-section py-2">
                     <p><%= project.created_at.strftime("%d/%m/%Y at %I:%M %p") %></p>
@@ -134,9 +122,6 @@
                   <p><strong>Media type</strong></p>
                 </div>
                 <div class="dash-card-section py-2">
-                  <p><strong>Status</strong></p>
-                </div>
-                <div class="dash-card-section py-2">
                   <p><strong>Uploaded on</strong></p>
                 </div>
                 <div class="dash-card-section py-2 pl-5">
@@ -170,15 +155,6 @@
                   </div>
                   <div class="dash-card-section py-2">
                     <p><%= project.media_type %></p>
-                  </div>
-                  <div class="dash-card-section py-2">
-                    <p>
-                      <% if project.published %>
-                        public
-                      <% else %>
-                        private
-                      <% end %>
-                    </p>
                   </div>
                   <div class="dash-card-section py-2">
                     <p><%= project.created_at.strftime("%d/%m/%Y at %I:%M %p") %></p>
