@@ -48,10 +48,10 @@ body {
       font-size: 1.1em;
 
       &:hover {
-        background: $dark-gray;
+        background: $darker-gray;
         text-decoration: none;
-        border-top: 5px solid $dark-gray;
-        border-bottom: 5px solid $dark-gray;
+        border-top: 5px solid $darker-gray;
+        border-bottom: 5px solid $darker-gray;
       }
     }
   }
