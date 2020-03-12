@@ -10,6 +10,21 @@ class Project < ApplicationRecord
   # has_one_attached :photo
   has_one_attached :audio_file
   MEDIA_TYPE = ['audio', 'video']
+  CATEGORY = ["Music",
+                "Songwriting",
+                "Session Musician",
+                "Mixing",
+                "Mastering",
+                "Audio Engineer",
+                "Producer",
+                "Sound Design",
+                "Composition",
+                "Voice-Over",
+                "ADR Recording",
+                "Music Editor",
+                "Foley Walker",
+                "Podcast",
+                "Music Supervision"]
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   # acts_as_taggable_on :skills, :interests
   acts_as_taggable_on :tags
