@@ -5,7 +5,7 @@
   background: $white;
   z-index: 2;
 
-  .btn-box-light {
+  .btn-box-dark {
     z-index: 10;
     position: relative;
   }
@@ -14,7 +14,7 @@
 .banner h1 {
   position: relative;
   margin-bottom: 12px;
-  color: $black;
+  color: $white;
   font-size: 60px;
   font-weight: bold;
   font-family: $banner-font;
@@ -25,7 +25,7 @@
 
 .banner p {
   font-size: 20px;
-  color: $black;
+  color: $white;
   opacity: .7;
   max-width: 580px;
    z-index: 2;

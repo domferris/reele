@@ -130,7 +130,7 @@ export const initSiri = () => {
     var SW = new SiriWave({
       width: window.innerWidth,
       height: 600,
-      color: '#fff',
+      color: '#79bac1',
       container: cont,
       ratio: 1
     });
