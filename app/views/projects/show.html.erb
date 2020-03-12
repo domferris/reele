@@ -52,7 +52,7 @@
         <h4>Category: <%= @project.category %></h4>
         <p class='description'><%= @project.description %></p>
         <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-box-dark share' %></p>
-        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-box-light edit' if @project.user == current_user %></p>
+        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-box-dark edit' if @project.user == current_user %></p>
       </div>
 <!----------------------------------------->
 <!--------------- COMMENTS ---------------->
