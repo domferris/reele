@@ -1,0 +1,170 @@
+// .project-media {
+//   text-align: center;
+//   position: relative;
+//   background: #FF416C;  /* fallback for old browsers */
+//   background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+//   background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+//   height: 300px;
+//   display: flex;
+//   iframe {
+//     margin-top: 50px;
+//   }
+// }
+
+
+.project-container-left {
+  width: 60%;
+}
+
+.project-container-right {
+  width: 33%;
+}
+
+.content-container{
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.project-description{
+  // position: relative;
+  // padding-bottom: 20px;
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    font-size: 1.4em;
+    margin-bottom: 16px;
+  }
+
+  .share {
+    align-self: center;
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
+  }
+
+  .edit {
+    padding: 0;
+    align-self: center;
+    // position: absolute;
+    // bottom: 0;
+    // right: 0;
+  }
+}
+
+.project-info {
+  left:0;
+}
+
+.user-contact {
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgrey;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .username-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    i {
+      font-size: 40px;
+      padding-right: 10px
+    }
+
+    h6 {
+      font-size: 1.4em;
+      margin: 0;
+    }
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+.project-data {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  // margin-top: 20px;
+
+  // border-bottom: 1px solid lightgrey;
+
+  .project-data-section {
+    display: flex;
+    align-items: center;
+    color: darkgrey;
+    padding: 10px;
+
+    i {
+      font-size: 1.2em;
+      margin-right: 8px;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+.more-by-user {
+  padding: 20px 0;
+  border-bottom: 1px solid lightgrey;
+
+  h4 {
+    margin-bottom: 16px;
+  }
+
+  .more-user-projects {
+    max-height: 700px;
+    overflow: scroll;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.browse-more {
+  // margin-top: 20px;
+  color: darkgrey;
+
+  a {
+    color: grey;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.project-comments{
+  margin: 80px 0px;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+
+

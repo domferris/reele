@@ -43,23 +43,41 @@ document.addEventListener('turbolinks:load', () => {
       container: audioDiv,
       mediaControls: true,
       waveColor: '#BBE1FA',
-      backgroundColor: "rgba(15, 76, 117, 0.7)",
+      // backgroundColor: "rgba(15, 76, 117, 0.7)",
       progressColor: '#3282B8',
       cursorColor: '#3282B8',
-      autocenter: true,
+      hideScrollbar: true,
       barWidth: 7,
       barRadius: 2,
       cursorWidth: 1,
-      height: 140,
+      height: 150,
       barGap: 2
     })
     waveform.load(audioDiv.dataset.audio);
-    document.querySelector('#waveform-play').addEventListener('click', () => {
-      waveform.play();
+    clickPlay = document.querySelector('#waveform-play')
+    clickPlay.addEventListener('click', (event) => {
+      if([...event.currentTarget.classList].includes('fa-pause-circle')) {
+        waveform.play();
+      } else {
+        waveform.pause();
+      }
     });
-    document.querySelector('#waveform-pause').addEventListener('click', () => {
-      waveform.pause()
-    })
+
+    // document.querySelector('.fa-pause-circle').addEventListener('click', () => {
+    //   waveform.pause();
+    // })
+
+  // clickPlay = document.querySelector('#waveform-play');
+  // clickPlay.addEventListener("click", (event) => {
+  //   clickPlay.classList.toggle('fa-play-circle');
+  //   clickPlay.classList.toggle('click');
+  //   setTimeout(function() {
+  //     clickPlay.classList.toggle('click');
+  //   }, 200)
+  //   clickPlay.classList.toggle('fa-pause-circle');
+  // });
+
+
   }
 
   $('.carousel').carousel({
