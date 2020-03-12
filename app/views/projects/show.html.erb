@@ -175,18 +175,20 @@
         <h4>More by @<%= @project.user.username %></h4>
         <div class="more-user-projects">
           <% @published_projects.each do |project| %>
-            <%= link_to project_path(project) do %>
-              <div class="show-more-card">
-                  <div>
-                    <% if project.photo != nil %>
-                      <%= image_tag project.photo, class: "show-more-photo" %>
-                    <% else %>
-                      <%= image_tag "project-default.jpg", class: "show-more-photo" %>
-                    <% end %>
-                  </div>
-                  <p class="title"><%= project.title %></p>
-                  <p><%= project.category %></p>
-              </div>
+            <% unless project == @project %>
+              <%=link_to project_path(project) do %>
+                <div class="show-more-card">
+                    <div>
+                      <% if project.photo != nil %>
+                        <%= image_tag project.photo, class: "show-more-photo" %>
+                      <% else %>
+                        <%= image_tag "project-default.jpg", class: "show-more-photo" %>
+                      <% end %>
+                    </div>
+                    <p class="title"><%= project.title %></p>
+                    <p><%= project.category %></p>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
         </div>
