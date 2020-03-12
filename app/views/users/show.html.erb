@@ -23,8 +23,8 @@
         <p class="user-bio"><%= @user.bio %></p>
 
         <div class="user-connect-buttons">
-          <%= link_to "Message me", chatrooms_path, class: "btn btn-box-dark" %>
           <%= link_to "Follow", user_path(@user.username), class: "btn btn-box-outline-dark" %>
+          <%= link_to "Message me", chatrooms_path, class: "btn btn-box-dark" %>
         </div>
       </div>
 
