@@ -4,13 +4,13 @@
   <!------------------- LEFT HALF ------------------->
   <!------------------------------------------------->
   <!------------------------------------------------->
-  <div class="user-container-left">
-    <div class="user-info">
+  <div class="user-container-left mt-4">
+    <div class="user-info mt-2">
       <div class="user-header">
         <%= cl_image_tag @user.photo.key, gravity: :faces, crop: :fill, class: "avatar-user-show" if @user.photo.attached? %>
         <h1><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %></h1>
-        <h2>@<%= @user.username %></h2>
-        <h5 class="user-location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</h5>
+        <h4>@<%= @user.username %></h4>
+        <p class="user-location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</p>
         <% if @user == current_user %>
           <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-box-dark btn-100w' %>
         <% end %>
@@ -23,8 +23,8 @@
         <p class="user-bio"><%= @user.bio %></p>
 
         <div class="user-connect-buttons">
-          <%= link_to "Message me", chatrooms_path, class: "btn btn-box-dark" %>
           <%= link_to "Follow", user_path(@user.username), class: "btn btn-box-outline-dark" %>
+          <%= link_to "Message me", chatrooms_path, class: "btn btn-box-dark" %>
         </div>
       </div>
 
@@ -33,7 +33,12 @@
       <div class="find-me">
         <div class="find-me-section">
           <%= link_to "#" do %>
-          <i class="fab fa-linkedin"></i> LinkedIn
+          <i class="fab fa-bandcamp"></i> Bandcamp
+          <% end %>
+        </div>
+        <div class="find-me-section">
+          <%= link_to "#" do %>
+          <i class="fab fa-soundcloud"></i> SoundCloud
           <% end %>
         </div>
         <div class="find-me-section">
@@ -61,7 +66,7 @@
   <!------------------------------------------------->
   <div class="user-container-right">
       <% if @published_projects.present? %>
-        <h4>Latest project:</h4>
+        <h4 class="text-center">Latest project</h4>
       <% end %>
       <%= render 'components/user_show_card_featured' %>
 
