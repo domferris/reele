@@ -6,11 +6,11 @@
   <!------------------------------------------------->
   <div class="user-container-left">
     <div class="user-info">
-      <div class="user-header">
+      <div class="user-header mt-4">
         <%= cl_image_tag @user.photo.key, gravity: :faces, crop: :fill, class: "avatar-user-show" if @user.photo.attached? %>
-        <h1><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %></h1>
-        <h2>@<%= @user.username %></h2>
-        <h5 class="user-location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</h5>
+        <h2 class="mt-3 mb-1"><%= @user.first_name if @user.first_name %> <%= @user.last_name if @user.last_name %></h2>
+        <h4>@<%= @user.username %></h4>
+        <p class="user-location"><i class="fas fa-map-marker-alt"></i> Los Angeles, CA</p>
         <% if @user == current_user %>
           <%= link_to "Edit Profile", edit_user_registration_path(current_user), class: 'btn btn-box-dark btn-100w' %>
         <% end %>
@@ -22,14 +22,14 @@
         <% end %>
         <p class="user-bio"><%= @user.bio %></p>
 
-        <div class="user-connect-buttons">
+        <div class="user-connect-buttons mb-4 mt-4">
           <%= link_to "Follow", user_path(@user.username), class: "btn btn-box-outline-dark" %>
           <%= link_to "Message me", chatrooms_path, class: "btn btn-box-dark" %>
         </div>
       </div>
 
       <!-- <div class="user-stats"></div> -->
-      <div class="find-me">
+      <div class="find-me mt-4">
         <div class="find-me-section">
           <%= link_to "#" do %>
           <i class="fab fa-soundcloud"></i> SoundCloud
