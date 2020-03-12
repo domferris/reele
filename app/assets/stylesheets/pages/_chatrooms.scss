@@ -2,15 +2,20 @@
   display: flex;
   height: 91.55vh;
   width: 100%;
+  background-color: #f8f8f8;
 }
 
 .chatrooms-container-left {
+  color: white;
   width: 35%;
   height: 100%;
   min-width: 300px;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  margin-left: 5%;
+  margin-right: 2%;
+  background-color: $reele-primary;
 
   .searchbar {
     padding: 8px 17px;
@@ -53,8 +58,6 @@
   flex-direction: column;
   flex-grow: 0;
   height: 100%;
-  margin-top: -95px;
-  margin-botto: 95px;
 
   .no-messages {
     margin: auto;
