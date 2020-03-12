@@ -1,11 +1,11 @@
 
 <div class="banner" id="home" style="background-image: linear-gradient(115deg, rgba(13, 58, 60, 0.6),rgba(13, 58, 60, 0.8));">
   <div class="container">
-    
+
     <!-- BANNER WAVEFORM ANIMATION -->
     <div style="width: 100vw "id="siri"></div>
     <!------------------------------->
-    
+
     <a href="#test"></a>
     <h1>Discover the best talent in audio</h1>
     <p>Reele helps sound designers showcase their skills, find collaboration opportunities, and thrive in the industry.</p>
@@ -15,7 +15,6 @@
   </div>
 </div>
 <div class="filter-bar">
-    <h5>Filter by category:</h5>
     <div class="filters">
       <%= link_to root_path, class: "#{params[:query].present? ?  'filter-box' : 'filter-box active'}", data: { turbolinks: false } do %>
         <p>All</p>
@@ -43,6 +42,10 @@
 
       <%= link_to root_path(query: 'Composition'), class: "filter-box #{current_class?('Composition')}", data: { turbolinks: false } do %>
         <p>Composition</p>
+      <% end %>
+
+      <%= link_to root_path(query: 'Voice-Over'), class: "filter-box #{current_class?('Voice-Over')}", data: { turbolinks: false } do %>
+        <p>Voice-Over</p>
       <% end %>
     </div>
 </div>
