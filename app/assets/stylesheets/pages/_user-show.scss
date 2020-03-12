@@ -10,8 +10,9 @@
 
 .user-container-right {
   padding-bottom: 16px;
-  border-bottom: 1px solid $gray;
-  width: 60%;
+  width: 62%;
+  min-height: 900px;
+
 
   h4 {
     margin-left: 10%;
@@ -29,6 +30,8 @@
 }
 
 .user-info {
+  position: sticky;
+  top: 20px;
   .user-header {
     display: flex;
     flex-direction: column;
@@ -113,11 +116,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
-  max-height: 900px;
-  overflow: scroll;
+  min-height: 900px;
   margin-top: 16px;
   padding: 16px 8px 0 8px;
-  border-top: 1px solid $gray;
 
   a {
     color: black;

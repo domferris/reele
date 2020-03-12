@@ -63,14 +63,13 @@
   <!------------------ RIGHT HALF ------------------->
   <!------------------------------------------------->
   <!------------------------------------------------->
-  <div class="user-container-right">
+  <div class="user-container-right mt-4">
       <% if @published_projects.present? %>
-        <h4>Latest project:</h4>
       <% end %>
       <%= render 'components/user_show_card_featured' %>
 
       <% if @published_projects.present? %>
-        <h5>Browse all projects (<%= @published_projects.count %>)</h5>
+        <!-- <h5>Browse all projects (<%= @published_projects.count %>)</h5> -->
         <div class="user-cards">
           <%= render 'components/user_show_card' %>
         </div>
