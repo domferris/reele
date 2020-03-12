@@ -41,6 +41,9 @@
                 <div class="col ml-3">
                   <%= f.input :published, as: :radio_buttons, label: "Publish upon upload?" %>
                 </div>
+                <div class="col ml-3">
+                  <%= f.input :category, collection: Project::CATEGORY, prompt: 'Select category' %>
+                </div>
               </div>
 
             </div>
@@ -55,13 +58,13 @@
               <%= f.input :photo, label: "Add an image", placeholder: 'URL to image' %>
             </div>
           </div>
-          <%= f.label 'Embed from Bandcamp, Soundcloud, Spotify, or Apple Music', class: "mt-2" %>
-          <%= f.input :audio_url, label: false, placeholder: 'URL to project', class: "mt-2" %>
+          <%#= f.label 'Embed from Bandcamp, Soundcloud, Spotify, or Apple Music', class: "mt-2" %>
+          <%= f.input :audio_url, label: 'Embed from Bandcamp, Soundcamp, Spotify, or Apple Music', placeholder: 'URL to project', class: "mt-2" %>
           <%= f.label 'Or add a video from Vimeo' %>
           <%= f.input :video_url, label: false, placeholder: 'Vimeo URL' %>
 
           <div class="d-flex justify-content-center">
-            <%= f.button :submit, value: 'add project', class: 'btn btn btn-box-light-alt py-3 mt-2 ' %>
+            <%= f.button :submit, value: 'add project', class: 'btn btn-box-dark py-3 mt-2 ' %>
           </div>
         <% end %>
       </div>
