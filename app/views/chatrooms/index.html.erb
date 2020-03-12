@@ -1,17 +1,16 @@
 
 <div class="chatrooms-container">
   <section class="chatrooms-container-left">
-    <h1 class="mt-4 ml-3">Messages</h1>
 
-    <div class="searchbar">
-      <%= form_tag chatrooms_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control search-input",
-          placeholder: "Search messages"
-        %>
-      <% end %>
-    </div>
+<div class="searchbar mt-4">
+    <%= form_tag chatrooms_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search-input",
+        placeholder: "Search messages"
+      %>
+    <% end %>
+</div>
 
     <% if @chatrooms.present? %>
       <div class="chatrooms">

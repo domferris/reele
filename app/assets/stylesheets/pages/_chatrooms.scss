@@ -30,22 +30,22 @@
       margin: 0;
       padding: 0;
       max-height: 100%;
-      overflow-y: scroll;
+      color: white;
 
       li {
-        border-left: 5px solid transparent;
+        border-left: 10px solid transparent;
         transition: all 0.1s ease-in-out;
+        background-color: $reele-secondary;
 
         &:hover {
-          border-left: 5px solid $reele-cta;
+          border-left: 10px solid $reele-cta;
           background: $white;
         }
       }
 
       .active {
-        color: $black;
         background: $white;
-        border-left: 5px solid $reele-cta;
+        border-left: 10px solid $reele-cta;
       }
     }
   }
