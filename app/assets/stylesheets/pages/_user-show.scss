@@ -22,6 +22,10 @@
     margin-top: 32px;
     margin-bottom: 0;
   }
+
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .user-info {
@@ -87,7 +91,7 @@
         font-size: 1.3em;
 
         &:hover {
-          color: $darker-gray;
+          color: $reele-secondary;
           text-decoration: none;
         }
       }

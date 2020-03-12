@@ -53,16 +53,43 @@
 }
 
 .btn-box-dark {
-  color: $light-gray;
-  background: $darker-gray;
-  // border: 1px solid $white;
+  color: $white;
+  background: $reele-primary;
   padding: 8px 24px;
   border-radius: 2px;
-  transition: background 0.1s ease;
+  transition: background 0.22s ease;
+
+  &:hover {
+    color: $light-gray;
+    background: $reele-secondary;
+    text-decoration: none;
+  }
+}
+
+.btn-box-light {
+  color: $black;
+  background: $white;
+  padding: 8px 24px;
+  border-radius: 2px;
+  transition: background 0.22s ease;
 
   &:hover {
     color: $darker-gray;
-    background: $white;
+    background: $reele-cta;
+    text-decoration: none;
+  }
+}
+
+.btn-box-light-alt {
+  color: $white;
+  background: $reele-cta;
+  padding: 8px 24px;
+  border-radius: 2px;
+  transition: background 0.22s ease;
+
+  &:hover {
+    color: $white;
+    background: $reele-primary;
     text-decoration: none;
   }
 }
@@ -72,7 +99,7 @@
   border: 1px solid $black;
   padding: 8px 24px;
   border-radius: 2px;
-  transition: background 0.1s ease;
+  transition: background 0.18s ease;
 
   &:hover {
     color: $white;
@@ -83,14 +110,14 @@
 
 .btn-box-outline-light {
   color: $white;
-  border: 1px solid $white;
+  border: 1px solid $reele-cta;
   padding: 8px 24px;
   border-radius: 2px;
-  transition: background 0.1s ease;
+  transition: background 0.18s ease;
 
   &:hover {
     color: $black;
-    background: $white;
+    background: $reele-cta;
     text-decoration: none;
   }
 }

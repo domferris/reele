@@ -58,7 +58,7 @@
         <h4>Category: <%= @project.category %></h4>
         <p class='description'><%= @project.description %></p>
         <p><%= link_to "Share this project", edit_project_path(@project), class: 'btn btn-box-dark share' %></p>
-        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-box-dark edit' if @project.user == current_user %></p>
+        <p><%= link_to "Edit project", edit_project_path(@project), class: 'btn btn-box-light edit' if @project.user == current_user %></p>
       </div>
 <!----------------------------------------->
 <!--------------- COMMENTS ---------------->
@@ -72,7 +72,7 @@
           </div>
 
           <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
-            <%= f.input :content, as: :string, autofocus: true, label: false, placeholder: "Type your message..." %>
+            <%= f.input :content, as: :string, label: false, placeholder: "Type your message..." %>
           <% end %>
 
           <div class="feed-scroll">
@@ -121,7 +121,7 @@
               <% end %>
             <% end %>
             <%= link_to user_path(@project.user.username) do %>
-              <h6>@<%= @project.user.username %></h6>
+              <h6>@<span><%= @project.user.username %></span></h6>
             <% end %>
           </div>
 
@@ -129,10 +129,10 @@
             <%= simple_form_for Chatroom.new do |f| %>
               <%= f.hidden_field :sender_id, value: current_user.id %>
               <%= f.hidden_field :receiver_id, value: @project.user.id %>
-              <%= f.submit 'Message me', class: "btn btn-box-dark" %>
+              <%= f.submit 'Message me', class: "btn btn-box-dark btn-100w" %>
             <% end %>
           <% else %>
-            <%= link_to "Message me", new_user_session_path, class: "btn btn-dash" %>
+            <%= link_to "Message me", new_user_session_path, class: "btn btn-box-dark" %>
           <% end %>
         </div>
 
@@ -148,13 +148,28 @@
             <% end %>
           </div>
           <div class="project-data-section">
-            <i class="fas fa-heart"></i><p>0</p>
+            <i class="fas fa-heart"></i>
+            <p>
+              <% if @project.likes > 1000 %>
+                <%= @project.likes.to_s[0..1] + "K" %>
+              <% else %>
+                <%= @project.likes %>
+              <% end %>
+            </p>
           </div>
           <div class="project-data-section">
-            <i class="fas fa-eye"></i><p>0</p>
+            <i class="fas fa-eye"></i>
+              <p>
+                <% if @project.view_count > 1000 %>
+                  <%= @project.view_count.to_s[0..2] + "K" %>
+                <% else %>
+                  <%= @project.view_count %>
+                <% end %>
+              </p>
           </div>
           <div class="project-data-section">
-            <i class="fas fa-comment"></i><p><%= @project.comments.count %></p>
+            <i class="fas fa-comment"></i>
+              <p><%= @project.comments.count %></p>
           </div>
         </div>
       </div>

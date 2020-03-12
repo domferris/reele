@@ -88,11 +88,19 @@
     h6 {
       font-size: 1.4em;
       margin: 0;
-    }
-  }
+      color: $black;
 
-  .btn {
-    width: 100%;
+      span {
+      border-bottom: 2px solid transparent;
+
+        &:hover {
+        // color: $black;
+        transition: all 0.3s ease-in-out;
+        border-bottom: 2px solid $reele-cta;
+        }
+      }
+
+    }
   }
 }
 
@@ -147,12 +155,12 @@
   color: $dark-gray;
 
   a {
-    color: $darker-gray;
+    color: $reele-secondary;
   }
 
   a:hover {
     text-decoration: none;
-    color: $black;
+    color: $reele-primary;
   }
 }
 
