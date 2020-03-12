@@ -1,29 +1,38 @@
-<div class="project-media-holder">
+<!-- <div class="project-media-holder"> -->
 
-    <% if @project.media_type == 'video' %>
-      <div class="project-media">
-      </div>
-      <%#= render 'components/video_embed' %>
-      <iframe src="https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0" class="video" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<div class="project-media">
 
-    <% elsif @project.audio_url.present? %>
-      <div class="project-media-embed">
-      </div>
-        <% if @project.audio_url.include?('bandcamp')%>
-            <%= @project.bandcamp_scrape(@project).html_safe %>
-          <% elsif @project.audio_url.include?('soundcloud')%>
-            <%=  @project.soundcloud_scrape(@project).html_safe %>
-          <% elsif @project.audio_url.include?('spotify') %>
-            <%= @project.spotify_embed(@project).html_safe %>
-          <% elsif @project.audio_url.include?('apple') %>
-            <%= @project.apple_embed(@project).html_safe %>
-        <% end %>
-    <% else %>
-      <div class="project-media">
-        <%= render 'components/wavesurfer_upload' %>
-      </div>
-    <% end %>
+  <% if @project.media_type == 'video' %>
+
+    <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
+    <iframe src="https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+  <% elsif @project.audio_url.present? %>
+
+  <!-- AUDIO EMBEDS -->
+    <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
+    <div class="audio-embed">
+      <% if @project.audio_url.include?('bandcamp')%>
+        <%= @project.bandcamp_scrape(@project).html_safe %>
+      <% elsif @project.audio_url.include?('soundcloud')%>
+        <%= @project.soundcloud_scrape(@project).html_safe %>
+      <% elsif @project.audio_url.include?('spotify') %>
+        <%= @project.spotify_embed(@project).html_safe %>
+      <% elsif @project.audio_url.include?('apple') %>
+        <%= @project.apple_embed(@project).html_safe %>
+      <% end %>
+    </div>
+
+  <% else %>
+  <!-- AUDIO UPLOAD -->
+    <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
+    <div class="audio-player">
+      <%= render 'components/wavesurfer_upload' %>
+    </div>
+
+  <% end %>
 </div>
+<!-- </div> -->
 
 <!------------------------------------------------->
 <!------------------------------------------------->
