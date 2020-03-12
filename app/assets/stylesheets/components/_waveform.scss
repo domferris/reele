@@ -1,37 +1,54 @@
-.wave-banner {
-  height: 150px;
-  width: 80%;
-  margin: auto;
-  border-radius: 10px;
-  position: relative;
-  top: 50px;
-}
-
-.wave-controls {
-  font-size: 50px;
-  // margin-top: 50px;
+.wave-container {
+  // border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  position: relative;
-  top: 52px;
+  width: 80%;
+  margin: 0 auto;
 
-  border: 2px solid black;
-  border-radius: 30%;
-  height: 60px;
-  width: 120px;
-  margin: auto;
+  .wave-section {
+    width: 85%;
 
-  &:hover {
+  .wave-controls {
+    font-size: 50px;
+    display: flex;
+    border: 1px solid green;
 
+    #waveform-play {
+      padding: 0px 10px 0px 10px;
+    }
+
+    #waveform {
+      border: 1px solid purple;
+      width: 100%;
+    }
+
+    .waveform-player > canvas {
+      background: red;
+    }
   }
 
-  #waveform-play {
-
-  }
-
-  #waveform-pause {
-
+  .wave-image {
+    height: 270px;
+    border: 1px solid red;
+    padding: 0 20px 0 20px;
+    object-fit: contain;
   }
 }
+
+
+
+
+  #waveform-pause {
+    padding: 0px 10px 0px 10px;
+  }
+}
+
+
+.click {
+  transform: scale(0.7);
+  transition: 0.1s;
+}
+
+
+

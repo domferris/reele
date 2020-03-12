@@ -1,20 +1,17 @@
+<!-- <div class="project-media-holder"> -->
+
 <div class="project-media">
+
   <% if @project.media_type == 'video' %>
-<!----------------------------------------->
-<!--------------- IF VIDEO ---------------->
-<!----------------------------------------->
+
     <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
     <iframe src="https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<!-- EXTRACT 8-9 DIGIT CODE VIMEO URL TO SWAP HERE 👆 -->
-<!----------------------------------------->
-<!----------------------------------------->
-  <% elsif @project.audio_url.present? %>
-<!----------------------------------------->
-<!--------------- AUDIO EMBED ---------------->
-<!----------------------------------------->
 
-    <div class="container">
-      <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
+  <% elsif @project.audio_url.present? %>
+
+  <!-- AUDIO EMBEDS -->
+    <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
+    <div class="audio-embed">
       <% if @project.audio_url.include?('bandcamp')%>
         <%= @project.bandcamp_scrape(@project).html_safe %>
       <% elsif @project.audio_url.include?('soundcloud')%>
@@ -25,28 +22,23 @@
         <%= @project.apple_embed(@project).html_safe %>
       <% end %>
     </div>
-  <% else %>
-<!--------------- IF AUDIO ---------------->
-<!----------------------------------------->
-    <div>
-      <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
-      <div id="waveform" class="wave-banner" data-audio=<%= @project.video_url%>>
-      </div>
-      <div class="wave-controls">
-       <i id="waveform-play" class="fas fa-play-circle"></i>
-       <i id="waveform-pause"class="fas fa-pause-circle"></i>
-      </div>
-    </div>
-  <% end %>
 
+  <% else %>
+  <!-- AUDIO UPLOAD -->
+    <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
+    <div class="audio-player">
+      <%= render 'components/wavesurfer_upload' %>
+    </div>
+
+  <% end %>
 </div>
+<!-- </div> -->
 
 <!------------------------------------------------->
 <!------------------------------------------------->
 <!------------------- LEFT HALF ------------------->
 <!------------------------------------------------->
 <!------------------------------------------------->
-
 <div class="container">
   <div class="project-container">
     <div class="project-container-left">
@@ -212,6 +204,7 @@
   </div>
 </div>
 
+
 <script>
   document.addEventListener('turbolinks:load', () => {
     const commentForm = document.getElementById('new_comment');
@@ -228,5 +221,18 @@
         localStorage['scroll'] = 0;
       });
     });
+  });
+</script>
+<script>
+  clickPlay = document.querySelector('#waveform-play');
+  clickPlay.addEventListener("click", (event) => {
+    clickPlay.classList.toggle('click');
+    event.currentTarget.classList.toggle('click');
+    // setTimeout(function() {
+    //   clickPlay.classList.toggle('click');
+    // }, 50);
+    clickPlay.classList.toggle('fa-play-circle')
+    clickPlay.classList.toggle('fa-pause-circle')
+    clickPlay.classList.toggle()
   });
 </script>
