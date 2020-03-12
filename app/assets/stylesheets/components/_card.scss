@@ -435,10 +435,14 @@
 
 .chatroom-card {
   display: flex;
-  background: $light-gray;
   padding: 10px 12px;
-  width: 100%;
   cursor: pointer;
+  background-color: rgba(13, 58, 60, 0) !important;
+  margin-top: 5px;
+
+  .username {
+    color: white !important;
+  }
 
   img {
     height: 60px;
@@ -448,6 +452,7 @@
     margin-right: 16px;
   }
 
+
   a:hover {
     text-decoration: none;
   }
@@ -455,10 +460,16 @@
   p {
     margin: 0;
     padding: 0;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 75%;
+    white-space: nowrap;
   }
 
+
   .chatroom-content {
-    width: 100%;
+    width: 82%;
     flex-grow: 1;
 
     .chatroom-data {
@@ -488,9 +499,10 @@
 .message-card {
   display: flex;
   background: $white;
+  margin-left: 16px;
   margin-bottom: 10px;
   padding: 10px 12px;
-  width: 100%;
+  width: 96%;
 
   a:hover {
     text-decoration: none;

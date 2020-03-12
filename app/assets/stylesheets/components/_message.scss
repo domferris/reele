@@ -7,15 +7,17 @@
 
 .messages-scroll {
   max-height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   flex-grow: 1;
   border-bottom: 1px solid $gray;
 
   .message-header {
+    display: flex;
     border-bottom: 1px solid $gray;
     padding: 16px 12px;
     background: $white;
     margin-bottom: 10px;
+    margin-top: 16px;
 
     a {
       color: $black;

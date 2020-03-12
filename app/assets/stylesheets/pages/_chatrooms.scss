@@ -2,16 +2,18 @@
   display: flex;
   height: 91.55vh;
   width: 100%;
+  background-color: #f8f8f8;
 }
 
 .chatrooms-container-left {
+  color: white;
   width: 35%;
   height: 100%;
   min-width: 300px;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  border-right: 1px solid $gray;
+  background-color: rgba(13, 58, 60, 0.9);
 
   .searchbar {
     padding: 8px 17px;
@@ -25,22 +27,24 @@
       margin: 0;
       padding: 0;
       max-height: 100%;
-      overflow: scroll;
+      color: white;
 
       li {
-        border-left: 5px solid transparent;
+        border-left: 10px solid transparent;
         transition: all 0.1s ease-in-out;
+        background-color: $reele-secondary;
 
         &:hover {
-          border-left: 5px solid $reele-cta;
+          border-left: 10px solid $reele-cta;
           background: $white;
+          background-color: rgba(13, 58, 60, 0.9) !important;
         }
       }
 
       .active {
-        color: $black;
         background: $white;
-        border-left: 5px solid $reele-cta;
+        border-left: 10px solid $reele-cta;
+        background-color: rgba(13, 58, 60, 0.9) !important;
       }
     }
   }
