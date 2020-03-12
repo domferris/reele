@@ -45,30 +45,33 @@
           <div class="dash-projects" id="dashboard-cards">
             <% if @user.projects.present? %>
               <div class="dash-card-headers">
-                <div class="dash-card-section">
+                <div class="dash-card-section-title">
                   <h6>Title</h6>
                 </div>
-                <div class="dash-card-section">
-                  <h6>Description</h6>
+                <div class="dash-card-section-sm">
+                  <h6>Views</h6>
                 </div>
-                <div class="dash-card-section">
+                <div class="dash-card-section-sm">
+                  <h6>Likes</h6>
+                </div>
+                <div class="dash-card-section-sm">
                   <h6>Media type</h6>
                 </div>
                 <div class="dash-card-section">
                   <h6>Uploaded on</h6>
                 </div>
-                <div class="dash-card-section">
-                  <h6>Controls</h6>
+                <div class="dash-card-section-controls">
+
                 </div>
               </div>
               <% @published_projects.reverse.each do |project| %>
                 <div class="dash-card">
-                  <div class="dash-card-section">
+                  <div class="dash-card-section-title">
                     <strong>
-                      <%= link_to project_path(project) do  %>
+                      <%= link_to project_path(project) do %>
                         <p>
-                          <% if project.title.length > 18 %>
-                            <%= project.title[0..17] + "..." %>
+                          <% if project.title.length > 24 %>
+                            <%= project.title[0..23] + "..." %>
                           <% else %>
                             <%= project.title %>
                           <% end %>
@@ -76,25 +79,36 @@
                       <% end %>
                     </strong>
                   </div>
-                  <div class="dash-card-section">
-                      <p>
-                        <% if project.description %>
-                          <% if project.description.length > 18 %>
-                            <%= project.description[0..17] + "..." %>
-                          <% else %>
-                            <%= project.description %>
-                        <% end %>
+
+                  <div class="dash-card-section-sm">
+                    <p>
+                      <% if project.view_count > 1000 %>
+                        <%= project.view_count.to_s[0..2] + "K" %>
+                      <% else %>
+                        <%= project.view_count %>
                       <% end %>
                     </p>
                   </div>
-                  <div class="dash-card-section">
+
+                  <div class="dash-card-section-sm">
+                    <p>
+                      <% if project.likes > 1000 %>
+                        <%= project.likes.to_s[0..1] + "K" %>
+                      <% else %>
+                        <%= project.likes %>
+                      <% end %>
+                    </p>
+                  </div>
+
+                  <div class="dash-card-section-sm">
                     <p><%= project.media_type %></p>
                   </div>
+
                   <div class="dash-card-section">
                     <p><%= project.created_at.strftime("%d/%m/%Y at %I:%M %p") %></p>
                   </div>
 
-                  <div class="dash-card-section">
+                  <div class="dash-card-section-controls">
                       <%= link_to edit_project_path(project), class: "button postfix" do %>
                           <i class="fas fa-share btn-dash-sm share"></i>
                       <% end %>
@@ -115,32 +129,35 @@
             <div class="dash-projects" id="dashboard-cards">
               <% if @user.projects.present? %>
                 <div class="dash-card-headers">
-                  <div class="dash-card-section no-bg">
+                  <div class="dash-card-section-title no-bg">
                     <h6>Title</h6>
                   </div>
-                  <div class="dash-card-section">
-                    <h6>Description</h6>
+                  <div class="dash-card-section-sm">
+                    <h6>Views</h6>
                   </div>
-                  <div class="dash-card-section">
+                  <div class="dash-card-section-sm">
+                    <h6>Likes</h6>
+                  </div>
+                  <div class="dash-card-section-sm">
                     <h6>Media type</h6>
                   </div>
                   <div class="dash-card-section">
                     <h6>Uploaded on</h6>
                   </div>
-                  <div class="dash-card-section">
-                    <h6>Controls</h6>
+                  <div class="dash-card-section-controls">
+
                   </div>
                 </div>
 
                 <% @private_projects.reverse.each do |project| %>
                   <div class="dash-projects" id="dashboard-cards">
                     <div class="dash-card">
-                      <div class="dash-card-section">
+                      <div class="dash-card-section-title">
                         <strong>
                           <%= link_to project_path(project) do  %>
                             <p>
-                              <% if project.title.length > 18 %>
-                                <%= project.title[0..17] + "..." %>
+                              <% if project.title.length > 24 %>
+                                <%= project.title[0..23] + "..." %>
                               <% else %>
                                 <%= project.title %>
                               <% end %>
@@ -149,17 +166,27 @@
                         </strong>
                       </div>
 
-                      <div class="dash-card-section">
+                      <div class="dash-card-section-sm">
                         <p>
-                          <% if project.description.length > 18 %>
-                            <%= project.description[0..17] + "..." %>
+                          <% if project.view_count > 1000 %>
+                            <%= project.view_count.to_s[0..2] + "K" %>
                           <% else %>
-                            <%= project.description %>
+                            <%= project.view_count %>
                           <% end %>
                         </p>
                       </div>
 
-                      <div class="dash-card-section">
+                      <div class="dash-card-section-sm">
+                        <p>
+                          <% if project.likes > 1000 %>
+                            <%= project.likes.to_s[0..1] + "K" %>
+                          <% else %>
+                            <%= project.likes %>
+                          <% end %>
+                        </p>
+                      </div>
+
+                      <div class="dash-card-section-sm">
                         <p><%= project.media_type %></p>
                       </div>
 
@@ -167,7 +194,7 @@
                         <p><%= project.created_at.strftime("%d/%m/%Y at %I:%M %p") %></p>
                       </div>
 
-                      <div class="dash-card-section">
+                      <div class="dash-card-section-controls">
                         <%= link_to edit_project_path(project), class: "button postfix" do %>
                           <i class="fas fa-share btn-dash-sm share"></i>
                         <% end %>
