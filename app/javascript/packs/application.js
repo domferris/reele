@@ -42,14 +42,14 @@ document.addEventListener('turbolinks:load', () => {
     const waveform = WaveSurfer.create({
       container: audioDiv,
       mediaControls: true,
-      waveColor: '#BBE1FA',
+      waveColor: 'rgb(20, 20, 20)',
       // backgroundColor: "rgba(15, 76, 117, 0.7)",
-      progressColor: '#3282B8',
-      cursorColor: '#3282B8',
+      progressColor: 'rgb(12, 176, 166)',
+      cursorColor: 'rgba(170, 170, 170, 0)',
       hideScrollbar: true,
       barWidth: 7,
       barRadius: 2,
-      cursorWidth: 1,
+      cursorWidth: 2,
       height: 150,
       barGap: 2
     })

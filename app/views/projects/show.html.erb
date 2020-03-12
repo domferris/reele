@@ -5,6 +5,8 @@
   <% if @project.media_type == 'video' %>
 
     <img src="https://cdn.wallpaper.com/main/2016/10/00-hiroshi-sugimoto-theatres-p.jpg" alt="", style="object-position: bottom;">
+
+    <!-- VIMEO EMBED -->
     <iframe src="https://player.vimeo.com/video/304107088?color=ffffff&title=0&byline=0&portrait=0" width="1000" height="562.5" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
   <% elsif @project.audio_url.present? %>
@@ -26,7 +28,7 @@
   <% else %>
   <!-- AUDIO UPLOAD -->
     <img src="https://wallpaperplay.com/walls/full/d/b/c/129047.jpg" alt="", style="object-position: center;">
-    <div class="audio-player">
+    <div class="audio-upload">
       <%= render 'components/wavesurfer_upload' %>
     </div>
 
