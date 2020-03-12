@@ -436,11 +436,9 @@
 .chatroom-card {
   display: flex;
   padding: 10px 12px;
-  margin-left: 14px;
-  width: 97%;
   cursor: pointer;
-  background-color: $reele-primary !important;
-  margin-top: 10px;
+  background-color: rgba(13, 58, 60, 0) !important;
+  margin-top: 5px;
 
   .username {
     color: white !important;
@@ -453,6 +451,7 @@
     border-radius: 4px;
     margin-right: 16px;
   }
+
 
   a:hover {
     text-decoration: none;
@@ -470,13 +469,12 @@
 
 
   .chatroom-content {
-    width: 100%;
+    width: 82%;
     flex-grow: 1;
 
     .chatroom-data {
       display: flex;
       justify-content: space-between;
-      width: 75%;
 
       .username  {
         padding-bottom: 5px;

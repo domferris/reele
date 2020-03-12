@@ -2,12 +2,12 @@
 <div class="chatrooms-container">
   <section class="chatrooms-container-left">
 
-<div class="searchbar mt-4">
+<div class="searchbar mt-4 mb-2">
     <%= form_tag chatrooms_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control search-input",
-        placeholder: "Search messages"
+        placeholder: "Search messages..."
       %>
     <% end %>
 </div>
