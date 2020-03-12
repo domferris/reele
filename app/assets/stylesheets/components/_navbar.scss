@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $black;
+  z-index: 2;
 
   .navbar-brand {
     display: flex;
@@ -14,12 +15,21 @@
     i {
       font-size: 1.4em;
       margin-right: 10px;
+      color: $reele-secondary;
+
+      &:hover {
+        color: $reele-primary;
+      }
     }
 
     h2 {
       margin-bottom: 0;
       font-size: 1.7em;
       letter-spacing: 0.7px;
+
+      &:hover {
+        color: $light-gray;
+      }
     }
   }
 

@@ -16,10 +16,11 @@
                   placeholder: 'Tell us about your project...'  %>
               <%= f.label 'Add or update tags (separated by commas)' %>
               <%= f.input :tag_list,label: false, placeholder: 'music, video, beats, artist...' %>
+              <%= f.input :photo, label: "Add or update an image", placeholder: 'URL to image' %>
               <%= f.input :published, label: "Mark as published?", as: :radio_buttons %>
             </div>
             <div class="form-actions d-flex justify-content-center">
-              <%= f.button :submit, value: 'edit', class: "btn btn-dark py-3 mt-2" %>
+              <%= f.button :submit, value: 'update', class: "btn btn-box-light-alt py-3 mt-2" %>
             </div>
         <% end %>
       </div>

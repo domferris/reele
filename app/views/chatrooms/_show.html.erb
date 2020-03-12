@@ -5,18 +5,22 @@
         <%= link_to user_path(@chatroom.receiver.username) do %>
           <%= cl_image_tag @chatroom.receiver.photo.key if @chatroom.receiver.photo.attached? %>
         <% end %>
-        <h4><%= @chatroom.receiver.first_name if @chatroom.receiver.first_name %> <%= @chatroom.receiver.last_name %></h4>
         <%= link_to user_path(@chatroom.receiver.username) do %>
-          <h5>@<%= @chatroom.receiver.username %></h5>
+          <h4><%= @chatroom.receiver.first_name if @chatroom.receiver.first_name %> <%= @chatroom.receiver.last_name %></h4>
+        <% end %>
+        <%= link_to user_path(@chatroom.receiver.username) do %>
+          <h5>@<span><%= @chatroom.receiver.username %></span></h5>
         <% end %>
         <h6>Specialty: <%= @chatroom.receiver.specialty %></h6>
       <% else %>
         <%= link_to user_path(@chatroom.sender.username) do %>
           <%= cl_image_tag @chatroom.sender.photo.key if @chatroom.sender.photo.attached? %>
         <% end %>
-        <h4><%= @chatroom.sender.first_name if @chatroom.sender.first_name %> <%= @chatroom.sender.last_name if @chatroom.sender.last_name %></h4>
         <%= link_to user_path(@chatroom.sender.username) do %>
-          <h5>@<%= @chatroom.sender.username %></h5>
+          <h4><%= @chatroom.sender.first_name if @chatroom.sender.first_name %> <%= @chatroom.sender.last_name if @chatroom.sender.last_name %></h4>
+        <% end %>
+        <%= link_to user_path(@chatroom.sender.username) do %>
+          <h5>@<span><%= @chatroom.sender.username %></span></h5>
         <% end %>
         <h6>Specialty: <%= @chatroom.sender.specialty %></h6>
       <% end %>

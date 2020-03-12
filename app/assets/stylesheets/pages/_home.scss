@@ -3,6 +3,13 @@ body {
   color: $black;
 }
 
+#siri {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: initial;
+}
+
 .filter-bar {
   display: flex;
   align-items: center;
@@ -10,6 +17,8 @@ body {
   background: $black;
   width: 100%;
   padding: 0 50px;
+  position: relative;
+  z-index: 2;
 
   h5 {
     color: $light-gray;
@@ -38,14 +47,18 @@ body {
       }
 
       &.active {
-        border-top: 5px solid $white;
-        border-bottom: 5px solid $white;
+        border-top: 5px solid $black;
+        border-bottom: 5px solid $reele-cta;
+
+        &:hover {
+          border-top: 5px solid $darker-gray;
+        }
       }
     }
 
     a {
       color: $white;
-      font-size: 1.1em;
+      font-size: 1em;
 
       &:hover {
         background: $darker-gray;
