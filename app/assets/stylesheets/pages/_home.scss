@@ -3,6 +3,13 @@ body {
   color: $black;
 }
 
+#siri {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: initial;
+}
+
 .filter-bar {
   display: flex;
   align-items: center;
@@ -10,6 +17,8 @@ body {
   background: $black;
   width: 100%;
   padding: 0 50px;
+  position: relative;
+  z-index: 2;
 
   h5 {
     color: $light-gray;

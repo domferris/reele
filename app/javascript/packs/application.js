@@ -21,6 +21,7 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+
 import "bootstrap";
 
 import WaveSurfer from "wavesurfer.js";
@@ -28,6 +29,8 @@ import WaveSurfer from "wavesurfer.js";
 // IMPORT SORTABLE FUNCTION
 import { initSortable } from '../components/sortable';
 import { scrollHome } from '../components/init_scroll_home';
+
+import { initSiri } from "../components/canvas";
 
 // CALL SORTABLE FUNCTION
 
@@ -66,5 +69,7 @@ document.addEventListener('turbolinks:load', () => {
   initSortable();
 
   scrollHome();
+  initSiri()
+  //console.log('fired')
 });
 

@@ -3,9 +3,16 @@
   background-position: center;
   padding: 135px 0;
   background: $white;
+  z-index: 2;
+
+  .btn-box-dark {
+    z-index: 10;
+    position: relative;
+  }
 }
 
 .banner h1 {
+  position: relative;
   margin-bottom: 12px;
   color: $black;
   font-size: 60px;
@@ -13,6 +20,7 @@
   font-family: $banner-font;
   max-width: 580px;
   letter-spacing: 3px;
+   z-index: 2;
 }
 
 .banner p {
@@ -20,4 +28,6 @@
   color: $black;
   opacity: .7;
   max-width: 580px;
+   z-index: 2;
 }
+
