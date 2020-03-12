@@ -15,7 +15,6 @@
   </div>
 </div>
 <div class="filter-bar">
-    <h5>Filter by category:</h5>
     <div class="filters">
       <%= link_to root_path, class: "#{params[:query].present? ?  'filter-box' : 'filter-box active'}", data: { turbolinks: false } do %>
         <p>All</p>
@@ -43,6 +42,10 @@
 
       <%= link_to root_path(query: 'Composition'), class: "filter-box #{current_class?('Composition')}", data: { turbolinks: false } do %>
         <p>Composition</p>
+      <% end %>
+
+      <%= link_to root_path(query: 'Voice-Over'), class: "filter-box #{current_class?('Voice-Over')}", data: { turbolinks: false } do %>
+        <p>Voice-Over</p>
       <% end %>
     </div>
 </div>
