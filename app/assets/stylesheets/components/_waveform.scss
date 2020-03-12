@@ -1,43 +1,46 @@
 .wave-container {
-  // border: 1px solid black;
+  border-left: 8px solid $reele-cta;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  padding: 0 0 0 120px;
+  width: 75%;
   margin: 0 auto;
+  position: relative;
+  background: $white;
 
   .wave-section {
-    width: 85%;
+    width: 100%;
 
-  .wave-controls {
-    font-size: 50px;
-    display: flex;
-    border: 1px solid green;
+    .wave-controls {
+      font-size: 100px;
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 23px;
 
-    #waveform-play {
-      padding: 0px 10px 0px 10px;
+      #waveform-play {
+        padding: 0px 10px;
+        color: $black;
+      }
+
+      #waveform {
+        border: 1px solid purple;
+        width: 100%;
+      }
+
+      .waveform-player {
+        color: red;
+      }
     }
 
-    #waveform {
-      border: 1px solid purple;
-      width: 100%;
-    }
-
-    .waveform-player > canvas {
-      background: red;
+    .wave-image {
+      height: 270px;
+      border: 1px solid red;
+      padding: 0 20px 0 20px;
+      object-fit: contain;
     }
   }
-
-  .wave-image {
-    height: 270px;
-    border: 1px solid red;
-    padding: 0 20px 0 20px;
-    object-fit: contain;
-  }
-}
-
-
-
 
   #waveform-pause {
     padding: 0px 10px 0px 10px;
