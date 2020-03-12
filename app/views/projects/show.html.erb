@@ -72,7 +72,7 @@
           </div>
 
           <%= simple_form_for [@project, @comment], remote: true, html: { class: 'p-2 bg-lightgrey'} do |f|  %>
-            <%= f.input :content, as: :string, autofocus: true, label: false, placeholder: "Type your message..." %>
+            <%= f.input :content, as: :string, label: false, placeholder: "Type your message..." %>
           <% end %>
 
           <div class="feed-scroll">
