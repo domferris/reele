@@ -18,11 +18,15 @@
           <li class="chatroom-card active">
             <% if @chatrooms.first.sender == current_user %>
               <%= link_to user_path(@chatrooms.first.receiver.username) do %>
-                <%= cl_image_tag @chatrooms.first.receiver.photo.key if @chatrooms.first.receiver.photo.attached? %>
+                <% if @chatrooms.first.receiver.photo.attached? %>
+                  <%= cl_image_tag @chatrooms.first.receiver.photo.key %>
+                <% end %>
               <% end %>
             <% else %>
               <%= link_to user_path(@chatrooms.first.sender.username) do %>
-                <%= cl_image_tag @chatrooms.first.sender.photo.key if @chatrooms.first.sender.photo.attached? %>
+                <% if @chatrooms.first.sender.photo.attached? %>
+                  <%= cl_image_tag @chatrooms.first.sender.photo.key %>
+                <% end %>
               <% end %>
             <% end %>
             <div class="chatroom-content">
@@ -55,11 +59,15 @@
               <li class="chatroom-card">
                 <% if chatroom.sender == current_user %>
                   <%= link_to user_path(chatroom.receiver.username) do %>
-                    <%= cl_image_tag chatroom.receiver.photo.key if chatroom.sender.photo.attached? %>
+                    <% if chatroom.sender.photo.attached? %>
+                      <%= cl_image_tag chatroom.receiver.photo.key %>
+                    <% end %>
                   <% end %>
                 <% else %>
                   <%= link_to user_path(chatroom.sender.username) do %>
-                    <%= cl_image_tag chatroom.sender.photo.key if chatroom.receiver.photo.attached? %>
+                    <% if chatroom.receiver.photo.attached? %>
+                      <%= cl_image_tag chatroom.sender.photo.key %>
+                    <% end %>
                   <% end %>
                 <% end %>
                 <div class="chatroom-content">
