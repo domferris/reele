@@ -59,14 +59,14 @@
               <li class="chatroom-card">
                 <% if chatroom.sender == current_user %>
                   <%= link_to user_path(chatroom.receiver.username) do %>
-                    <% if chatroom.sender.photo.attached? %>
+                    <% if chatroom.receiver.photo.attached? %>
                       <%= image_tag chatroom.receiver.photo.service_url %>
                     <% end %>
                   <% end %>
                 <% else %>
                   <%= link_to user_path(chatroom.sender.username) do %>
                     <% if chatroom.receiver.photo.attached? %>
-                      <%= image_tag chatroom.sender.photo.service_url %>
+                      <%= image_tag chatroom.receiver.photo.service_url %>
                     <% end %>
                   <% end %>
                 <% end %>
