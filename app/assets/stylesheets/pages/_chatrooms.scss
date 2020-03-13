@@ -21,6 +21,7 @@
 
   .chatrooms {
     height: calc(100% - 54px);
+    overflow-y: scroll;
 
     ul {
       list-style: none;
