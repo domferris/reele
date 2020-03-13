@@ -55,7 +55,8 @@ class ProjectsController < ApplicationController
                                     :tag_list, :video_id,
                                     :file,
                                     :view_count,
-                                    :likes)
+                                    :likes,
+                                    :photo)
   end
 
   def find_project
