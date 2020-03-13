@@ -19,13 +19,13 @@
             <% if @chatrooms.first.sender == current_user %>
               <%= link_to user_path(@chatrooms.first.receiver.username) do %>
                 <% if @chatrooms.first.receiver.photo.attached? %>
-                  <%= cl_image_tag @chatrooms.first.receiver.photo.key %>
+                  <%= image_tag @chatrooms.first.receiver.photo.service_url %>
                 <% end %>
               <% end %>
             <% else %>
               <%= link_to user_path(@chatrooms.first.sender.username) do %>
                 <% if @chatrooms.first.sender.photo.attached? %>
-                  <%= cl_image_tag @chatrooms.first.sender.photo.key %>
+                  <%= image_tag @chatrooms.first.sender.photo.service_url %>
                 <% end %>
               <% end %>
             <% end %>
@@ -60,13 +60,13 @@
                 <% if chatroom.sender == current_user %>
                   <%= link_to user_path(chatroom.receiver.username) do %>
                     <% if chatroom.sender.photo.attached? %>
-                      <%= cl_image_tag chatroom.receiver.photo.key %>
+                      <%= image_tag chatroom.receiver.photo.service_url %>
                     <% end %>
                   <% end %>
                 <% else %>
                   <%= link_to user_path(chatroom.sender.username) do %>
                     <% if chatroom.receiver.photo.attached? %>
-                      <%= cl_image_tag chatroom.sender.photo.key %>
+                      <%= image_tag chatroom.sender.photo.service_url %>
                     <% end %>
                   <% end %>
                 <% end %>
